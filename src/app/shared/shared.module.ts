@@ -21,9 +21,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NavbarComponent } from './components/footer/navbar/navbar.component';
+import { ToolbarComponent } from './components/footer/toolbar/toolbar.component';
 
 
 @NgModule({
