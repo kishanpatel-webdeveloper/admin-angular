@@ -6,30 +6,23 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { RegistrationComponent } from './authentication/registration/registration.component';
-import { ForgotPasswordComponent } from './authentication/forgot-password/forgot-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      ToolbarComponent,
-      NavbarComponent,
-      FooterComponent,
-      AuthenticationComponent,
-      LoginComponent,
-      RegistrationComponent,
-      ForgotPasswordComponent,
-   ],
-   imports: [
-      BrowserModule,
-      AppRoutingModule
-   ],
-   providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
