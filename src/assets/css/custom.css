@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900&display=swap');
+body{ font-family: 'Nunito', sans-serif; }
+
+/* Header CSS */
+.noti-icon .badge{ right: 6px; }
+.dropdown-profile .dropdown-menu{ min-width: 230px; 
+    /* transform: translate3d(0px, 0px, 0px) !important;  */
+}
+.dropdown-profile .dropdown-header{ padding: 15px; border-bottom: 1px solid #f2f4f9; }
+.dropdown-profile .dropdown-header .figure  img{ width: 80px; height: 80px; border-radius: 50%; }
+.dropdown-profile .dropdown-header .info{ color: #212529; font-size: 15px; }
+
+/* Table CSS */
+.table thead { background-color: #f1f3fa; }
+.table .srno{ width: 60px; }
+.table .table-action{ width: 130px; }
+.table .table-action .btn-action { padding: 0 6px; }
+
+/* Card CSS */
+.card .card-search { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.card .card-header{ background-color: #fff; border-bottom: 1px solid #f2f4f9; }
+.card .card-footer{ background-color: #fff; border-top: 1px solid #f2f4f9; }
