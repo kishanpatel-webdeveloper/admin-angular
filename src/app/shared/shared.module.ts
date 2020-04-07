@@ -24,7 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './components/footer/navbar/navbar.component';
 import { ToolbarComponent } from './components/footer/toolbar/toolbar.component';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   imports: [
@@ -36,6 +36,7 @@ import { ToolbarComponent } from './components/footer/toolbar/toolbar.component'
     MatButtonToggleModule, MatChipsModule,
     MatFormFieldModule, MatIconModule,
     MatInputModule, MatDatepickerModule,
+    DragDropModule,
     MatSelectModule,
     MatStepperModule,
     MatSlideToggleModule,
@@ -61,6 +62,7 @@ import { ToolbarComponent } from './components/footer/toolbar/toolbar.component'
     MatDatepickerModule,
     FormsModule,
     FlexLayoutModule,
+    DragDropModule,
     FooterComponent, NavbarComponent, ToolbarComponent,
     RouterModule],
   declarations: [FooterComponent, NavbarComponent, ToolbarComponent],
