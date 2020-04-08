@@ -1,33 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { moveItemInArray, CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Board } from '../../models/board.model';
 import { Column } from 'src/app/models/column.model';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'app-scrumboard',
-  templateUrl: './scrumboard.component.html',
-  styleUrls: ['./scrumboard.component.css']
+  selector: 'app-demo-drag-drop',
+  templateUrl: './demo-drag-drop.component.html',
+  styleUrls: ['./demo-drag-drop.component.css']
 })
-export class ScrumboardComponent implements OnInit {
+export class DemoDragDropComponent implements OnInit {
+
+  constructor() { }
 
   board: Board = new Board('Test Board', [
-    new Column('Backlog', [
+    new Column('Ideas', [
       "Some random idea",
       "This is another random idea",
       "build an awesome application"
     ]),
-    new Column('Hot Backlog', [
+    new Column('Research', [
       "Lorem ipsum",
       "foo",
       "This was in the 'Research' column"
     ]),
-    new Column('Inprogress', [
+    new Column('Todo', [
       'Get to work',
       'Pick up groceries',
       'Go home',
       'Fall asleep'
     ]),
-    new Column('Ready to Diploy', [
+    new Column('Done', [
       'Get up',
       'Brush teeth',
       'Take a shower',
@@ -50,6 +52,5 @@ export class ScrumboardComponent implements OnInit {
         event.currentIndex);
     }
   }
-
 
 }

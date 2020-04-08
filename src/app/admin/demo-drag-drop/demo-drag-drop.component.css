@@ -1,8 +1,4 @@
-.scrumboard{ flex-wrap: nowrap; overflow-x: auto; }
-.status-card{ background-color: #EBEBEE; }
-.status-card > .card-body{ padding: 15px; }
-
-/* .root {
+.root {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -89,4 +85,4 @@
 }
 .tasks-container.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-} */
+}
