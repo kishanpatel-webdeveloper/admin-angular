@@ -23,14 +23,21 @@
     </div>
   </div>
   <!-- end page title -->
-  <div class="row scrumboard" cdkDropListGroup>
-    <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let column of board.columns">
-      <div class="card status-card">
+  <div class="row scrumboard"  cdkDropList
+  [cdkDropListData]="board.columns"
+  (cdkDropListDropped)="dropGroup($event)">
+
+    <div class="col-lg-4 col-md-4 col-sm-12" cdkDropListGroup *ngFor="let column of board.columns" cdkDrag [cdkDragData]="column">
+      <div class="card status-card" >
         <div class="card-body">
           <h4 class="card-title mb-4">{{ column.name }}</h4>
 
-          <div class="pb-1 task-list" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)">
-              <div class="card task-box" *ngFor="let item of column.tasks" cdkDrag>
+          <div class="pb-1 task-list" cdkDropList
+          id={{column.id}}
+          [cdkDropListData]="column.tasks"
+          (cdkDropListDropped)="dropItem($event)"
+          [cdkDropListConnectedTo]="getConnectedList()">
+              <div class="card task-box" *ngFor="let item of column.tasks" cdkDrag [cdkDragData]="item">
                   <div class="card-body">
                     {{ item }}
                   </div>

@@ -13,23 +13,23 @@ export class DemoDragDropComponent implements OnInit {
   constructor() { }
 
   board: Board = new Board('Test Board', [
-    new Column('Ideas', [
+    new Column(1,'Ideas', [
       "Some random idea",
       "This is another random idea",
       "build an awesome application"
     ]),
-    new Column('Research', [
+    new Column(2,'Research', [
       "Lorem ipsum",
       "foo",
       "This was in the 'Research' column"
     ]),
-    new Column('Todo', [
+    new Column(3,'Todo', [
       'Get to work',
       'Pick up groceries',
       'Go home',
       'Fall asleep'
     ]),
-    new Column('Done', [
+    new Column(4,'Done', [
       'Get up',
       'Brush teeth',
       'Take a shower',
