@@ -100,11 +100,12 @@
     </div>
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card status-card">
-          <div class="card-body">
-            <button mat-raised-button color="light" class="btn-block">
-              <mat-icon>add</mat-icon>Add List
-            </button>
-          </div>
+        <div class="card-body">
+          <h4 class="card-title mb-4" *ngIf="temp">Tiitle Here Print after enter the title name</h4>
+          <button mat-raised-button color="light" class="btn-block" data-toggle="modal" data-target="#createListModal">
+            <mat-icon>add</mat-icon>Add List
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -143,3 +144,25 @@
   </div> -->
 
 </div>
+
+
+<div class="modal fade" id="createListModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mt-0">Create List Modal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            add material textbox here
+          </div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
