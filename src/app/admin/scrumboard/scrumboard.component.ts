@@ -35,10 +35,22 @@ export class ScrumboardComponent implements OnInit {
       'Walk dog'
     ])
   ]);
+  listNgModel: string;
+  flagForHideShowAddListButton: boolean;
 
   ngOnInit() {
   }
-
+  addList() {
+    if (this.listNgModel) {
+      const id = this.board.columns.length + 1;
+      this.board.columns.push(new Column(id, this.listNgModel, []));
+      this.flagForHideShowAddListButton = false;
+    }
+  }
+  cancelAddList() {
+    this.flagForHideShowAddListButton = false;
+    this.listNgModel = undefined;
+  }
 
   // drop(event: CdkDragDrop<string[]>) {
   //   if (event.previousContainer === event.container) {

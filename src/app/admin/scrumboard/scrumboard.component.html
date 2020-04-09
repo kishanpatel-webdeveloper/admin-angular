@@ -143,7 +143,17 @@
       <div class="card status-card">
         <div class="card-body">
           <h4 class="card-title mb-4" *ngIf="temp">Tiitle Here Print after enter the title name</h4>
-          <button mat-raised-button color="light" class="btn-block" data-toggle="modal" data-target="#createListModal">
+          <div *ngIf="flagForHideShowAddListButton">
+            <mat-form-field >
+              <input matInput placeholder="Enter List Title" [(ngModel)]="listNgModel">
+            </mat-form-field>
+            <button mat-raised-button color="primary"  (click)="addList()">
+              Add List
+            </button>
+            <button mat-raised-button (click)="cancelAddList()">Cancel</button>
+          </div>
+          <button mat-raised-button color="light" class="btn-block" *ngIf="!flagForHideShowAddListButton"
+            (click)="flagForHideShowAddListButton = !flagForHideShowAddListButton">
             <mat-icon>add</mat-icon>Add List
           </button>
         </div>
