@@ -19,6 +19,11 @@
 .status-label-list .sl-ready{ background-color: #55BAD1; }
 .status-label-list .sl-deployed{ background-color: #9035AA; }
 
+.task-list .task-box{ border: 0px; overflow: hidden; }
+.task-box .card-img{     height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; }
 .task-box .task-title{
   font-weight: 700;
   font-size: 16px;
