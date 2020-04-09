@@ -29,7 +29,8 @@ body .mat-raised-button{
 body .mat-button, body .mat-raised-button{ font-size: 16px;  }
 
 /* Button CSS */
-.mat-raised-button.mat-primary{ background-color: #556ee6; }
+.mat-raised-button.mat-primary{ background-color: #556ee6; color: #fff; }
+.mat-raised-button.mat-light{ color: #212529; background-color: #eff2f7; }
 .btn-primary {
     color: #fff;
     background-color: #556ee6;
