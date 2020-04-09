@@ -20,3 +20,18 @@ body{ font-family: 'Nunito', sans-serif; }
 .card .card-search { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
 .card .card-header{ background-color: #fff; border-bottom: 1px solid #f2f4f9; }
 .card .card-footer{ background-color: #fff; border-top: 1px solid #f2f4f9; }
+
+/* Material Control CSS */
+body .mat-button, 
+body .mat-raised-button{
+    font-family: 'Nunito', sans-serif;
+}
+body .mat-button, body .mat-raised-button{ font-size: 16px;  }
+
+/* Button CSS */
+.mat-raised-button.mat-primary{ background-color: #556ee6; }
+.btn-primary {
+    color: #fff;
+    background-color: #556ee6;
+    border-color: #556ee6;
+}

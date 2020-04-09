@@ -2,6 +2,48 @@
 .status-card{ background-color: #EBEBEE; }
 .status-card > .card-body{ padding: 15px; }
 
+.status-label-list{     display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px; }
+.status-label-list .status-label{ flex: 0 0 30px;
+  max-width: 29px;
+  height: 8px;
+  border-radius: 5px;
+  margin-right: 5px; }
+.status-label-list .status-label:nth-last-child(1){ margin-right: 0px; }
+.status-label-list .sl-high-priority{ background-color: #F6C344; }
+.status-label-list .sl-blocked{ background-color: #E15241; }
+.status-label-list .sl-approved{ background-color: #67AC5C; }
+.status-label-list .sl-ready{ background-color: #55BAD1; }
+.status-label-list .sl-deployed{ background-color: #9035AA; }
+
+.task-box .task-title{
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.task-box .card-body{ padding: 10px; }
+.task-box .card-footer{ padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; }
+.task-box .card-footer .task-team .team-list {     list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; }
+
+.task-box .card-footer .task-team .team-list li img{     height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: -10px;
+  border: 2px solid #fff; }
+  .task-box .card-footer .task-team .team-list li:nth-child(1) img{ margin-left: 0px; }
 /* .root {
   display: flex;
   flex-direction: column;
