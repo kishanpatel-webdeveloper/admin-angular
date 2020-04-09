@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { Column } from 'src/app/models/column.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-scrumboard',
@@ -36,8 +37,12 @@ export class ScrumboardComponent implements OnInit {
     ])
   ]);
   listNgModel: string;
+  cardTitle: string;
+  indexOfList: number;
   flagForHideShowAddListButton: boolean;
+  constructor(public utilsService: UtilsService) {
 
+  }
   ngOnInit() {
   }
   addList() {
@@ -50,6 +55,19 @@ export class ScrumboardComponent implements OnInit {
   cancelAddList() {
     this.flagForHideShowAddListButton = false;
     this.listNgModel = undefined;
+  }
+
+  openCreateModal(index, modalId) {
+    this.indexOfList = index;
+    this.utilsService.openModal(modalId);
+  }
+
+  createCard() {
+    if (this.cardTitle) {
+      this.board.columns[this.indexOfList].tasks.push(this.cardTitle);
+      this.cardTitle = undefined;
+      this.utilsService.hideModal('createListModal');
+    }
   }
 
   // drop(event: CdkDragDrop<string[]>) {

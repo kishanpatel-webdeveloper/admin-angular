@@ -25,7 +25,7 @@
   <!-- end page title -->
   <div class="row scrumboard" cdkDropList [cdkDropListData]="board.columns" (cdkDropListDropped)="dropGroup($event)">
 
-    <div class="col-lg-4 col-md-4 col-sm-12" cdkDropListGroup *ngFor="let column of board.columns" cdkDrag
+    <div class="col-lg-4 col-md-4 col-sm-12" cdkDropListGroup *ngFor="let column of board.columns;let i =index;" cdkDrag
       [cdkDragData]="column">
       <div class="card status-card">
         <div class="card-body">
@@ -91,7 +91,7 @@
 
           </div>
 
-          <button mat-raised-button color="primary" class="btn-block">
+          <button mat-raised-button color="primary" class="btn-block" (click)="openCreateModal(i,'createListModal')">
             <mat-icon>add</mat-icon>Primary
           </button>
         </div>
@@ -169,9 +169,16 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            add material textbox here
+            <mat-form-field  appearance="outline">
+              <input matInput placeholder="Enter Card Title" [(ngModel)]="cardTitle">
+            </mat-form-field>
           </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button color="primary"  (click)="createCard()">
+          Create
+        </button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
