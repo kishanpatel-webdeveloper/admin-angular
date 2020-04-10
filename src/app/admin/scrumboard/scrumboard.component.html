@@ -133,7 +133,7 @@
           </div>
 
           <button mat-raised-button color="primary" class="btn-block">
-            <mat-icon>add</mat-icon>Primary
+            <mat-icon>add</mat-icon>Add a card
           </button>
         </div>
       </div>
@@ -142,20 +142,23 @@
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card status-card">
         <div class="card-body">
-          <h4 class="card-title mb-4" *ngIf="temp">Tiitle Here Print after enter the title name</h4>
-          <div *ngIf="flagForHideShowAddListButton">
-            <mat-form-field >
-              <input matInput placeholder="Enter List Title" [(ngModel)]="listNgModel">
-            </mat-form-field>
-            <button mat-raised-button color="primary"  (click)="addList()">
-              Add List
-            </button>
-            <button mat-raised-button (click)="cancelAddList()">Cancel</button>
-          </div>
           <button mat-raised-button color="light" class="btn-block" *ngIf="!flagForHideShowAddListButton"
             (click)="flagForHideShowAddListButton = !flagForHideShowAddListButton">
             <mat-icon>add</mat-icon>Add List
           </button>
+          <div class="card" *ngIf="flagForHideShowAddListButton">
+            <div class="card-body">
+              <mat-form-field appearance="outline">
+                <mat-label>List Title</mat-label>
+                <input matInput placeholder="List Title" [(ngModel)]="listNgModel">
+              </mat-form-field>
+              <button mat-raised-button color="primary" (click)="addList()">
+                Add List
+              </button>
+              <button mat-raised-button (click)="cancelAddList()">Cancel</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
