@@ -33,7 +33,7 @@
           <div class="pb-1 task-list" cdkDropList id={{column.id}} [cdkDropListData]="column.tasks"
             (cdkDropListDropped)="dropItem($event)" [cdkDropListConnectedTo]="getConnectedList()">
             <div class="card task-box" *ngFor="let item of column.tasks" cdkDrag [cdkDragData]="item">
-              <div class="card-body">
+              <div class="card-body" (click)="utilsService.openModal('createCardModal')">
                 {{ item }}
               </div>
             </div>
@@ -144,10 +144,10 @@
         <div class="card-body">
           <h4 class="card-title mb-4" *ngIf="temp">Tiitle Here Print after enter the title name</h4>
           <div *ngIf="flagForHideShowAddListButton">
-            <mat-form-field >
+            <mat-form-field>
               <input matInput placeholder="Enter List Title" [(ngModel)]="listNgModel">
             </mat-form-field>
-            <button mat-raised-button color="primary"  (click)="addList()">
+            <button mat-raised-button color="primary" (click)="addList()">
               Add List
             </button>
             <button mat-raised-button (click)="cancelAddList()">Cancel</button>
@@ -210,14 +210,57 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12 col-sm-12">
-            <mat-form-field  appearance="outline">
+            <mat-form-field appearance="outline">
               <input matInput placeholder="Enter Card Title" [(ngModel)]="cardTitle">
             </mat-form-field>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button mat-raised-button color="primary"  (click)="createCard()">
+        <button mat-raised-button color="primary" (click)="createCard()">
+          Create
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="createCardModal" tabindex="-1" role="dialog" aria-labelledby="createCardModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mt-0">Card Name</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+          <div class="col-md-12 col-12">
+
+            <mat-form-field appearance="outline" fxFlex="100">
+              <mat-label>Description</mat-label>
+              <textarea matInput autocomplete="off" [(ngModel)]="description"></textarea>
+            </mat-form-field>
+
+          </div>
+          <div class="col-md-6 col-12">
+            <button mat-icon-button matTooltip="Users" (click)=select.open()>
+
+              <mat-icon>add</mat-icon>
+
+              <mat-select #select [(ngModel)]="user" class="langSelect" appendTo="body" multiple>
+                <mat-option *ngFor="let usr of userList" [value]="usr">{{usr}}</mat-option>
+              </mat-select>
+
+            </button>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button mat-raised-button color="primary" (click)="createCard()">
           Create
         </button>
       </div>
