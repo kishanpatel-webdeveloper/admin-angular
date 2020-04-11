@@ -36,10 +36,12 @@ export class ScrumboardComponent implements OnInit {
       'Walk dog'
     ])
   ]);
+  description: string;
   listNgModel: string;
   cardTitle: string;
   indexOfList: number;
   flagForHideShowAddListButton: boolean;
+  userList: string[] = ['Dhrumin', 'Kishan', 'Brijesh', 'Preyash'];
   constructor(public utilsService: UtilsService) {
 
   }
