@@ -133,7 +133,7 @@
           </div>
 
           <button mat-raised-button color="primary" class="btn-block" (click)="openCreateModal(i,'createListModal')">
-            <mat-icon>add</mat-icon>Primary
+            <mat-icon>add</mat-icon>Add a card
           </button>
         </div>
       </div>
@@ -142,20 +142,23 @@
     <div class="col-lg-4 col-md-4 col-sm-12">
       <div class="card status-card">
         <div class="card-body">
-          <h4 class="card-title mb-4" *ngIf="temp">Tiitle Here Print after enter the title name</h4>
-          <div *ngIf="flagForHideShowAddListButton">
-            <mat-form-field>
-              <input matInput placeholder="Enter List Title" [(ngModel)]="listNgModel">
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="addList()">
-              Add List
-            </button>
-            <button mat-raised-button (click)="cancelAddList()">Cancel</button>
-          </div>
           <button mat-raised-button color="light" class="btn-block" *ngIf="!flagForHideShowAddListButton"
             (click)="flagForHideShowAddListButton = !flagForHideShowAddListButton">
             <mat-icon>add</mat-icon>Add List
           </button>
+          <div class="card" *ngIf="flagForHideShowAddListButton">
+            <div class="card-body">
+              <mat-form-field appearance="outline">
+                <mat-label>List Title</mat-label>
+                <input matInput [(ngModel)]="listNgModel">
+              </mat-form-field>
+              <button mat-raised-button color="primary" class="mr-2" (click)="addList()">
+                Add List
+              </button>
+              <button mat-raised-button (click)="cancelAddList()">Cancel</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -202,16 +205,18 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title mt-0">Create List Modal</h5>
+        <h5 class="modal-title mt-0">Card Title</h5>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <img src="assets/images/modal-close.svg">
         </button>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12 col-sm-12">
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Enter Card Title" [(ngModel)]="cardTitle">
+              <mat-label>Card Title</mat-label>
+              <input matInput [(ngModel)]="cardTitle">
             </mat-form-field>
           </div>
         </div>
@@ -262,6 +267,9 @@
       <div class="modal-footer">
         <button mat-raised-button color="primary" (click)="createCard()">
           Create
+        </button>
+        <button mat-raised-button color="black" data-dismiss="modal">
+          Close
         </button>
       </div>
     </div><!-- /.modal-content -->

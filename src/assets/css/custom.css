@@ -31,8 +31,48 @@ body .mat-button, body .mat-raised-button{ font-size: 16px;  }
 /* Button CSS */
 .mat-raised-button.mat-primary{ background-color: #556ee6; color: #fff; }
 .mat-raised-button.mat-light{ color: #212529; background-color: #eff2f7; }
+.mat-raised-button.mat-black{ color: #fff; background-color: #5d6071; }
 .btn-primary {
     color: #fff;
     background-color: #556ee6;
     border-color: #556ee6;
 }
+
+/* Material Control CSS */
+.mat-form-field{ width: 100%; }
+.mat-form-field .mat-form-field-wrapper{
+    padding-bottom: 20px;
+    margin: 0 !important;
+}
+.mat-form-field.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 12px 0 12px 0;
+    border-top: 4px solid transparent;
+}
+.mat-form-field.mat-form-field-appearance-outline .mat-form-field-label {
+    top: 29px;
+    margin-bottom: 0;}
+.mat-form-field.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, 
+.mat-form-field.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
+        transform: translateY(-19px) scale(.75);
+    }
+.mat-form-field.mat-form-field.mat-focused .mat-form-field-label {
+        color: #3f51b5;
+    }
+    .mat-form-field.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+        color: #556ee6;
+    }
+/* ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+} */
+
+/* .mat-form-field.mat-form-field-appearance-outline > div.mat-form-field-wrapper > div.mat-form-field-flex > div.mat-form-field-infix  { padding: 0.4em 0px }
+.mat-form-field.mat-form-field-appearance-outline > div.mat-form-field-wrapper > div.mat-form-field-flex > div.mat-form-field-infix > span.mat-form-field-label-wrapper { top: -1.5em; }
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+} */
