@@ -12,23 +12,23 @@ import { UtilsService } from '../../services/utils.service';
 export class ScrumboardComponent implements OnInit {
 
   board: Board = new Board('Test Board', [
-    new Column(1, 'Backlog', [
+    new Column(1, 'TO DO ', [
       "Some random idea",
       "This is another random idea",
       "build an awesome application"
     ]),
-    new Column(2, 'Hot Backlog', [
+    new Column(2, 'IN PROGRESS', [
       "Lorem ipsum",
       "foo",
       "This was in the 'Research' column"
     ]),
-    new Column(3, 'Inprogress', [
+    new Column(3, 'IN REVIEW', [
       'Get to work',
       'Pick up groceries',
       'Go home',
       'Fall asleep'
     ]),
-    new Column(4, 'Ready to Diploy', [
+    new Column(4, 'DONE', [
       'Get up',
       'Brush teeth',
       'Take a shower',
