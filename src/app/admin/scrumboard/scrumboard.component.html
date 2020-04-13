@@ -229,47 +229,89 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<div class="modal fade" id="createCardModal" tabindex="-1" role="dialog" aria-labelledby="createCardModal"
-  aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade createtaskmodal" id="createCardModal" tabindex="-1" role="dialog"
+  aria-labelledby="createCardModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title mt-0">Card Name</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-body">
+        <button type="button" class="close absolute-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
         <div class="row">
 
-          <div class="col-md-12 col-12">
-
+          <div class="col-md-12 col-sm-12">
+            <h4 class="task-name d-flex">
+              <mat-icon>assignment</mat-icon>Name
+            </h4>
+            <ul class="board-status">
+              <li>Tech Startup Board</li>
+              <li>Backlog</li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-12 members">
+            <h5 class="d-flex sub-title"> Member
+            </h5>
+            <ul class="memberlist">
+              <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
+              <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
+              <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li>
+              <li class="addmember">
+                <button mat-icon-button matTooltip="Users" class="btn-round-member" (click)=select.open()>
+                  <mat-icon>add</mat-icon>
+                </button>
+                <mat-select #select [(ngModel)]="user" class="langSelect" appendTo="body" multiple>
+                  <mat-option *ngFor="let usr of userList" [value]="usr">{{usr}}</mat-option>
+                </mat-select>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <h5 class="sub-title text-right"> Labels </h5>
+            <ul class="labellist">
+              <li class="label-high-priority">High Priority</li>
+              <li class="label-blocked">Block</li>
+              <li class="label-approved">Approve</li>
+              <li class="addlabel"> <button mat-icon-button matTooltip="Users" class="btn-square-member">
+                <mat-icon>add</mat-icon>
+              </button></li>
+            </ul>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <hr>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <h5 class="sub-title d-flex">
+              <mat-icon>description</mat-icon>Description
+            </h5>
+          </div>
+          <div class="col-md-12 col-sm-12">
             <mat-form-field appearance="outline" fxFlex="100">
               <mat-label>Description</mat-label>
               <textarea matInput autocomplete="off" [(ngModel)]="description"></textarea>
             </mat-form-field>
 
           </div>
-          <div class="col-md-6 col-12">
-            <button mat-icon-button matTooltip="Users" (click)=select.open()>
-
-              <mat-icon>add</mat-icon>
-
-              <mat-select #select [(ngModel)]="user" class="langSelect" appendTo="body" multiple>
-                <mat-option *ngFor="let usr of userList" [value]="usr">{{usr}}</mat-option>
-              </mat-select>
-
-            </button>
-
+          <div class="col-md-6 col-sm-12">
+            <h5 class="sub-title d-flex">
+              <mat-icon>attach_file</mat-icon>Attachments
+            </h5>
+          </div>
+          <div class="col-md-6 col-sm-12 text-right">
+            <div class="btn-file">
+              <button mat-raised-button matTooltip="Users" color="transparent">
+                <mat-icon>add</mat-icon> ADD AN ATTACHMENTS
+              </button>
+              <input type="file">
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button mat-raised-button color="primary" (click)="createCard()">
-          Create
+        <button mat-raised-button color="primary" class="mr-2" (click)="createCard()">
+          Save
         </button>
-        <button mat-raised-button color="black" data-dismiss="modal">
-          Close
+        <button mat-raised-button color="light" data-dismiss="modal">
+          Cancel
         </button>
       </div>
     </div><!-- /.modal-content -->
