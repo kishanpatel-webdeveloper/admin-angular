@@ -5,6 +5,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './authentication.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,8 +23,9 @@ const routes: Routes = [
     ForgotPasswordComponent
   ],
   imports: [
+    SharedModule,
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ]
 })
 export class AuthenticationModule { }
