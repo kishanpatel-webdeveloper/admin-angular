@@ -13,6 +13,15 @@ body{ font-family: 'Nunito', sans-serif; }
 .dropdown-profile .dropdown-header .figure  img{ width: 80px; height: 80px; border-radius: 50%; }
 .dropdown-profile .dropdown-header .info{ color: #212529; font-size: 15px; }
 
+.authentication{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0px;
+}
+
 /* Table CSS */
 .table thead { background-color: #f1f3fa; }
 .table .srno{ width: 60px; }
@@ -26,7 +35,8 @@ body{ font-family: 'Nunito', sans-serif; }
 
 /* Material Control CSS */
 body .mat-button, 
-body .mat-raised-button{
+body .mat-raised-button,
+body .mat-form-field{
     font-family: 'Nunito', sans-serif;
 }
 body .mat-button, body .mat-raised-button{ font-size: 16px;  }
@@ -54,7 +64,7 @@ body .mat-button, body .mat-raised-button{ font-size: 16px;  }
 body .cdk-overlay-container{ z-index: 9999; }
 .mat-form-field{ width: 100%; }
 .mat-form-field .mat-form-field-wrapper{
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     margin: 0 !important;
 }
 .mat-form-field.mat-form-field-appearance-outline .mat-form-field-infix {

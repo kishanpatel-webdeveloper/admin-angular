@@ -1,1 +1,66 @@
-<p>login works!</p>
+<section class="authentication">
+  <div class="account-pages">
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="card overflow-hidden mb-0">
+            <div class="bg-soft-primary">
+              <div class="row">
+                <div class="col-7">
+                  <div class="text-primary p-4">
+                    <h4 class="text-primary">Welcome Back !</h4>
+                    <p>Sign in to continue to Admin.</p>
+                  </div>
+                </div>
+                <div class="col-5 align-self-end">
+                  <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-0">
+              <div class="avatar-md profile-user-wid mb-4">
+                <span class="avatar-title rounded-circle bg-light">
+                  <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+                </span>
+              </div>
+              <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-6 col-sm-12"></div>
+                <div class="col-md-6 col-sm-12">
+                  <a href="#" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your
+                    password?</a>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mt-3">
+                  <button mat-raised-button color="primary" class="btn-block">
+                    Log In
+                  </button>
+                </div>
+
+                <div class="col-md-12 col-sm-12 mt-4 text-center">
+                  <p>Don't have an account ? <a [routerLink]="['/authentication/registration']"
+                      class="font-weight-medium text-primary">
+                      Signup now
+                    </a> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

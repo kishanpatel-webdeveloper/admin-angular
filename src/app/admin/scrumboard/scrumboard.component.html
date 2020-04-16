@@ -222,8 +222,11 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button mat-raised-button color="primary" (click)="createCard()">
+        <button mat-raised-button class="mr-2" color="primary" (click)="createCard()">
           Create
+        </button>
+        <button mat-raised-button color="light" data-dismiss="modal">
+          Cancel
         </button>
       </div>
     </div><!-- /.modal-content -->
@@ -303,6 +306,14 @@
               </button>
               <input type="file">
             </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <hr>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <h5 class="sub-title d-flex">
+              <mat-icon>comment</mat-icon>Comments
+            </h5>
           </div>
         </div>
       </div>
