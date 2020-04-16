@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { moveItemInArray, CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Board } from '../../models/board.model';
 import { Column } from 'src/app/models/column.model';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-demo-drag-drop',
@@ -13,29 +14,10 @@ export class DemoDragDropComponent implements OnInit {
   constructor() { }
 
   board: Board = new Board('Test Board', [
-    new Column(1,'Ideas', [
-      "Some random idea",
-      "This is another random idea",
-      "build an awesome application"
-    ]),
-    new Column(2,'Research', [
-      "Lorem ipsum",
-      "foo",
-      "This was in the 'Research' column"
-    ]),
-    new Column(3,'Todo', [
-      'Get to work',
-      'Pick up groceries',
-      'Go home',
-      'Fall asleep'
-    ]),
-    new Column(4,'Done', [
-      'Get up',
-      'Brush teeth',
-      'Take a shower',
-      'Check e-mail',
-      'Walk dog'
-    ])
+    new Column(1, 'TO DO ', new Array<Card>()),
+    new Column(2, 'IN PROGRESS', new Array<Card>()),
+    new Column(3, 'IN REVIEW', new Array<Card>()),
+    new Column(4, 'DONE', new Array<Card>())
   ]);
 
   ngOnInit() {
