@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 declare var $: any;
@@ -16,7 +16,7 @@ export class UtilsService {
   static URL = 'http://uat-api-server.genuusdemo.com/';
   static FRONT_URL = 'http://uat-kurate-an.genuusdemo.com/';
 
-
+  imagePreview: any;
   constructor(public http: HttpClient, public router: Router) {
 
   }
@@ -242,4 +242,61 @@ export class UtilsService {
     document.body.removeChild(selBox);
   }
 
+  readUrl(event, callback: (response) => void) {
+    if (event.target.files && event.target.files[0]) {
+      let reader: any;
+      reader = new FileReader();
+      reader.onload = (e) => {
+        this.imagePreview = e.target.result;
+        return callback(this.imagePreview);
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  convertBase64ToBlob(imageBase64: string) {
+    const ImageURL = imageBase64;
+    // Split the base64 string in data and contentType
+    const block = ImageURL.split(';');
+    // Get the content type of the image
+    const contentType = block[0].split(':')[1];// In this case 'image/gif'
+    // get the real base64 content of the file
+    const realData = block[1].split(',')[1];// In this case 'R0lGODlhPQBEAPeoAJosM....'
+
+    // Convert it to a blob to upload
+    const blob = this.b64toBlob(realData, contentType);
+    return blob;
+  }
+
+
+  /**
+ * Convert a base64 string in a Blob according to the data and contentType.
+ *
+ * @param b64Data {String} Pure base64 string without contentType
+ * @param contentType {String} the content type of the file i.e (image/jpeg - image/png - text/plain)
+ * @param sliceSize {Int} SliceSize to process the byteCharacters
+ * @return Blob
+ */
+  b64toBlob(b64Data, contentType, sliceSize?) {
+    contentType = contentType || '';
+    sliceSize = sliceSize || 512;
+
+    const byteCharacters = atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
 }
