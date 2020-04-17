@@ -20,8 +20,34 @@ body{ font-family: 'Nunito', sans-serif; }
     align-items: center;
     justify-content: center;
     padding: 50px 0px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
+.authleftimg{ animation: jumping 2s ease-in-out 2s infinite alternate;animation-delay: 1s;transition: all .9s ease 5s }
+@keyframes jumping {  0% {
+    transform: translateY(0px);
+   }
+    50% {
+    transform: translateY(-15px);
+   }
+    100% {
+    transform: translateY(0px);
+   }
+   
+   }
+   .bg-rotaion { backface-visibility: hidden; animation: rotation 30s ease-in-out 2s infinite alternate; animation-delay: 1s; transition: all .9s ease 5s; user-select: none; }
+   @keyframes rotation {  0% {
+    transform: rotate(0);
+   }
+    50% {
+    transform: rotate(10deg);
+   }
+    100% {
+    transform: rotate(0);
+   }
+   }
+.authentication .card{ box-shadow: 0 22px 32px 0 rgba(0, 0, 0, 0.2); }
 /* Table CSS */
 .table thead { background-color: #f1f3fa; }
 .table .srno{ width: 60px; }

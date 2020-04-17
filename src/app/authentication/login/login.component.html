@@ -1,7 +1,12 @@
-<section class="authentication">
-  <div class="account-pages">
+<section class="authentication" style="background-image: url('assets/images/authbg.jpg');">
+  
     <div class="container">
-      <div class="row justify-content-end">
+      <div class="row justify-content-end align-items-center">
+        <div class="col-md-4 col-lg-6 col-xl-7">
+          <div class="authleftimg">
+            <img src="assets/images/authman.png">
+          </div>
+        </div>
         <div class="col-md-8 col-lg-6 col-xl-5">
           <div class="card overflow-hidden mb-0">
             <div class="bg-soft-primary">
@@ -40,7 +45,7 @@
 
                 <div class="col-md-6 col-sm-12"></div>
                 <div class="col-md-6 col-sm-12">
-                  <a href="#" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your
+                  <a [routerLink]="['/authentication/forgot-password']" class="text-muted"><i class="mdi mdi-lock mr-1"></i> Forgot your
                     password?</a>
                 </div>
 
@@ -62,5 +67,4 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
