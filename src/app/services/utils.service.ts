@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 
 declare var $: any;
 // import * as $ from 'jquery';
+import { ServerVariableService } from './server-variable.service';
+import { ValidationsService } from './validations.service';
 
 
 @Injectable({
@@ -17,7 +19,9 @@ export class UtilsService {
   static FRONT_URL = 'http://uat-kurate-an.genuusdemo.com/';
 
   imagePreview: any;
-  constructor(public http: HttpClient, public router: Router) {
+  constructor(public http: HttpClient, public router: Router,
+    public serverVariableService: ServerVariableService,
+    public validationService: ValidationsService) {
 
   }
 
