@@ -34,6 +34,10 @@ export class LoginService {
     if (this.loginForm.valid) {
 
 this.utilsService.redirectTo('/admin/work_area/dashboard');
+this.utilsService.toasterService.success('Login Successfully!!', '', {
+  positionClass: 'toast-top-right',
+  closeButton: true
+});
     }
 
   }

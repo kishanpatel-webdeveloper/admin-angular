@@ -29,7 +29,7 @@ export class StorageListnerService implements OnDestroy {
 
     const key = 'user';
     localStorage.removeItem('user');
-    this.router.navigate(['/kurate/login']);
+    this.router.navigate(['/authentication/login']);
     this.onSubject.next({ key: key, value: null });
   }
 

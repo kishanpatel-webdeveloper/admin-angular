@@ -32,7 +32,7 @@
               <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline">
                   <mat-label>Name</mat-label>
-                  <input matInput [(ngModel)]="userObj.name" formControlName="name">
+                  <input  matInput [(ngModel)]="userObj.name" autocomplete="off" formControlName="name">
                   <mat-icon matSuffix class="secondary-text">
                     person</mat-icon>
                   <mat-error
@@ -48,7 +48,7 @@
               <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline">
                   <mat-label>Email</mat-label>
-                  <input matInput [(ngModel)]="userObj.email" formControlName="email">
+                  <input matInput  [(ngModel)]="userObj.email"  autocomplete="off" formControlName="email">
                   <mat-icon matSuffix class="secondary-text">
                     mail</mat-icon>
                   <mat-error
@@ -63,7 +63,7 @@
               <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input matInput [(ngModel)]="userObj.password" formControlName="password">
+                  <input  [(ngModel)]="userObj.password" matInput autocomplete="off"  [type]="!flagForPasswordHideShow?'password':'text'" formControlName="password">
                   <mat-icon matSuffix class="secondary-text"
                     (click)="flagForPasswordHideShow = !flagForPasswordHideShow">
                     {{flagForPasswordHideShow ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -79,7 +79,7 @@
               <div class="col-md-12 col-sm-12">
                 <mat-form-field appearance="outline">
                   <mat-label>Confirm Password</mat-label>
-                  <input matInput [(ngModel)]="confirmPassword" formControlName="confPassword">
+                  <input matInput   [type]="!flagForConfirmPasswordHideShow?'password':'text'"[(ngModel)]="confirmPassword" autocomplete="off" formControlName="confPassword">
                   <mat-icon matSuffix class="secondary-text"
                   (click)="flagForConfirmPasswordHideShow = !flagForConfirmPasswordHideShow">
                   {{flagForConfirmPasswordHideShow ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -99,7 +99,7 @@
               </div>
 
               <div class="col-md-12 col-sm-12 mt-3">
-                <button mat-raised-button color="primary" class="btn-block" [disabled]="registrationForm.invalid">
+                <button mat-raised-button color="primary" class="btn-block" (click)="registerUser()" [disabled]="registrationForm.invalid">
                   Register
                 </button>
               </div>

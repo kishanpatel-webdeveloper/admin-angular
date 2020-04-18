@@ -89,6 +89,10 @@ export class ScrumboardComponent implements OnInit {
       const id = this.board.columns.length + 1;
       this.board.columns.push(new Column(id, this.listNgModel, []));
       this.flagForHideShowAddListButton = false;
+      this.utilsService.toasterService.success('List Added Successfully.', '', {
+        positionClass: 'toast-top-right',
+        closeButton: true
+      });
     }
   }
   cancelAddList() {
@@ -109,6 +113,10 @@ export class ScrumboardComponent implements OnInit {
       this.board.columns[this.indexOfList].tasks.push(obj);
       this.cardTitle = undefined;
       this.utilsService.hideModal('createListModal');
+      this.utilsService.toasterService.success('Card Created Successfully', '', {
+        positionClass: 'toast-top-right',
+        closeButton: true
+      });
     }
   }
 
@@ -124,6 +132,10 @@ export class ScrumboardComponent implements OnInit {
     this.board.columns[this.indexOfList].tasks[this.cardIndex] = new Card();
     this.board.columns[this.indexOfList].tasks[this.cardIndex] = this.cardObj;
     this.cardObj = new Card();
+    this.utilsService.toasterService.success('Card Updated Successfully.', '', {
+      positionClass: 'toast-top-right',
+      closeButton: true
+    });
     this.utilsService.hideModal('createCardModal');
 
   }

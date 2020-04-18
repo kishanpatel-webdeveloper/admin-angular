@@ -7,6 +7,7 @@ declare var $: any;
 // import * as $ from 'jquery';
 import { ServerVariableService } from './server-variable.service';
 import { ValidationsService } from './validations.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -21,7 +22,9 @@ export class UtilsService {
   imagePreview: any;
   constructor(public http: HttpClient, public router: Router,
     public serverVariableService: ServerVariableService,
-    public validationService: ValidationsService) {
+    public validationService: ValidationsService,
+    public toasterService: ToastrService,
+    ) {
 
   }
 

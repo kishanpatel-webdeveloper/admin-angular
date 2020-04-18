@@ -26,7 +26,19 @@ export class RegistrationService {
       confPassword: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_EMAIL)])],
     }, { validator: MustMatch('password', 'confPassword') });
   }
+
+  registerUser() {
+    if (this.registrationForm.valid) {
+      this.utilsService.redirectTo('/authentication/login');
+      this.utilsService.toasterService.success('Register User Successfully', '', {
+        positionClass: 'toast-top-right',
+        closeButton: true
+      });
+    }
+  }
 }
+
+
 
 export function MustMatch(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
