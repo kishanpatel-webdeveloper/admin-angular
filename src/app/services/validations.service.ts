@@ -96,60 +96,19 @@ export class ValidationsService {
   PATTERN_FOR_DATE = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
   /* End pattern use for validation */
 
+  // User Validation msg
+
+  REQUIRED_FOR_NAME = 'Name is required!';
+  INVALID_FOR_NAME = 'Name is required.';
   EMAIL_REQUIRED = 'Email is required!';
   EMAIL_INVALID = 'Please enter a valid Email.';
   PASSWORD_REQUIRED = 'Password is required!';
   PASSWORD_INVALID = 'Should contains atleast 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$.-_';
-
-  // User Details Validation msg
-
-  REQUIRED_FOR_NAME = 'Name is required.';
-  REQUIRED_FOR_USERNAME = 'User name is required.';
-  INVALID_FOR_USERNAME = 'Please enter valid User name.';
-  REQUIRED_FOR_EMAIL = 'Email address is required.';
-  INVALID_FOR_EMAIL = 'Please enter valid email address.';
-  REQUIRED_FOR_PASSWORD = 'Password is required.';
-  FIRST_NAME_REQUIRED = 'First Name is required!';
-  FIRST_NAME_INVALID = 'Please enter a valid First Name.';
-  LAST_NAME_REQUIRED = 'Last Name is required!';
-  LAST_NAME_INVALID = 'Please enter a valid Last Name.';
-  ROLE_REQUIRED = 'Role is required.';
-
-  // Role Validation msg
-
-  ROLE_NAME_REQUIRED = 'Role Name is required!';
-  ROLE_NAME_INVALID = 'Please enter a valid Role Name.';
-
-  // Collection Validation Msg
-
-  COLLECTION_NAME_REQUIRED = 'Collection Name is required!';
-  COLLECTION_NAME_INVALID = 'Please enter a valid Collection Name.';
-  // Share Validation Msg
-
-  SHARE_NAME_REQUIRED = 'Share Name is required!';
-  SHARE_NAME_INVALID = 'Please enter a valid Share Name.';
-
-  EXPIRE_DATE_REQUIRED = 'Expire Date is required!';
-  EXPIRE_DATE_INVALID = 'Please enter a valid Expire Date.';
+  CONFIRM_PASSWORD = 'Confirm Password is required!';
+  PASSWORD_NOT_MATCHED = 'Password and Confirm Password not equal.';
 
 
-  DOWNLOAD_ALLOWED_REQUIRED = 'Download Allowed is required!';
-  DOWNLOAD_ALLOWED_INVALID = 'Please enter a valid Download Allowed.';
 
-  COLOR_REQUIRED = 'Color is required!';
 
-  FROM_DATE_REQUIRED = 'From Date is required!';
-  TO_DATE_REQUIRED = 'To Date is required!';
 
-  FOLDER_NAME_REQUIRED = 'Folder Name is required!';
-  FOLDER_NAME_INVALID = 'Please enter a valid Folder Name.';
-
-  // Meta Module Fields Msg
-
-  TITLE_REQUIRED = 'Title is required!';
-  TITLE_INVALID = 'Please enter a valid Title.';
-
-  USE_TILL_DATE_REQUIRED = 'Use Asset Till  is required!';
-
-  ASSET_KEYS_REQUIRED = 'Asset Keys  is required!';
 }

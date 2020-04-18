@@ -33,25 +33,7 @@ export class LoginService {
   loginAPI() {
     if (this.loginForm.valid) {
 
-      const formData = new FormData();
-      formData.set('username', this.userOb.userNameOrEmail);
-      formData.set('hash_password', this.userOb.password);
-
-      // this.utilsService.postMethodAPI(true, this.utilsService.serverVariableService.loginAPI, formData, (response, isResponseOnPage) => {
-
-      //   if (!this.utilsService.isEmptyObjectOrNullUndefiend(response)) {
-      //     console.log(response);
-
-      //     this.loginResponse = Deserialize(response['user_details'], UserDetails);
-      //     this.setLocalStorage(this.loginResponse).then(() => {
-      //       this.utilsService.setArrayPermssiontoAssets();
-      //       this.utilsService.arrayOfSelectedFiles = new Array<Assets>();
-      //       this.utilsService.flagForhideShowUploadingFiles = false;
-      //       this.utilsService.redirectTo('/admin/work_area/dashboard');
-      //       this.utilsService.getOrganizationDetailsAPI();
-      //     });
-      //   }
-      // });
+this.utilsService.redirectTo('/admin/work_area/dashboard');
     }
 
   }

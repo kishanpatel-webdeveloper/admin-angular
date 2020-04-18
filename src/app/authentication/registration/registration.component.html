@@ -1,79 +1,117 @@
 <section class="authentication" style="background-image: url('assets/images/authbg.jpg');">
-        <div class="container">
-            <div class="row justify-content-end align-items-center">
-                <div class="col-md-4 col-lg-6 col-xl-7">
-                    <div class="authleftimg">
-                        <img src="assets/images/authman.png">
-                    </div>
-                </div>
-                <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card overflow-hidden mb-0">
-                        <div class="bg-soft-primary">
-                            <div class="row">
-                                <div class="col-7">
-                                    <div class="text-primary p-4">
-                                        <h4 class="text-primary">Free Register</h4>
-                                        <p>Get your free Admin account now.</p>
-                                    </div>
-                                </div>
-                                <div class="col-5 align-self-end">
-                                    <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="avatar-md profile-user-wid mb-4">
-                                <span class="avatar-title rounded-circle bg-light">
-                                    <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
-                                </span>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12 col-sm-12">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Name</mat-label>
-                                        <input matInput>
-                                    </mat-form-field>
-                                </div>
-
-                                <div class="col-md-12 col-sm-12">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Email ID</mat-label>
-                                        <input matInput>
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-12 col-sm-12">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Password</mat-label>
-                                        <input matInput>
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-12 col-sm-12">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Confirm Password</mat-label>
-                                        <input matInput>
-                                    </mat-form-field>
-                                </div>
-
-                                <div class="col-md-12 col-sm-12">
-                                    <p class="mb-0">By registering you agree to the Admin <a href="#"
-                                            class="text-primary">Terms of Use</a></p>
-                                </div>
-
-                                <div class="col-md-12 col-sm-12 mt-3">
-                                    <button mat-raised-button color="primary" class="btn-block">
-                                        Register
-                                    </button>
-                                </div>
-
-                                <div class="col-md-12 col-sm-12 mt-4 text-center">
-                                    <p>Already have an account ? <a [routerLink]="['/authentication/login']"
-                                            class="font-weight-medium text-primary"> Login</a> </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row justify-content-end align-items-center">
+      <div class="col-md-4 col-lg-6 col-xl-7">
+        <div class="authleftimg">
+          <img src="assets/images/authman.png">
         </div>
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="card overflow-hidden mb-0">
+          <div class="bg-soft-primary">
+            <div class="row">
+              <div class="col-7">
+                <div class="text-primary p-4">
+                  <h4 class="text-primary">Free Register</h4>
+                  <p>Get your free Admin account now.</p>
+                </div>
+              </div>
+              <div class="col-5 align-self-end">
+                <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="card-body pt-0">
+            <div class="avatar-md profile-user-wid mb-4">
+              <span class="avatar-title rounded-circle bg-light">
+                <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="34">
+              </span>
+            </div>
+            <div class="row" [formGroup]="registrationForm">
+
+              <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput [(ngModel)]="userObj.name" formControlName="name">
+                  <mat-icon matSuffix class="secondary-text">
+                    person</mat-icon>
+                  <mat-error
+                  *ngIf="registrationForm.controls['name'].hasError('required') &&  registrationForm.controls['name'].touched">
+                  {{utilsService.validationService.REQUIRED_FOR_NAME}}</mat-error>
+                <mat-error
+                  *ngIf="!registrationForm.controls['name'].hasError('required') && !registrationForm.controls['name'].valid && registrationForm.controls['name'].touched">
+                  {{utilsService.validationService.INVALID_FOR_NAME}}
+                </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input matInput [(ngModel)]="userObj.email" formControlName="email">
+                  <mat-icon matSuffix class="secondary-text">
+                    mail</mat-icon>
+                  <mat-error
+                    *ngIf="registrationForm.controls['email'].hasError('required') &&  registrationForm.controls['email'].touched">
+                    {{utilsService.validationService.EMAIL_REQUIRED}}</mat-error>
+                  <mat-error
+                    *ngIf="!registrationForm.controls['email'].hasError('required') && !registrationForm.controls['email'].valid && registrationForm.controls['email'].touched">
+                    {{utilsService.validationService.EMAIL_INVALID}}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input matInput [(ngModel)]="userObj.password" formControlName="password">
+                  <mat-icon matSuffix class="secondary-text"
+                    (click)="flagForPasswordHideShow = !flagForPasswordHideShow">
+                    {{flagForPasswordHideShow ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error
+                  *ngIf="registrationForm.controls['password'].hasError('required') &&  registrationForm.controls['password'].touched">
+                  {{utilsService.validationService.PASSWORD_REQUIRED}}
+                </mat-error>
+                <mat-error *ngIf="registrationForm.hasError('pattern','password')">
+                  {{utilsService.validationService.PASSWORD_INVALID}}
+              </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-12 col-sm-12">
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput [(ngModel)]="confirmPassword" formControlName="confPassword">
+                  <mat-icon matSuffix class="secondary-text"
+                  (click)="flagForConfirmPasswordHideShow = !flagForConfirmPasswordHideShow">
+                  {{flagForConfirmPasswordHideShow ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error
+                  *ngIf="registrationForm.controls['confPassword'].hasError('required') &&  registrationForm.controls['confPassword'].touched">
+                  {{utilsService.validationService.CONFIRM_PASSWORD}}
+                </mat-error>
+                <mat-error *ngIf="registrationForm.hasError('mustMatch','confPassword')">
+                  {{utilsService.validationService.PASSWORD_NOT_MATCHED}}
+              </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="col-md-12 col-sm-12">
+                <p class="mb-0">By registering you agree to the Admin <a href="#" class="text-primary">Terms of Use</a>
+                </p>
+              </div>
+
+              <div class="col-md-12 col-sm-12 mt-3">
+                <button mat-raised-button color="primary" class="btn-block" [disabled]="registrationForm.invalid">
+                  Register
+                </button>
+              </div>
+
+              <div class="col-md-12 col-sm-12 mt-4 text-center">
+                <p>Already have an account ? <a [routerLink]="['/authentication/login']"
+                    class="font-weight-medium text-primary"> Login</a> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationService } from './Registration.service';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent extends RegistrationService implements OnInit {
 
-  constructor() { }
 
   ngOnInit() {
+    this.applyValidation();
   }
 
 }
