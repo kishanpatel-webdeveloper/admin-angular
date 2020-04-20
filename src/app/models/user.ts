@@ -11,6 +11,14 @@ export class User {
   @deserializeAs('name')
   private _name: string;
 
+  @serializeAs('email')
+  @deserializeAs('email')
+  private _email: string;
+
+  @serializeAs('password')
+  @deserializeAs('password')
+  private _password: string;
+
   @serializeAs('profileImg')
   @deserializeAs('profileImg')
   private _profileImg: string;
@@ -65,6 +73,36 @@ export class User {
   }
 
 
+  /**
+   * Getter email
+   * @return {string}
+   */
+  public get email(): string {
+    return this._email;
+  }
 
+  /**
+   * Getter password
+   * @return {string}
+   */
+  public get password(): string {
+    return this._password;
+  }
+
+  /**
+   * Setter email
+   * @param {string} value
+   */
+  public set email(value: string) {
+    this._email = value;
+  }
+
+  /**
+   * Setter password
+   * @param {string} value
+   */
+  public set password(value: string) {
+    this._password = value;
+  }
 
 }
