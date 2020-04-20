@@ -15,15 +15,16 @@ import {
   MatProgressSpinnerModule,
   MatTooltipModule,
   MatExpansionModule,
-  MatRadioModule
+  MatRadioModule,
+  MatTabsModule
 } from '@angular/material';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { FooterComponent } from './components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { NavbarComponent } from './components/footer/navbar/navbar.component';
-import { ToolbarComponent } from './components/footer/toolbar/toolbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatInputModule, MatDatepickerModule,
     DragDropModule,
     MatSelectModule,
+    MatTabsModule,
     MatStepperModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
@@ -53,6 +55,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatSelectModule,
     MatIconModule,
     MatButtonModule,
+    MatTabsModule,
     MatProgressSpinnerModule,
     MatSlideToggleModule,
     MatChipsModule,
