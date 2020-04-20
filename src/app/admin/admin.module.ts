@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { DemoDragDropComponent } from './demo-drag-drop/demo-drag-drop.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'work_area', pathMatch: 'full ' },
@@ -15,11 +16,12 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'scrumboard', component: ScrumboardComponent },
       { path: 'demo-drag-drop', component: DemoDragDropComponent },
+      { path: 'profile', component: ProfileComponent },
     ]
   }];
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent, ScrumboardComponent, DemoDragDropComponent],
+  declarations: [DashboardComponent, AdminComponent, ProfileComponent, ScrumboardComponent, DemoDragDropComponent],
   imports: [
     SharedModule,
     CommonModule,

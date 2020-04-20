@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilsService } from '../../../../services/utils.service';
-import { StorageListnerService } from '../../../../services/storage-listner.service';
+import { UtilsService } from '../../../services/utils.service';
+import { StorageListnerService } from '../../../services/storage-listner.service';
 
 @Component({
   selector: 'app-toolbar',
