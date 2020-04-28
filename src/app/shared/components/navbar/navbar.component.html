@@ -9,13 +9,21 @@
         <li class="menu-title">Menu</li>
 
         <li>
-          <a href="#" class="waves-effect">
-            <i class="bx bx-home-circle"></i><span class="badge badge-pill badge-info float-right">3</span>
+          <a [routerLink]="['/admin/work_area/dashboard']" routerLinkActive="router-link-active"  class="waves-effect">
+            <i class="bx bx-home-circle"></i>
+            <!-- <span class="badge badge-pill badge-info float-right">3</span> -->
             <span>Dashboard</span>
           </a>
         </li>
-
         <li>
+          <a [routerLink]="['/admin/work_area/scrumboard']" routerLinkActive="router-link-active"  class="waves-effect">
+            <i class="bx bx-layout"></i>
+            <!-- <span class="badge badge-pill badge-info float-right">3</span> -->
+            <span>Scrumboard</span>
+          </a>
+        </li>
+
+        <!-- <li>
           <a href="#" class="has-arrow waves-effect">
             <i class="bx bx-layout"></i>
             <span>Layouts</span>
@@ -263,7 +271,7 @@
               </ul>
             </li>
           </ul>
-        </li>
+        </li> -->
 
       </ul>
     </div>
