@@ -3,6 +3,9 @@ body{ font-family: 'Nunito', sans-serif; }
 
 /* Common CSS */
 .absolute-clos{ position: absolute; top: 0px; right: 0px; }
+.note-msg { font-size: 14px; }
+.note-msg span{     font-weight: 600;
+    font-size: 15px;}
 
 /* Header CSS */
 .noti-icon .badge{ right: 6px; }
@@ -62,17 +65,23 @@ body{ font-family: 'Nunito', sans-serif; }
 /* Material Control CSS */
 body .mat-button, 
 body .mat-raised-button,
-body .mat-form-field{
+body .mat-form-field,
+body .mat-tab-group,
+body .mat-tab-label, 
+body .mat-tab-link{
     font-family: 'Nunito', sans-serif;
 }
-body .mat-button, body .mat-raised-button{ font-size: 16px;  }
+body .mat-button, body .mat-raised-button{ font-size: 16px; }
 
 /* Button CSS */
 .mat-raised-button.mat-primary{ background-color: #556ee6; color: #fff; }
+.mat-raised-button.mat-success{ background-color: #34c38f; color: #fff; }
+.mat-raised-button.mat-info{ background-color: #50a5f1; color: #fff; }
 .mat-raised-button.mat-light{ color: #212529; background-color: #eff2f7; }
 .mat-raised-button.mat-black{ color: #fff; background-color: #5d6071; }
 .mat-raised-button.mat-transparent{ color: #556ee6 !important; background-color: transparent; box-shadow: none !important; }
 .mat-raised-button.mat-transparent .mat-icon{ color: #556ee6 !important; }
+.mat-raised-button .mat-icon{ font-size: 16px; line-height: 20px; }
 .btn-primary {
     color: #fff;
     background-color: #556ee6;
@@ -85,6 +94,12 @@ body .mat-button, body .mat-raised-button{ font-size: 16px;  }
     left: 0;
     opacity: 0;
 }
+
+/* Formgroup CSS */
+.form-group .control-label{     color: #333;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 17px;}
 
 /* Material Control CSS */
 body .cdk-overlay-container{ z-index: 9999; }
@@ -133,3 +148,37 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 
 /* Scrumbboard CSS */
 .createtaskmodal .mat-select .mat-select-arrow-wrapper{ display: none;  }
+
+
+/* User Profile CSS */
+.userprofile-tab .mat-tab-label{ font-size: 16px; font-weight: 600; color: #333 !important; opacity: 1 !important;}
+.userprofile-tab .user-img{ text-align: center; text-align: center;
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+    position: relative; }
+.userprofile-tab .user-img img { height: 130px; width: 130px; }
+.userprofile-tab .user-img .profile-edit{ position: absolute;     top: 0;
+    right: 0; }
+.userprofile-tab .user-img .profile-edit input[type="file"]{
+    position: absolute;
+    right: 0;
+    left: 0;
+    opacity: 0;
+}
+.userprofile-tab .user-img .profile-edit button{ 
+    background-color: #50a5f1;
+    border: 1px solid #50a5f1;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+}
+.userprofile-tab .user-img .profile-edit .mat-icon{
+    font-size: 16px;
+    margin-left: -2px;
+    margin-top: 5px;
+}
+.userprofile-tab .mat-tab-body{ padding: 15px; }
+.userprofile-tab .mat-tab-body-content{ overflow: hidden;  }
