@@ -33,11 +33,12 @@ export class LoginService {
   loginAPI() {
     if (this.loginForm.valid) {
 
-this.utilsService.redirectTo('/admin/work_area/dashboard');
-this.utilsService.toasterService.success('Login Successfully!!', '', {
-  positionClass: 'toast-top-right',
-  closeButton: true
-});
+      this.utilsService.redirectTo('/admin/work_area/dashboard');
+      localStorage.setItem('data-theme', 'light');
+      this.utilsService.toasterService.success('Login Successfully!!', '', {
+        positionClass: 'toast-top-right',
+        closeButton: true
+      });
     }
 
   }

@@ -26,6 +26,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgSelectFormFieldControlDirective } from './directives/ng-select.directive';
+
 
 @NgModule({
   imports: [
@@ -46,7 +49,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTooltipModule,
     MatExpansionModule,
     MatRadioModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgSelectModule
   ],
   exports: [CommonModule,
     ReactiveFormsModule,
@@ -65,10 +69,11 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatDatepickerModule,
     FormsModule,
     FlexLayoutModule,
+    NgSelectModule,
     DragDropModule,
-    FooterComponent, NavbarComponent, ToolbarComponent,
+    FooterComponent, NavbarComponent, ToolbarComponent, NgSelectFormFieldControlDirective,
     RouterModule],
-  declarations: [FooterComponent, NavbarComponent, ToolbarComponent],
+  declarations: [FooterComponent, NavbarComponent, ToolbarComponent,NgSelectFormFieldControlDirective],
   entryComponents: []
 })
 export class SharedModule {
