@@ -10,6 +10,9 @@ export class ProfileComponent extends ProfileService implements OnInit {
 
 
   ngOnInit() {
+    this.applyPrivateInfoValidation();
+    this.applyValidationForAddressInfo();
+    this.applyValidationForChangePassword();
   }
 
 }

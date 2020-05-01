@@ -105,8 +105,44 @@ export class ValidationsService {
   PASSWORD_REQUIRED = 'Password is required!';
   PASSWORD_INVALID = 'Should contains atleast 6 characters,one upper case letter,lower case letter,digit and special character like *,@,$.-_';
   CONFIRM_PASSWORD = 'Confirm Password is required!';
-  PASSWORD_NOT_MATCHED = 'Password and Confirm Password not equal.';
+  PASSWORD_NOT_MATCHED = 'New Password and Confirm Password not equal.';
 
+  /* Validation message Start */
+
+  FIRST_NAME_REQUIRED = 'First Name is required!';
+  FIRST_NAME_INVALID = 'Please enter a valid First Name.';
+  MIDDLE_NAME_REQUIRED = 'Middle Name is required!';
+  MIDDLE_NAME_INVALID = 'Please enter a valid Middle Name.';
+  LAST_NAME_REQUIRED = 'Last Name is required!';
+  LAST_NAME_INVALID = 'Please enter a valid Last Name.';
+  ADDRESS_REQUIRED = 'Address is required!';
+  ADDRESS_INVALID = 'Please enter valid Address.';
+  COUNTRY_REQUIRED = 'Country is required!';
+  STATE_REQUIRED = 'State is required!';
+  CITY_REQUIRED = 'City is required!';
+  ZIPCODE_REQUIRED = 'Zipcode is required!';
+  ZIPCODE_INVALID = 'Please enter valid Zipcode.';
+  MOBILE_NUMBER_REQUIRED = 'Mobile Number is required!';
+  MOBILE_NUMBER_INVALID = 'Please enter a valid Mobile Number.';
+
+  DATE_OF_BIRTH_AGE_MSG = 'You must be over 18 to register.';
+  DATE_OF_BIRTH_INVALID = 'Please select/enter valid Date of Birth';
+  DATE_OF_BIRTH_REQUIRED = 'Date of Birth is required!';
+
+  OTP_NOT_MATCHED = 'OTP Not Matched, Please Try Again.';
+  OTP_REQUIRED = 'OTP is required!';
+
+  CURRENT_PASSWORD_REQUIRED = 'Current Password is required!';
+  NEW_PASSWORD_REQUIRED = 'New Password is required!';
+  CONFIRM_NEW_PASSWORD_REQUIRED = 'Confirm New Password is required!';
+
+   // document upload validation messages
+   DOCUMENT_REQUIRED = 'Document is required!';
+   DOCUMENT_MAX_FILE_SIZE = 'The Document size must be less than';
+   ATTACHMENT_MAX_FILE_SIZE = 'The Attachment size must be less than';
+   DOCUMENT_INVALID_EXTENSION = 'Please select valid Document.';
+   IMAGE_MAX_FILE_SIZE = 'The Image size must be less than';
+   IMAGE_INVALID_EXTENSION = 'Please select valid Image.';
 
 
 
