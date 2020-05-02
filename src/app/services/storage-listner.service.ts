@@ -29,6 +29,7 @@ export class StorageListnerService implements OnDestroy {
 
     const key = 'user';
     localStorage.removeItem('user');
+    localStorage.removeItem('data-theme');
     this.router.navigate(['/authentication/login']);
     this.onSubject.next({ key: key, value: null });
   }

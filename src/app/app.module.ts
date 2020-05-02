@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material';
-import {MomentDateAdapter, MatMomentDateModule} from '@angular/material-moment-adapter';
+import { MomentDateAdapter, MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 
@@ -28,9 +28,9 @@ import {MomentDateAdapter, MatMomentDateModule} from '@angular/material-moment-a
       tapToDismiss: false,
     }),
   ],
-  providers: [ { provide: LocationStrategy, useClass: HashLocationStrategy },
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    { provide: DateAdapter, useClass: MomentDateAdapter }],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy },
+  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  { provide: DateAdapter, useClass: MomentDateAdapter }],
   bootstrap: [
     AppComponent
   ]

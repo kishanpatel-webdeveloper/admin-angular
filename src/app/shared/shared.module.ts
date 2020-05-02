@@ -30,6 +30,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectFormFieldControlDirective } from './directives/ng-select.directive';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -50,6 +51,7 @@ import { NgSelectFormFieldControlDirective } from './directives/ng-select.direct
     MatExpansionModule,
     MatRadioModule,
     FlexLayoutModule,
+
     NgSelectModule
   ],
   exports: [CommonModule,
