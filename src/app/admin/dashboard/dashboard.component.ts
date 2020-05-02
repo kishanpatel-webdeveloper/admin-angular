@@ -34,8 +34,6 @@ export class DashboardComponent implements OnInit {
       document.body.setAttribute('data-theme', 'dark');
       localStorage.setItem('data-theme', 'dark');
     }
-
-
   }
 
 }
