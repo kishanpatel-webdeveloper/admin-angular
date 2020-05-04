@@ -1,7 +1,8 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, Inject, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UtilsService } from './utils.service';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class StorageListnerService implements OnDestroy {
   public changes = this.onSubject.asObservable();
   key = 'user';
 
-  constructor(public router: Router, public utilsService: UtilsService) {
+  constructor(public router: Router, public utilsService: UtilsService, @Inject(DOCUMENT) document) {
     this.start();
   }
   ngOnDestroy() {
@@ -30,6 +31,10 @@ export class StorageListnerService implements OnDestroy {
     const key = 'user';
     localStorage.removeItem('user');
     localStorage.removeItem('data-theme');
+    localStorage.setItem('data-theme', 'light');
+    document.body.removeAttribute('data-theme');
+
+
     this.router.navigate(['/authentication/login']);
     this.onSubject.next({ key: key, value: null });
   }

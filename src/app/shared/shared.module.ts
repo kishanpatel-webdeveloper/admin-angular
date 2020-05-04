@@ -28,7 +28,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectFormFieldControlDirective } from './directives/ng-select.directive';
-
+import { ColorPickerModule } from 'ngx-color-picker';
 
 
 @NgModule({
@@ -47,6 +47,7 @@ import { NgSelectFormFieldControlDirective } from './directives/ng-select.direct
     MatStepperModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    ColorPickerModule,
     MatTooltipModule,
     MatExpansionModule,
     MatRadioModule,
@@ -73,9 +74,10 @@ import { NgSelectFormFieldControlDirective } from './directives/ng-select.direct
     FlexLayoutModule,
     NgSelectModule,
     DragDropModule,
+    ColorPickerModule,
     FooterComponent, NavbarComponent, ToolbarComponent, NgSelectFormFieldControlDirective,
     RouterModule],
-  declarations: [FooterComponent, NavbarComponent, ToolbarComponent,NgSelectFormFieldControlDirective],
+  declarations: [FooterComponent, NavbarComponent, ToolbarComponent, NgSelectFormFieldControlDirective],
   entryComponents: []
 })
 export class SharedModule {

@@ -10,6 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
 const routes: Routes = [
   { path: '', redirectTo: 'work_area', pathMatch: 'full ' },
   {
@@ -32,6 +34,7 @@ const routes: Routes = [
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    FlatpickrModule.forRoot(),
     RouterModule.forChild(routes)
   ]
 })

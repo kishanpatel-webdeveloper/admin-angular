@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'admin-angular';
+
+  constructor(){
+    const theme = localStorage.getItem('data-theme');
+    if (theme === 'light') {
+      document.body.setAttribute('data-theme', 'light');
+    } else if (theme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+
+    }
+  }
 }

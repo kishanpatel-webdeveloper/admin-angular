@@ -1,4 +1,4 @@
-import { Injectable, TemplateRef, ViewChild  } from '@angular/core';
+import { Injectable, TemplateRef, ViewChild } from '@angular/core';
 import {
   startOfDay,
   endOfDay,
@@ -11,12 +11,14 @@ import {
 } from 'date-fns';
 import { Subject } from 'rxjs';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UtilsService } from '../../services/utils.service';
 import {
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarView,
 } from 'angular-calendar';
+import { CalendarEventActionsComponent } from 'angular-calendar/modules/common/calendar-event-actions.component';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +36,7 @@ export class FullCalendarService {
     action: string;
     event: CalendarEvent;
   };
-   colors: any = {
+  colors: any = {
     red: {
       primary: '#ad2121',
       secondary: '#FAE3E3',
@@ -111,7 +113,12 @@ export class FullCalendarService {
   ];
 
   activeDayIsOpen: boolean = true;
-  // constructor(public modal: any) { }
+  constructor(public utilsService: UtilsService) {
+    // this.modalData.action = 'add';
+    const event = this.events[0];
+    const action = 'Add';
+    this.modalData = { event, action };
+  }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -148,6 +155,7 @@ export class FullCalendarService {
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     // this.modal.open(this.modalContent, { size: 'lg' });
+    this.utilsService.openModal('eventModal');
   }
 
   addEvent(): void {
@@ -165,6 +173,41 @@ export class FullCalendarService {
         },
       },
     ];
+  }
+
+  updateEvent() {
+    const evntIndex = this.events.findIndex(val => val.title === this.modalData.event.title);
+    if (evntIndex !== -1) {
+      this.events[evntIndex] = this.modalData.event;
+      this.refresh.next();
+    }
+    this.utilsService.hideModal('eventModal');
+
+
+  }
+  saveEvent() {
+    this.utilsService.hideModal('eventModal');
+    this.events = [
+      ...this.events,
+      this.modalData.event
+    ];
+  }
+
+  openEventModal() {
+    this.utilsService.openModal('eventModal');
+    const event = {
+      title: undefined,
+      start: startOfDay(new Date()),
+      end: endOfDay(new Date()),
+      color: this.colors.red,
+      draggable: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+    };
+    const action = 'Add Event';
+    this.modalData = { event, action };
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {

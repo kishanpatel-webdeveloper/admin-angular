@@ -14,4 +14,9 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    document.body.setAttribute('data-theme', 'light');
+    this.storageListnerService.clear()
+  }
+
 }
