@@ -7,7 +7,9 @@ import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { DemoDragDropComponent } from './demo-drag-drop/demo-drag-drop.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FullCalendarComponent } from './full-calendar/full-calendar.component';
 const routes: Routes = [
   { path: '', redirectTo: 'work_area', pathMatch: 'full ' },
   {
@@ -17,14 +19,19 @@ const routes: Routes = [
       { path: 'scrumboard', component: ScrumboardComponent },
       { path: 'demo-drag-drop', component: DemoDragDropComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'calender', component: FullCalendarComponent },
     ]
   }];
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent, ProfileComponent, ScrumboardComponent, DemoDragDropComponent],
+  declarations: [DashboardComponent, AdminComponent, ProfileComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
   imports: [
     SharedModule,
     CommonModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     RouterModule.forChild(routes)
   ]
 })

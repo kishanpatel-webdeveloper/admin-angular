@@ -14,8 +14,11 @@ export class DashboardComponent implements OnInit {
     const theme = localStorage.getItem('data-theme');
     if (theme === 'light') {
       this.checked = false;
+      document.body.setAttribute('data-theme', 'light');
     } else if (theme === 'dark') {
       this.checked = true;
+      document.body.setAttribute('data-theme', 'dark');
+
     }
   }
 
@@ -31,8 +34,6 @@ export class DashboardComponent implements OnInit {
       document.body.setAttribute('data-theme', 'dark');
       localStorage.setItem('data-theme', 'dark');
     }
-
-
   }
 
 }

@@ -125,7 +125,7 @@ export class ValidationsService {
   MOBILE_NUMBER_REQUIRED = 'Mobile Number is required!';
   MOBILE_NUMBER_INVALID = 'Please enter a valid Mobile Number.';
 
-  DATE_OF_BIRTH_AGE_MSG = 'You must be over 18 to register.';
+  DATE_OF_BIRTH_AGE_MSG = 'You must be 18+.';
   DATE_OF_BIRTH_INVALID = 'Please select/enter valid Date of Birth';
   DATE_OF_BIRTH_REQUIRED = 'Date of Birth is required!';
 
