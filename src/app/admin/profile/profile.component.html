@@ -27,136 +27,143 @@
         <div class="card-body p-0">
           <mat-tab-group class="userprofile-tab">
             <mat-tab label="Private Info">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="btn-toolbar float-right ">
-                    <button mat-raised-button color="info" *ngIf="flagForhideShowPrivateInfo=== false"
-                      (click)="privateInfoEdit()">
-                      <mat-icon>create</mat-icon>Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-md-3 col-sm-12">
-                  <div class="user-img mb-3">
-                    <img [src]="url" class="rounded-circle img-responsive">
-                    <div class="profile-edit">
-                      <button *ngIf="flagForhideShowPrivateInfo === true">
-                        <mat-icon>create</mat-icon>
-                      </button>
-                      <input type="file" accept="image/x-png,image/jpeg" #userProfilePicDoc
-                        (change)="onSelectFile($event)">
-                    </div>
-                  </div>
-                  <p class="note-msg"><span>Note :</span> For best results, use an image at least 130px by 130px in .jpg
-                    format</p>
-                  <p *ngIf="filenameForuserProfile" style="word-break: break-all;">{{filenameForuserProfile}}
-                  </p>
-                  <!-- <p class="error" *ngIf="flagForInvalidImageSize">
-                        {{utilsService.validationService.IMAGE_MAX_FILE_SIZE}} {{+(maxSize)}} KB.</p> -->
-                  <p class="error" *ngIf="flagForInvalidExtension">
-                    {{utilsService.validationService.IMAGE_INVALID_EXTENSION}}</p>
-                </div>
-                <div class="col-md-9 col-sm-12">
-                  <div class="row" [formGroup]="privateInfoForm">
-                    <div class="col-md-6 col-sm-12">
-                      <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
-                        <mat-label>First Name</mat-label>
-                        <input matInput formControlName="firstName" autocomplete="off" [(ngModel)]="userObj.firstName"
-                          required [maxlength]="utilsService.validationService.MAX_30">
-                        <mat-icon matSuffix class="secondary-text">
-                          person</mat-icon>
-                        <mat-error *ngIf="hasErrorPrivateInfo('firstName', 'required')">
-                          {{utilsService.validationService.FIRST_NAME_REQUIRED}}</mat-error>
-                        <mat-error *ngIf="hasErrorPrivateInfo('firstName', 'pattern')">
-                          {{utilsService.validationService.FIRST_NAME_INVALID}}
-                        </mat-error>
-                      </mat-form-field>
-                      <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
-                        <label class="control-label">First Name</label>
-                        <p>Kishan</p>
+              <div class="card mb-0 shadow-none">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <div class="btn-toolbar float-right ">
+                        <button mat-raised-button color="info" *ngIf="flagForhideShowPrivateInfo=== false"
+                          (click)="privateInfoEdit()">
+                          <mat-icon>create</mat-icon>Edit
+                        </button>
                       </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                      <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
-                        <mat-label>Last Name</mat-label>
-                        <input matInput formControlName="lastName" autocomplete="off" [(ngModel)]="userObj.lastName"
-                          required [maxlength]="utilsService.validationService.MAX_30">
-                        <mat-icon matSuffix class="secondary-text">
-                          person</mat-icon>
-                        <mat-error *ngIf="hasErrorPrivateInfo('lastName', 'required')">
-                          {{utilsService.validationService.LAST_NAME_REQUIRED}}</mat-error>
-                        <mat-error *ngIf="hasErrorPrivateInfo('lastName', 'pattern')">
-                          {{utilsService.validationService.LAST_NAME_REQUIRED}}
-                        </mat-error>
-                      </mat-form-field>
-                      <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
-                        <label class="control-label">Last Name</label>
-                        <p>Patel</p>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-3 col-sm-12">
+                      <div class="user-img mb-3">
+                        <img [src]="url" class="rounded-circle img-responsive">
+                        <div class="profile-edit">
+                          <button *ngIf="flagForhideShowPrivateInfo === true">
+                            <mat-icon>create</mat-icon>
+                          </button>
+                          <input type="file" accept="image/x-png,image/jpeg" #userProfilePicDoc
+                            (change)="onSelectFile($event)">
+                        </div>
+                      </div>
+                      <p class="note-msg"><span>Note :</span> For best results, use an image at least 130px by 130px in
+                        .jpg
+                        format</p>
+                      <p *ngIf="filenameForuserProfile" style="word-break: break-all;">{{filenameForuserProfile}}
+                      </p>
+                      <!-- <p class="error" *ngIf="flagForInvalidImageSize">
+                                {{utilsService.validationService.IMAGE_MAX_FILE_SIZE}} {{+(maxSize)}} KB.</p> -->
+                      <p class="error" *ngIf="flagForInvalidExtension">
+                        {{utilsService.validationService.IMAGE_INVALID_EXTENSION}}</p>
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                      <div class="row" [formGroup]="privateInfoForm">
+                        <div class="col-md-6 col-sm-12">
+                          <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstName" autocomplete="off"
+                              [(ngModel)]="userObj.firstName" required
+                              [maxlength]="utilsService.validationService.MAX_30">
+                            <mat-icon matSuffix class="secondary-text">
+                              person</mat-icon>
+                            <mat-error *ngIf="hasErrorPrivateInfo('firstName', 'required')">
+                              {{utilsService.validationService.FIRST_NAME_REQUIRED}}</mat-error>
+                            <mat-error *ngIf="hasErrorPrivateInfo('firstName', 'pattern')">
+                              {{utilsService.validationService.FIRST_NAME_INVALID}}
+                            </mat-error>
+                          </mat-form-field>
+                          <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
+                            <label class="control-label">First Name</label>
+                            <p>Kishan</p>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastName" autocomplete="off" [(ngModel)]="userObj.lastName"
+                              required [maxlength]="utilsService.validationService.MAX_30">
+                            <mat-icon matSuffix class="secondary-text">
+                              person</mat-icon>
+                            <mat-error *ngIf="hasErrorPrivateInfo('lastName', 'required')">
+                              {{utilsService.validationService.LAST_NAME_REQUIRED}}</mat-error>
+                            <mat-error *ngIf="hasErrorPrivateInfo('lastName', 'pattern')">
+                              {{utilsService.validationService.LAST_NAME_REQUIRED}}
+                            </mat-error>
+                          </mat-form-field>
+                          <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
+                            <label class="control-label">Last Name</label>
+                            <p>Patel</p>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12">
+                          <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
+                            <mat-label>Email ID</mat-label>
+                            <input matInput formControlName="email" autocomplete="off" [(ngModel)]="userObj.email"
+                              [maxlength]="utilsService.validationService.MAX_50" required>
+                            <mat-icon matSuffix class="secondary-text">mail</mat-icon>
+                            <mat-error *ngIf="hasErrorPrivateInfo('email', 'required')">
+                              {{utilsService.validationService.EMAIL_REQUIRED}}
+                            </mat-error>
+                            <mat-error *ngIf="hasErrorPrivateInfo('email', 'pattern')">
+                              {{utilsService.validationService.EMAIL_INVALID}}
+                            </mat-error>
+                          </mat-form-field>
+                          <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
+                            <label class="control-label">Email ID</label>
+                            <p>patel@gmail.com</p>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
+                            <mat-label>Mobile Number</mat-label>
+                            <input matInput formControlName="mobileNo" autocomplete="off" [(ngModel)]="userObj.mobileNo"
+                              [maxlength]="utilsService.validationService.MAX_10" required>
+                            <mat-icon matSuffix class="secondary-text">phone_iphone</mat-icon>
+                            <mat-error *ngIf="hasErrorPrivateInfo('mobileNo', 'required')">
+                              {{utilsService.validationService.MOBILE_NUMBER_REQUIRED}}
+                            </mat-error>
+                            <mat-error *ngIf="hasErrorPrivateInfo('mobileNo', 'pattern')">
+                              {{utilsService.validationService.MOBILE_NUMBER_INVALID}}
+                            </mat-error>
+                          </mat-form-field>
+                          <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
+                            <label class="control-label">Mobile No</label>
+                            <p>7854213265</p>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                          <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
+                            <mat-label>Date of Birth</mat-label>
+                            <input matInput [matDatepicker]="picker" #pickerInput formControlName="dateOfBirth"
+                              [max]="todayDate" [(ngModel)]="userObj.dateOfBirth"
+                              (ngModelChange)="ageValidator(userObj.dateOfBirth)" placeholder="Choose a date" readonly
+                              required>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker disabled="false"></mat-datepicker>
+                            <mat-error *ngIf="hasErrorPrivateInfo('dateOfBirth','incorrect')">
+                              {{utilsService.validationService.DATE_OF_BIRTH_AGE_MSG}}
+                            </mat-error>
+                            <mat-error *ngIf="hasErrorPrivateInfo('dateOfBirth','required')">
+                              {{utilsService.validationService.DATE_OF_BIRTH_REQUIRED}}
+                            </mat-error>
+                          </mat-form-field>
+                          <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
+                            <label class="control-label">Date of Birth</label>
+                            <p>11/02/1995</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    <div class="col-md-6 col-sm-12">
-                      <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
-                        <mat-label>Email ID</mat-label>
-                        <input matInput formControlName="email" autocomplete="off" [(ngModel)]="userObj.email"
-                          [maxlength]="utilsService.validationService.MAX_50" required>
-                        <mat-icon matSuffix class="secondary-text">mail</mat-icon>
-                        <mat-error *ngIf="hasErrorPrivateInfo('email', 'required')">
-                          {{utilsService.validationService.EMAIL_REQUIRED}}
-                        </mat-error>
-                        <mat-error *ngIf="hasErrorPrivateInfo('email', 'pattern')">
-                          {{utilsService.validationService.EMAIL_INVALID}}
-                        </mat-error>
-                      </mat-form-field>
-                      <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
-                        <label class="control-label">Email ID</label>
-                        <p>patel@gmail.com</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                      <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
-                        <mat-label>Mobile Number</mat-label>
-                        <input matInput formControlName="mobileNo" autocomplete="off" [(ngModel)]="userObj.mobileNo"
-                          [maxlength]="utilsService.validationService.MAX_10" required>
-                        <mat-icon matSuffix class="secondary-text">phone_iphone</mat-icon>
-                        <mat-error *ngIf="hasErrorPrivateInfo('mobileNo', 'required')">
-                          {{utilsService.validationService.MOBILE_NUMBER_REQUIRED}}
-                        </mat-error>
-                        <mat-error *ngIf="hasErrorPrivateInfo('mobileNo', 'pattern')">
-                          {{utilsService.validationService.MOBILE_NUMBER_INVALID}}
-                        </mat-error>
-                      </mat-form-field>
-                      <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
-                        <label class="control-label">Mobile No</label>
-                        <p>7854213265</p>
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12">
-                      <mat-form-field appearance="outline" *ngIf="flagForhideShowPrivateInfo=== true">
-                        <mat-label>Date of Birth</mat-label>
-                        <input matInput [matDatepicker]="picker" #pickerInput formControlName="dateOfBirth"
-                          [max]="todayDate" [(ngModel)]="userObj.dateOfBirth"
-                          (ngModelChange)="ageValidator(userObj.dateOfBirth)" placeholder="Choose a date" readonly
-                          required>
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker disabled="false"></mat-datepicker>
-                        <mat-error *ngIf="hasErrorPrivateInfo('dateOfBirth','incorrect')">
-                          {{utilsService.validationService.DATE_OF_BIRTH_AGE_MSG}}
-                        </mat-error>
-                        <mat-error *ngIf="hasErrorPrivateInfo('dateOfBirth','required')">
-                          {{utilsService.validationService.DATE_OF_BIRTH_REQUIRED}}
-                        </mat-error>
-                      </mat-form-field>
-                      <div class="form-group" *ngIf="flagForhideShowPrivateInfo=== false">
-                        <label class="control-label">Date of Birth</label>
-                        <p>11/02/1995</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-sm-12 float-right" *ngIf="flagForhideShowPrivateInfo" >
+                <div class="card-footer float-right" *ngIf="flagForhideShowPrivateInfo">
                   <button mat-raised-button class="mr-2" color="success" (click)="updatePrivateInfo()"
                     [disabled]="privateInfoForm.invalid">
                     Update
@@ -166,164 +173,168 @@
                   </button>
                 </div>
               </div>
+
             </mat-tab>
             <mat-tab label="Address Details">
-              <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="btn-toolbar float-right ">
-                    <button mat-raised-button color="info" *ngIf="flagForhideShowAddressInfo === false"
-                      (click)="addressDetailsEdit()">
-                      <mat-icon>create</mat-icon>Edit
-                    </button>
+              <div class="card mb-0 shadow-none">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                      <div class="btn-toolbar float-right ">
+                        <button mat-raised-button color="info" *ngIf="flagForhideShowAddressInfo === false"
+                          (click)="addressDetailsEdit()">
+                          <mat-icon>create</mat-icon>Edit
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="row mt-3" [formGroup]="addressInfoForm">
+                  <div class="row mt-3" [formGroup]="addressInfoForm">
 
-                <div class="col-md-12 col-sm-12">
-                  <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
-                    <mat-label>Address</mat-label>
-                    <textarea matInput [(ngModel)]="userObj.address.address" autocomplete="off" required
-                      [maxlength]="utilsService.validationService.MAX_300" formControlName="address"></textarea>
-                    <mat-icon matSuffix class="secondary-text">location_on</mat-icon>
-                    <mat-error *ngIf="hasErrorAddressInfo('address','required')">
-                      {{utilsService.validationService.ADDRESS_REQUIRED}}
-                    </mat-error>
-                    <mat-error *ngIf="hasErrorAddressInfo('address','pattern')">
-                      {{utilsService.validationService.ADDRESS_INVALID}}
-                    </mat-error>
-                  </mat-form-field>
-                  <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
-                    <label class="control-label">Address</label>
-                    <p>Surat</p>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                  <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
-                    <mat-label>State</mat-label>
-                    <ng-select ngSelectMat [items]="states" formControlName="state" [dropdownPosition]="'bottom'"
-                      notFoundText="State not found." [clearable]="false" [(ngModel)]="userObj.address.idOfStateMaster"
-                      bindLabel="name" bindValue="id" required>
-                    </ng-select>
-                    <mat-error *ngIf="hasErrorAddressInfo('state','required')">
-                      {{utilsService.validationService.STATE_REQUIRED}}
-                    </mat-error>
-                  </mat-form-field>
-                  <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
-                    <label class="control-label">State</label>
-                    <p>Gujarat</p>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                  <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
-                    <mat-label>City</mat-label>
-                    <ng-select ngSelectMat [items]="cities" formControlName="city" [dropdownPosition]="'bottom'"
-                      notFoundText="City not found." [clearable]="false" [(ngModel)]="userObj.address.idOfCityMaster"
-                      bindLabel="name" bindValue="id" required>
-                    </ng-select>
-                    <mat-error *ngIf="hasErrorAddressInfo('city','required')">
-                      {{utilsService.validationService.CITY_REQUIRED}}
-                    </mat-error>
-                  </mat-form-field>
-                  <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
-                    <label class="control-label">City</label>
-                    <p>Surat</p>
-                  </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                  <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
-                    <mat-label>Zipcode</mat-label>
-                    <input matInput formControlName="zipCode" autocomplete="off" [(ngModel)]="userObj.address.zipCode"
-                      required [maxlength]="utilsService.validationService.MAX_6">
-                    <mat-icon matSuffix class="secondary-text">fiber_pin</mat-icon>
-                    <mat-error *ngIf="hasErrorAddressInfo('zipCode', 'required')">
-                      {{utilsService.validationService.ZIPCODE_REQUIRED}}
-                    </mat-error>
-                    <mat-error *ngIf="hasErrorAddressInfo('zipCode', 'pattern')">
-                      {{utilsService.validationService.ZIPCODE_INVALID}}
-                    </mat-error>
-                  </mat-form-field>
-                  <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
-                    <label class="control-label">Zipcode</label>
-                    <p>785421</p>
-                  </div>
-                </div>
+                    <div class="col-md-12 col-sm-12">
+                      <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput [(ngModel)]="userObj.address.address" autocomplete="off" required
+                          [maxlength]="utilsService.validationService.MAX_300" formControlName="address"></textarea>
+                        <mat-icon matSuffix class="secondary-text">location_on</mat-icon>
+                        <mat-error *ngIf="hasErrorAddressInfo('address','required')">
+                          {{utilsService.validationService.ADDRESS_REQUIRED}}
+                        </mat-error>
+                        <mat-error *ngIf="hasErrorAddressInfo('address','pattern')">
+                          {{utilsService.validationService.ADDRESS_INVALID}}
+                        </mat-error>
+                      </mat-form-field>
+                      <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
+                        <label class="control-label">Address</label>
+                        <p>Surat</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <mat-form-field appearance="outline" class="theme-ngselect" *ngIf="flagForhideShowAddressInfo=== true">
+                        <mat-label>State</mat-label>
+                        <ng-select ngSelectMat [items]="states" formControlName="state" [dropdownPosition]="'bottom'"
+                          notFoundText="State not found." [clearable]="true" appendTo="body"
+                          [(ngModel)]="userObj.address.idOfStateMaster" bindLabel="name" bindValue="id" required>
+                        </ng-select>
+                        <mat-error *ngIf="hasErrorAddressInfo('state','required')">
+                          {{utilsService.validationService.STATE_REQUIRED}}
+                        </mat-error>
+                      </mat-form-field>
+                      <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
+                        <label class="control-label">State</label>
+                        <p>Gujarat</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <mat-form-field appearance="outline" class="theme-ngselect" *ngIf="flagForhideShowAddressInfo=== true">
+                        <mat-label>City</mat-label>
+                        <ng-select ngSelectMat [items]="cities" formControlName="city" [dropdownPosition]="'bottom'"
+                          notFoundText="City not found." [clearable]="true"
+                          [(ngModel)]="userObj.address.idOfCityMaster" appendTo="body"
+                          bindLabel="name" bindValue="id" required>
+                        </ng-select>
+                        <mat-error *ngIf="hasErrorAddressInfo('city','required')">
+                          {{utilsService.validationService.CITY_REQUIRED}}
+                        </mat-error>
+                      </mat-form-field>
+                      <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
+                        <label class="control-label">City</label>
+                        <p>Surat</p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <mat-form-field appearance="outline" *ngIf="flagForhideShowAddressInfo=== true">
+                        <mat-label>Zipcode</mat-label>
+                        <input matInput formControlName="zipCode" autocomplete="off"
+                          [(ngModel)]="userObj.address.zipCode" required
+                          [maxlength]="utilsService.validationService.MAX_6">
+                        <mat-icon matSuffix class="secondary-text">fiber_pin</mat-icon>
+                        <mat-error *ngIf="hasErrorAddressInfo('zipCode', 'required')">
+                          {{utilsService.validationService.ZIPCODE_REQUIRED}}
+                        </mat-error>
+                        <mat-error *ngIf="hasErrorAddressInfo('zipCode', 'pattern')">
+                          {{utilsService.validationService.ZIPCODE_INVALID}}
+                        </mat-error>
+                      </mat-form-field>
+                      <div class="form-group" *ngIf="flagForhideShowAddressInfo=== false">
+                        <label class="control-label">Zipcode</label>
+                        <p>785421</p>
+                      </div>
+                    </div>
 
-              </div>
-              <div class="col-md-12 col-sm-12 float-right" *ngIf="flagForhideShowAddressInfo">
-                <button mat-raised-button class="mr-2" color="success" (click)="updateAddressInfo()"
-                  [disabled]="addressInfoForm.invalid">
-                  Update
-                </button>
-                <button mat-raised-button color="light" (click)="cancelUpdateAddressInfo()">
-                  Cancel
-                </button>
+                  </div>
+                </div>
+                <div class="card-footer float-right" *ngIf="flagForhideShowAddressInfo">
+                  <button mat-raised-button class="mr-2" color="success" (click)="updateAddressInfo()"
+                    [disabled]="addressInfoForm.invalid">
+                    Update
+                  </button>
+                  <button mat-raised-button color="light" (click)="cancelUpdateAddressInfo()">
+                    Cancel
+                  </button>
+                </div>
               </div>
             </mat-tab>
             <mat-tab label="Change Password">
-              <!-- <div class="row">
-                <div class="col-md-12 col-sm-12">
-                  <div class="btn-toolbar float-right ">
-                    <button mat-raised-button color="info">
-                      <mat-icon>create</mat-icon>Edit
-                    </button>
+              <div class="card mb-0 shadow-none">
+                <div class="card-body">
+                  <div class="row mt-3" [formGroup]="changePasswordForm">
+                    <div class="col-md-6 col-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Current Password</mat-label>
+                        <!-- <input matInput> -->
+                        <input type="password" [maxlength]="utilsService.validationService.PASSWORD" autocomplete="off"
+                          [(ngModel)]="currentPassword" [type]="hide ? 'password' : 'text'" formControlName="password"
+                          matInput required>
+                        <mat-icon matSuffix class="secondary-text cursor" (click)="hide = !hide">
+                          {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="hasErrorChangePassword('password', 'required')">
+                          {{utilsService.validationService.PASSWORD_REQUIRED}}
+                        </mat-error>
+                        <mat-error *ngIf="hasErrorChangePassword('password', 'pattern')">
+                          {{utilsService.validationService.PASSWORD_INVALID}}
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-md-6 col-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>New Password</mat-label>
+                        <!-- <input matInput> -->
+                        <input type="password" [maxlength]="utilsService.validationService.PASSWORD" autocomplete="off"
+                          [(ngModel)]="newPassword" [type]="hide1 ? 'password' : 'text'" formControlName="newPassword"
+                          matInput required>
+                        <mat-icon matSuffix class="secondary-text cursor" (click)="hide1 = !hide1">
+                          {{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="hasErrorChangePassword('newPassword', 'required')">
+                          {{utilsService.validationService.NEW_PASSWORD_REQUIRED}}
+                        </mat-error>
+                        <mat-error *ngIf="hasErrorChangePassword('newPassword', 'pattern')">
+                          {{utilsService.validationService.PASSWORD_INVALID}}
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-md-6 col-12">
+                      <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" [type]="hide2 ? 'password' : 'text'" autocomplete="off"
+                          [maxlength]="utilsService.validationService.PASSWORD" [(ngModel)]="confirmPassword"
+                          formControlName="confirmPwd" (ngModelChange)="passwordMatch(confirmPassword)" matInput
+                          required>
+                        <mat-icon matSuffix class="secondary-text cursor" (click)="hide2 = !hide2">
+                          {{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error *ngIf="hasErrorChangePassword('confirmPwd', 'required')">
+                          {{utilsService.validationService.CONFIRM_NEW_PASSWORD_REQUIRED}}
+                        </mat-error>
+                        <mat-error *ngIf="hasErrorChangePassword('confirmPwd', 'mustMatch')">
+                          {{utilsService.validationService.PASSWORD_NOT_MATCHED}}
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+
                   </div>
                 </div>
-              </div> -->
-              <div class="row mt-3" [formGroup]="changePasswordForm">
-                <div class="col-md-6 col-12">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Current Password</mat-label>
-                    <!-- <input matInput> -->
-                    <input type="password" [maxlength]="utilsService.validationService.PASSWORD" autocomplete="off"
-                      [(ngModel)]="currentPassword" [type]="hide ? 'password' : 'text'" formControlName="password"
-                      matInput required>
-                    <mat-icon matSuffix class="secondary-text cursor" (click)="hide = !hide">
-                      {{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    <mat-error *ngIf="hasErrorChangePassword('password', 'required')">
-                      {{utilsService.validationService.PASSWORD_REQUIRED}}
-                    </mat-error>
-                    <mat-error *ngIf="hasErrorChangePassword('password', 'pattern')">
-                      {{utilsService.validationService.PASSWORD_INVALID}}
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-6 col-12">
-                  <mat-form-field appearance="outline">
-                    <mat-label>New Password</mat-label>
-                    <!-- <input matInput> -->
-                    <input type="password" [maxlength]="utilsService.validationService.PASSWORD" autocomplete="off"
-                      [(ngModel)]="newPassword" [type]="hide1 ? 'password' : 'text'" formControlName="newPassword"
-                      matInput required>
-                    <mat-icon matSuffix class="secondary-text cursor" (click)="hide1 = !hide1">
-                      {{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    <mat-error *ngIf="hasErrorChangePassword('newPassword', 'required')">
-                      {{utilsService.validationService.NEW_PASSWORD_REQUIRED}}
-                    </mat-error>
-                    <mat-error *ngIf="hasErrorChangePassword('newPassword', 'pattern')">
-                      {{utilsService.validationService.PASSWORD_INVALID}}
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-6 col-12">
-                  <mat-form-field appearance="outline">
-                    <mat-label>Confirm Password</mat-label>
-                    <input type="password" [type]="hide2 ? 'password' : 'text'" autocomplete="off"
-                      [maxlength]="utilsService.validationService.PASSWORD" [(ngModel)]="confirmPassword"
-                      formControlName="confirmPwd" (ngModelChange)="passwordMatch(confirmPassword)" matInput required>
-                    <mat-icon matSuffix class="secondary-text cursor" (click)="hide2 = !hide2">
-                      {{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    <mat-error *ngIf="hasErrorChangePassword('confirmPwd', 'required')">
-                      {{utilsService.validationService.CONFIRM_NEW_PASSWORD_REQUIRED}}
-                    </mat-error>
-                    <mat-error *ngIf="hasErrorChangePassword('confirmPwd', 'mustMatch')">
-                      {{utilsService.validationService.PASSWORD_NOT_MATCHED}}
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-12 col-sm-12 float-right">
+                <div class="card-footer float-right">
                   <button mat-raised-button class="mr-2" color="success" (click)="changePassword()"
                     [disabled]="changePasswordForm.invalid">
                     Update
@@ -333,19 +344,17 @@
                   </button>
                 </div>
               </div>
-
             </mat-tab>
-
           </mat-tab-group>
         </div>
-        <div class="card-footer float-right">
-          <!-- <button mat-raised-button class="mr-2" color="success">
+        <!-- <div class="card-footer float-right">
+           <button mat-raised-button class="mr-2" color="success">
             Update
           </button>
           <button mat-raised-button color="light" (click)="cancelUpdate()">
             Cancel
-          </button> -->
-        </div>
+          </button> 
+        </div> -->
       </div>
 
 
