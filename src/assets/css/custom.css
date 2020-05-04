@@ -130,7 +130,14 @@ body .cdk-overlay-container{ z-index: 9999; }
 .mat-form-field.mat-form-field-appearance-outline .mat-form-field-suffix {
     top: 6px;
 }
-
+body .theme-ngselect .ng-select{ padding-bottom: 0px; }
+body .theme-ngselect.mat-form-field-appearance-outline .mat-form-field-infix{ padding: 9px 0px 8px; }
+body .theme-ngselect .ng-select .ng-select-container:after{ display: none; }
+body .theme-ngselect .ng-select .ng-select-container{ height: 25px; min-height: 25px; max-height: 25px; }
+body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-arrow-wrapper{ bottom: 6px; }
+body .theme-ngselect .ng-select .ng-select-container .ng-value-container{ padding: 5px 0 0; border-top: 0 solid transparent; }
+body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{ top: 3px; bottom: 0; }
+body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper{ bottom: 3px; }
 /* .mat-form-field{ font-family: inherit !important; }
 .mat-form-field-wrapper { padding-bottom: 15px; }
 .mat-form-field-appearance-outline .mat-form-field-infix { padding: 9px 0px !important; }
@@ -180,5 +187,5 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
     margin-left: -2px;
     margin-top: 5px;
 }
-.userprofile-tab .mat-tab-body{ padding: 15px; }
+.userprofile-tab .mat-tab-body{ padding: 0px; }
 .userprofile-tab .mat-tab-body-content{ overflow: hidden;  }

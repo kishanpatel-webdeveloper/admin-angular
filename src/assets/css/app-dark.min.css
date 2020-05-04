@@ -96,6 +96,10 @@ body[data-theme="dark"] .mat-form-field.mat-focused .mat-form-field-label {
 body[data-theme="dark"] .mat-form-field .mat-input-element {
     caret-color: rgba(255,255,255,.6);
 }
+body[data-theme="dark"] .ng-select .ng-select-container{ color: inherit; }
+body[data-theme="dark"] .ng-select .ng-arrow-wrapper .ng-arrow{ color: #a6b0cf; }
+body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-datepicker-toggle-default-icon, 
+body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon{ color: #a6b0cf; }
 
 /* Form Control CSS */
 body[data-theme="dark"] .form-group .control-label{ color: #fff; }
