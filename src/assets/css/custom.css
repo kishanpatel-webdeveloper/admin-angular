@@ -130,6 +130,7 @@ body .cdk-overlay-container{ z-index: 9999; }
 .mat-form-field.mat-form-field-appearance-outline .mat-form-field-suffix {
     top: 6px;
 }
+body mat-label{ color: rgba(0,0,0,.6); }
 body .theme-ngselect .ng-select{ padding-bottom: 0px; }
 body .theme-ngselect.mat-form-field-appearance-outline .mat-form-field-infix{ padding: 9px 0px 8px; }
 body .theme-ngselect .ng-select .ng-select-container:after{ display: none; }
@@ -138,6 +139,7 @@ body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-arrow-
 body .theme-ngselect .ng-select .ng-select-container .ng-value-container{ padding: 5px 0 0; border-top: 0 solid transparent; }
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{ top: 3px; bottom: 0; }
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper{ bottom: 3px; }
+body .theme-datetimepicker input[type="text"] { width: 100%; border: 0; background-color: transparent; outline: 0; }
 /* .mat-form-field{ font-family: inherit !important; }
 .mat-form-field-wrapper { padding-bottom: 15px; }
 .mat-form-field-appearance-outline .mat-form-field-infix { padding: 9px 0px !important; }
