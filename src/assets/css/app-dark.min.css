@@ -100,6 +100,24 @@ body[data-theme="dark"] .ng-select .ng-select-container{ color: inherit; }
 body[data-theme="dark"] .ng-select .ng-arrow-wrapper .ng-arrow{ color: #a6b0cf; }
 body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-datepicker-toggle-default-icon, 
 body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon{ color: #a6b0cf; }
+body[data-theme="dark"] mat-label{ color: rgba(255,255,255,.6); }
+body[data-theme="dark"] .theme-datetimepicker input[type="text"]{ color:#a6b0cf; }
 
 /* Form Control CSS */
 body[data-theme="dark"] .form-group .control-label{ color: #fff; }
+
+/* Modal CSS */
+body[data-theme="dark"] .modal-header{ border-bottom: 1px solid #32394e; }
+body[data-theme="dark"] .modal-content{ background-color: #2a3042; border: 1px solid #32394e; }
+body[data-theme="dark"] .modal-footer{ border-top: 1px solid #32394e; }
+
+body[data-theme="dark"] .full-calender .cal-month-view{ background-color: transparent; }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-cell-row:hover {
+    background-color: #a6b0cf; }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-cell-row .cal-cell:hover, 
+body[data-theme="dark"] .full-calender .cal-month-view .cal-cell.cal-has-events.cal-open{
+    background-color: #a6b0cf;
+}
+body[data-theme="dark"] .full-calender .cal-month-view .cal-days{ border-color: #32394e; }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-days .cal-cell-row{ border-bottom-color:  #32394e;  }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell:not(:last-child){     border-right-color: #32394e; }
