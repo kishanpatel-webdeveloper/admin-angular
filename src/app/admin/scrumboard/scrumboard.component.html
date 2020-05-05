@@ -36,7 +36,8 @@
               <!-- <div class="card-body" (click)="utilsService.openModal('createCardModal')">
                 {{ item.name }}
               </div> -->
-              <div class="card-img" *ngIf="item.coverImageUrl"  [ngStyle]="{'background-image': 'url('+ item.coverImageUrl + ')'}">
+              <div class="card-img" *ngIf="item.coverImageUrl"
+                [ngStyle]="{'background-image': 'url('+ item.coverImageUrl + ')'}">
 
               </div>
               <div class="card-body" (click)="openCardModal(item, j,i)">
@@ -56,9 +57,15 @@
               </div>
               <div class="card-footer">
                 <div class="task-action">
-                  <button type="button" class="btn btn-success btn-sm waves-effect waves-light mr-1">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="item.taskDate"
+                      (ngModelChange)="updateEventDate(item,j,i)" placeholder="Choose a date">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <button type="button" (click)="picker.open()"
+                    class="btn btn-success btn-sm waves-effect waves-light mr-1">
                     <i class="bx bxs-bell
-                        font-size-16 align-middle mr-1"></i> Apr, 8
+                        font-size-16 align-middle mr-1"></i> {{item.taskDate | date:'MMMM , d'}}
                   </button>
                   <button type="button" class="btn btn-light btn-sm waves-effect waves-light mr-1">
                     <i class="bx bxs-comment-detail
@@ -78,8 +85,6 @@
                     <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li> -->
                   </ul>
                 </div>
-
-
               </div>
             </div>
 

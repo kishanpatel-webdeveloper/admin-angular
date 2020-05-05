@@ -118,6 +118,15 @@ export class FullCalendarService {
     const event = this.events[0];
     const action = 'Add';
     this.modalData = { event, action };
+
+    if (!this.utilsService.isNullUndefinedOrBlank(localStorage.getItem('CalendarEvents'))) {
+      const arrayOfEvents = JSON.parse(localStorage.getItem('CalendarEvents'));
+      arrayOfEvents.filter(val => {
+        val.event.start = startOfDay(new Date(val.event.start));
+        val.event.end = endOfDay(new Date(val.event.end));
+        this.events = [...this.events, val.event];
+      });
+    }
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -182,8 +191,6 @@ export class FullCalendarService {
       this.refresh.next();
     }
     this.utilsService.hideModal('eventModal');
-
-
   }
   saveEvent() {
     this.utilsService.hideModal('eventModal');

@@ -42,6 +42,10 @@ export class Card {
   @deserializeAs('coverImageName')
   private _coverImageName: string;
 
+  @serializeAs('taskDate')
+  @deserializeAs('taskDate')
+  private _taskDate: Date;
+
 
   /**
    * Getter id
@@ -186,6 +190,22 @@ export class Card {
    */
   public set coverImageName(value: string) {
     this._coverImageName = value;
+  }
+
+  /**
+   * Getter taskDate
+   * @return {Date}
+   */
+  public get taskDate(): Date {
+    return this._taskDate;
+  }
+
+  /**
+   * Setter taskDate
+   * @param {Date} value
+   */
+  public set taskDate(value: Date) {
+    this._taskDate = value;
   }
 
 }

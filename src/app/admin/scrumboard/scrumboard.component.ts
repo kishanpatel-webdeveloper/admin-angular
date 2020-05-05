@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { Column } from 'src/app/models/column.model';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
@@ -7,13 +7,16 @@ import { Card } from '../../models/card';
 import { User } from '../../models/user';
 import { Deserialize, serializeAs, Serialize } from 'cerialize';
 import { Status } from '../../models/status';
+import { startOfDay, endOfDay } from 'date-fns';
+import { CalendarEvent } from 'angular-calendar';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-scrumboard',
   templateUrl: './scrumboard.component.html',
   styleUrls: ['./scrumboard.component.css']
 })
-export class ScrumboardComponent implements OnInit {
+export class ScrumboardComponent implements OnInit, OnDestroy {
 
   board: Board = new Board('Test Board', [
     new Column(1, 'TO DO ', new Array<Card>()),
@@ -21,6 +24,26 @@ export class ScrumboardComponent implements OnInit {
     new Column(3, 'IN REVIEW', new Array<Card>()),
     new Column(4, 'DONE', new Array<Card>())
   ]);
+
+  colors: any = {
+    red: {
+      primary: '#ad2121',
+      secondary: '#FAE3E3',
+    },
+    blue: {
+      primary: '#1e90ff',
+      secondary: '#D1E8FF',
+    },
+    yellow: {
+      primary: '#e3bc08',
+      secondary: '#FDF1BA',
+    },
+  };
+
+  modalData: {
+    action: string;
+    event: any;
+  };
   description: string;
   listNgModel: string;
   cardTitle: string;
@@ -30,7 +53,9 @@ export class ScrumboardComponent implements OnInit {
   cardIndex: number;
   userList: Array<User> = new Array<User>();
   statusList: Array<Status> = new Array<Status>();
-  constructor(public utilsService: UtilsService) {
+  todayDate = new Date();
+  arrayOfEvents = [];
+  constructor(public utilsService: UtilsService, public datepipe: DatePipe) {
     const statusObj1 = new Status();
     statusObj1.id = '1';
     statusObj1.name = 'High Priority';
@@ -81,8 +106,17 @@ export class ScrumboardComponent implements OnInit {
     this.userList.push(userObj3);
     this.userList.push(userObj4);
 
+    const obj = new Card();
+    obj.name = 'New Design';
+    obj.status = 'TO DO';
+    obj.taskDate = new Date();
+    this.board.columns[0].tasks.push(obj);
+    this.createCalendarEvent(obj);
   }
   ngOnInit() {
+  }
+  ngOnDestroy() {
+    localStorage.setItem('CalendarEvents', JSON.stringify(this.arrayOfEvents));
   }
   addList() {
     if (this.listNgModel) {
@@ -109,8 +143,10 @@ export class ScrumboardComponent implements OnInit {
     if (this.cardTitle) {
       const obj = new Card();
       obj.name = this.cardTitle;
+      obj.taskDate = new Date();
       obj.status = this.board.columns[this.indexOfList].name;
       this.board.columns[this.indexOfList].tasks.push(obj);
+      this.createCalendarEvent(obj);
       this.cardTitle = undefined;
       this.utilsService.hideModal('createListModal');
       this.utilsService.toasterService.success('Card Created Successfully', '', {
@@ -160,7 +196,22 @@ export class ScrumboardComponent implements OnInit {
     this.indexOfList = columnIndex;
     this.utilsService.openModal('createCardModal');
   }
-
+  createCalendarEvent(obj: Card) {
+    const event = {
+      title: obj.name,
+      start: this.datepipe.transform(new Date(obj.taskDate), 'yyyy-MM-dd'),
+      end: this.datepipe.transform(new Date(obj.taskDate), 'yyyy-MM-dd'),
+      color: this.colors.blue,
+      draggable: true,
+      resizable: {
+        beforeStart: true,
+        afterEnd: true,
+      },
+    };
+    const action = 'Task Events';
+    this.modalData = { event, action };
+    this.arrayOfEvents.push(this.modalData);
+  }
   // drop(event: CdkDragDrop<string[]>) {
   //   if (event.previousContainer === event.container) {
   //     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -175,7 +226,15 @@ export class ScrumboardComponent implements OnInit {
   // dropCard(event: CdkDragDrop<string[]>) {
   //   moveItemInArray(this.board.columns, event.previousIndex, event.currentIndex);
   // }
-
+  updateEventDate(obj, cardIndex, listIndex) {
+    const eventIndex = this.arrayOfEvents.findIndex(val => val.event.title === obj.name);
+    console.log(eventIndex);
+    if (eventIndex !== -1) {
+      this.arrayOfEvents[eventIndex].event.start = this.datepipe.transform(new Date(obj.taskDate), 'yyyy-MM-dd');
+      this.arrayOfEvents[eventIndex].event.end = this.datepipe.transform(new Date(obj.taskDate), 'yyyy-MM-dd');
+    }
+    console.log(this.arrayOfEvents);
+  }
 
   dropItem(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
