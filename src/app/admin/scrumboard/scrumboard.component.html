@@ -57,7 +57,7 @@
               </div>
               <div class="card-footer">
                 <div class="task-action">
-                  <mat-form-field class="example-full-width">
+                  <mat-form-field class="example-full-width" style="width:1px;visibility:hidden;">
                     <input matInput [matDatepicker]="picker" [(ngModel)]="item.taskDate"
                       (ngModelChange)="updateEventDate(item,j,i)" placeholder="Choose a date">
                     <mat-datepicker #picker></mat-datepicker>
