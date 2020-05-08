@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, Renderer2 } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  color: ThemePalette = 'accent';
+  checked = false;
+  disabled = false;
+  constructor(@Inject(DOCUMENT) document, r: Renderer2) {
+    const theme = localStorage.getItem('data-theme');
+    if (theme === 'light') {
+      this.checked = false;
+      // document.body.setAttribute('data-theme', 'light');
+    } else if (theme === 'dark') {
+      this.checked = true;
+      // document.body.setAttribute('data-theme', 'dark');
+
+    }
+  }
+
+  changeTheme() {
+    this.checked = !this.checked;
+    if (this.checked === false) {
+      document.body.setAttribute('data-theme', 'light');
+      localStorage.setItem('data-theme', 'light');
+    } else if (this.checked === true) {
+      document.body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('data-theme', 'dark');
+    }
+  }
 
   ngOnInit() {
     this.loadScript('../assets/js/metisMenu.min.js');
