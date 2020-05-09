@@ -191,3 +191,7 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 }
 .userprofile-tab .mat-tab-body{ padding: 0px; }
 .userprofile-tab .mat-tab-body-content{ overflow: hidden;  }
+
+/* Calender CSS */
+.full-calender .cal-month-view .cal-day-cell{ outline: 0px; }
+.full-calender .cal-month-view .cal-open-day-events{ background-color: #222736; box-shadow:none }

@@ -111,13 +111,22 @@ body[data-theme="dark"] .modal-header{ border-bottom: 1px solid #32394e; }
 body[data-theme="dark"] .modal-content{ background-color: #2a3042; border: 1px solid #32394e; }
 body[data-theme="dark"] .modal-footer{ border-top: 1px solid #32394e; }
 
+/* Calender CSS */
 body[data-theme="dark"] .full-calender .cal-month-view{ background-color: transparent; }
-body[data-theme="dark"] .full-calender .cal-month-view .cal-cell-row:hover {
-    background-color: #a6b0cf; }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-cell-row:hover { background-color: #32394e; }
 body[data-theme="dark"] .full-calender .cal-month-view .cal-cell-row .cal-cell:hover, 
-body[data-theme="dark"] .full-calender .cal-month-view .cal-cell.cal-has-events.cal-open{
-    background-color: #a6b0cf;
-}
+body[data-theme="dark"] .full-calender .cal-month-view .cal-cell.cal-has-events.cal-open,
+body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell.cal-today{
+    background-color: #222736; }
+    body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell.cal-drag-over{
+        background-color: #222736 !important; }
 body[data-theme="dark"] .full-calender .cal-month-view .cal-days{ border-color: #32394e; }
 body[data-theme="dark"] .full-calender .cal-month-view .cal-days .cal-cell-row{ border-bottom-color:  #32394e;  }
-body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell:not(:last-child){     border-right-color: #32394e; }
+body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell:not(:last-child){ border-right-color: #32394e; }
+
+body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell.cal-weekend .cal-day-number {
+    color: #cd5c5c !important;
+}
+body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell.cal-out-month .cal-day-number{ opacity: 0.2; }
+
+
