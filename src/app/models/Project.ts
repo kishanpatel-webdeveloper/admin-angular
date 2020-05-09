@@ -13,6 +13,10 @@ export class Project {
   @deserializeAs('status')
   private _status: string;
 
+  @serializeAs('priority')
+  @deserializeAs('priority')
+  private _priority: string;
+
   @serializeAs('permission')
   @deserializeAs('permission')
   private _permission: string;
@@ -21,9 +25,33 @@ export class Project {
   @deserializeAs('description')
   private _description: string;
 
+  @serializeAs('projectImgUrl')
+  @deserializeAs('projectImgUrl')
+  private _projectImgUrl: string;
+
   @serializeAs('dueDate')
   @deserializeAs('dueDate')
   private _dueDate: string;
+
+  @serializeAs('startDate')
+  @deserializeAs('startDate')
+  private _startDate: string;
+
+  @serializeAs('endDate')
+  @deserializeAs('endDate')
+  private _endDate: string;
+
+  @serializeAs('estimation_cost')
+  @deserializeAs('estimation_cost')
+  private _estimation_cost: string;
+
+  @serializeAs('estimation_time')
+  @deserializeAs('estimation_time')
+  private _estimation_time: string;
+
+  @serializeAs('tags')
+  @deserializeAs('tags')
+  private _setOfTags: any;
 
   @serializeAs('users')
   @deserializeAs('users')
@@ -140,6 +168,118 @@ export class Project {
    */
   public set permission(value: string) {
     this._permission = value;
+  }
+
+  /**
+   * Getter priority
+   * @return {string}
+   */
+  public get priority(): string {
+    return this._priority;
+  }
+
+  /**
+   * Setter priority
+   * @param {string} value
+   */
+  public set priority(value: string) {
+    this._priority = value;
+  }
+
+  /**
+   * Getter startDate
+   * @return {string}
+   */
+  public get startDate(): string {
+    return this._startDate;
+  }
+
+  /**
+   * Getter endDate
+   * @return {string}
+   */
+  public get endDate(): string {
+    return this._endDate;
+  }
+
+  /**
+   * Setter startDate
+   * @param {string} value
+   */
+  public set startDate(value: string) {
+    this._startDate = value;
+  }
+
+  /**
+   * Setter endDate
+   * @param {string} value
+   */
+  public set endDate(value: string) {
+    this._endDate = value;
+  }
+
+  /**
+   * Getter estimation_cost
+   * @return {string}
+   */
+  public get estimation_cost(): string {
+    return this._estimation_cost;
+  }
+
+  /**
+   * Getter estimation_time
+   * @return {string}
+   */
+  public get estimation_time(): string {
+    return this._estimation_time;
+  }
+
+  /**
+   * Setter estimation_cost
+   * @param {string} value
+   */
+  public set estimation_cost(value: string) {
+    this._estimation_cost = value;
+  }
+
+  /**
+   * Setter estimation_time
+   * @param {string} value
+   */
+  public set estimation_time(value: string) {
+    this._estimation_time = value;
+  }
+
+  /**
+   * Getter setOfTags
+   * @return {any}
+   */
+  public get setOfTags(): any {
+    return this._setOfTags;
+  }
+
+  /**
+   * Setter setOfTags
+   * @param {any} value
+   */
+  public set setOfTags(value: any) {
+    this._setOfTags = value;
+  }
+
+  /**
+   * Getter projectImgUrl
+   * @return {string}
+   */
+  public get projectImgUrl(): string {
+    return this._projectImgUrl;
+  }
+
+  /**
+   * Setter projectImgUrl
+   * @param {string} value
+   */
+  public set projectImgUrl(value: string) {
+    this._projectImgUrl = value;
   }
 
 }

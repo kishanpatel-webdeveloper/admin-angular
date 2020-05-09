@@ -32,7 +32,7 @@
 
   <!-- Grid View -->
   <div class="row" *ngIf="flagForHideShowGridView === false">
-    <div class="col-xl-4 col-sm-6">
+    <div class="col-xl-4 col-sm-6" *ngFor="let item of arrayOfProjects;let i = index;">
       <div class="card">
         <div class="card-body">
           <div class="media">
@@ -43,8 +43,8 @@
             </div>
 
             <div class="media-body overflow-hidden">
-              <h5 class="text-truncate">New admin Design</h5>
-              <p class="text-muted mb-4">It will be as simple as Occidental</p>
+              <h5 class="text-truncate">{{item.title}}</h5>
+              <p class="text-muted mb-4">{{item.description}}</p>
               <div class="team">
                 <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
                   data-original-title="Daniel Canales">
@@ -63,11 +63,11 @@
         <div class="card-footer">
           <ul class="list-inline mb-0">
             <li class="list-inline-item mr-3">
-              <span class="badge badge-primary">Completed</span>
+              <span class="badge badge-primary">{{item.status}}</span>
             </li>
             <li class="list-inline-item mr-3" data-toggle="tooltip" data-placement="top" title=""
               data-original-title="Due Date">
-              <i class="bx bx-calendar mr-1"></i> 15 Oct, 19
+              <i class="bx bx-calendar mr-1"></i> {{item.endDate}}
             </li>
             <li class="list-inline-item mr-3" data-toggle="tooltip" data-placement="top" title=""
               data-original-title="Comments">
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div class="col-xl-4 col-sm-6">
+    <!-- <div class="col-xl-4 col-sm-6">
       <div class="card">
         <div class="card-body">
           <div class="media">
@@ -451,7 +451,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <!-- List View -->
@@ -471,25 +471,25 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><img src="assets/images/companies/img-1.png" alt="" class="avatar-sm"></td>
+              <tr *ngFor="let item of arrayOfProjects;let i = index;">
+                <td><img [src]="item.projectImgUrl" alt="" class="avatar-sm"></td>
                 <td>
-                  <h5 class="text-truncate">New admin Design</h5>
-                  <p class="text-muted mb-0">It will be as simple as Occidental</p>
+                  <h5 class="text-truncate">{{item.title}}</h5>
+                  <p class="text-muted mb-0">{{item.description}}</p>
                 </td>
-                <td>15 Oct, 19</td>
-                <td><span class="badge badge-primary">Completed</span></td>
+                <td>{{item.endDate}}</td>
+                <td><span class="badge badge-primary">{{item.status}}</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
-                      data-original-title="Daniel Canales">
-                      <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs m-1" alt="">
+                    <a *ngFor="let item1 of item.users"  class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      [data-original-title="Daniel Canales">
+                      <img [src]="item1.profileImg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
-
+<!--
                     <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
                       data-original-title="Jennifer Walker">
                       <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs m-1" alt="">
-                    </a>
+                    </a> -->
 
                   </div>
                 </td>
@@ -506,7 +506,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td><img src="assets/images/companies/img-2.png" alt="" class="avatar-sm"></td>
                 <td>
                   <h5 class="text-truncate">Brand logo design</h5>
@@ -713,7 +713,7 @@
                     </div>
                   </div>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
