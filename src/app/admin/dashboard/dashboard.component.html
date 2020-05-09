@@ -14,10 +14,16 @@
             </ol>
           </div>
         </div>
-        <div class="">
+        <div class="d-flex">
+          <button mat-raised-button color="primary" class=" mr-2">
+            <mat-icon>add</mat-icon>Create Project
+          </button>
           <ul class="list-grid-view">
-            <li class="lgv-active"><span class="material-icons">apps</span></li>
-            <li><span class="material-icons">list</span></li>
+            <li [ngClass]="{'lgv-active': flagForHideShowGridView === false}" (click)="changelistView('Grid-View')">
+              <span class="material-icons">apps</span></li>
+            <li [ngClass]="{'lgv-active': flagForHideShowGridView === true}" (click)="changelistView('List-View')"><span
+                class="material-icons">list</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -25,7 +31,7 @@
   </div>
 
   <!-- Grid View -->
-  <div class="row">
+  <div class="row" *ngIf="flagForHideShowGridView === false">
     <div class="col-xl-4 col-sm-6">
       <div class="card">
         <div class="card-body">
@@ -40,13 +46,13 @@
               <h5 class="text-truncate">New admin Design</h5>
               <p class="text-muted mb-4">It will be as simple as Occidental</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Daniel Canales">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Daniel Canales">
                   <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Jennifer Walker">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Jennifer Walker">
                   <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
@@ -86,8 +92,8 @@
               <h5 class="text-truncate">Brand logo design</h5>
               <p class="text-muted mb-4">To achieve it would be necessary</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Kenneth Johnson">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Kenneth Johnson">
                   <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
@@ -127,12 +133,12 @@
               <h5 class="text-truncate">New Landing Design</h5>
               <p class="text-muted mb-4"> For science, music, sport, etc</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Natalie Salerno">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Natalie Salerno">
                   <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Andy Miller">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Andy Miller">
                   <div class="avatar-xs m-1">
                     <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-16">
                       A
@@ -140,8 +146,8 @@
                   </div>
                 </a>
 
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Helen Chaffin">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Helen Chaffin">
                   <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
               </div>
@@ -180,13 +186,13 @@
               <h5 class="text-truncate">Redesign - Landing page</h5>
               <p class="text-muted mb-4">If several languages coalesce</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Paul Miller">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Paul Miller">
                   <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="David Conyers">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="David Conyers">
                   <div class="avatar-xs m-1">
                     <span class="avatar-title rounded-circle bg-soft-success text-success font-size-16">
                       D
@@ -230,12 +236,12 @@
               <h5 class="text-truncate">Skote Dashboard UI</h5>
               <p class="text-muted mb-4">Separate existence is a myth</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Steven Jenkins">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Steven Jenkins">
                   <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Ruby Clinton">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Ruby Clinton">
                   <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
@@ -275,8 +281,8 @@
               <h5 class="text-truncate">Blog Template UI</h5>
               <p class="text-muted mb-4"> For science, music, sport, etc</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Ken Dorsey">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Ken Dorsey">
                   <div class="avatar-xs m-1">
                     <span class="avatar-title rounded-circle bg-soft-danger text-danger font-size-16">
                       K
@@ -320,8 +326,8 @@
               <h5 class="text-truncate">Multipurpose Landing</h5>
               <p class="text-muted mb-4">It will be as simple as Occidental</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Daniel Canales">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Daniel Canales">
                   <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
@@ -362,16 +368,16 @@
               <p class="text-muted mb-4">To achieve it would be necessary</p>
               <div class="team">
                 <div class="team">
-                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                    data-placement="top" title="" data-original-title="Derek Mathes">
+                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                    data-original-title="Derek Mathes">
                     <div class="avatar-xs m-1">
                       <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-16">
                         D
                       </span>
                     </div>
                   </a>
-                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                    data-placement="top" title="" data-original-title="Harold Mendez">
+                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                    data-original-title="Harold Mendez">
                     <div class="avatar-xs m-1">
                       <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-16">
                         H
@@ -379,8 +385,8 @@
                     </div>
                   </a>
 
-                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                    data-placement="top" title="" data-original-title="Patricia Harrison">
+                  <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                    data-original-title="Patricia Harrison">
                     <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs m-1" alt="">
                   </a>
                 </div>
@@ -421,8 +427,8 @@
               <h5 class="text-truncate">New admin Design</h5>
               <p class="text-muted mb-4"> Their most common words.</p>
               <div class="team">
-                <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                  data-placement="top" title="" data-original-title="Natalie Salerno">
+                <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                  data-original-title="Natalie Salerno">
                   <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
               </div>
@@ -449,7 +455,7 @@
   </div>
 
   <!-- List View -->
-  <div class="row">
+  <div class="row" *ngIf="flagForHideShowGridView === true">
     <div class="col-lg-12">
       <div class="">
         <div class="table-responsive">
@@ -475,13 +481,13 @@
                 <td><span class="badge badge-primary">Completed</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Daniel Canales">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Daniel Canales">
                       <img src="assets/images/users/avatar-2.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
 
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Jennifer Walker">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Jennifer Walker">
                       <img src="assets/images/users/avatar-1.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
 
@@ -510,8 +516,8 @@
                 <td><span class="badge badge-warning">Pending</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Kenneth Johnson">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Kenneth Johnson">
                       <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
 
@@ -540,12 +546,12 @@
                 <td><span class="badge badge-danger">Delay</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Natalie Salerno">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Natalie Salerno">
                       <img src="assets/images/users/avatar-5.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Andy Miller">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Andy Miller">
                       <div class="avatar-xs m-1">
                         <span class="avatar-title rounded-circle bg-soft-primary text-primary font-size-16">
                           A
@@ -553,8 +559,8 @@
                       </div>
                     </a>
 
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Helen Chaffin">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Helen Chaffin">
                       <img src="assets/images/users/avatar-4.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
                   </div>
@@ -583,13 +589,13 @@
                 <td><span class="badge badge-primary">Completed</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Paul Miller">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Paul Miller">
                       <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
 
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="David Conyers">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="David Conyers">
                       <div class="avatar-xs m-1">
                         <span class="avatar-title rounded-circle bg-soft-success text-success font-size-16">
                           D
@@ -621,12 +627,12 @@
                 <td><span class="badge badge-primary">Completed</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Steven Jenkins">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Steven Jenkins">
                       <img src="assets/images/users/avatar-7.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Ruby Clinton">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Ruby Clinton">
                       <img src="assets/images/users/avatar-8.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
                   </div>
@@ -654,8 +660,8 @@
                 <td><span class="badge badge-warning">pending</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Ken Dorsey">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Ken Dorsey">
                       <div class="avatar-xs m-1">
                         <span class="avatar-title rounded-circle bg-soft-danger text-danger font-size-16">
                           K
@@ -688,8 +694,8 @@
                 <td><span class="badge badge-danger">Delay</span></td>
                 <td>
                   <div class="team">
-                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip"
-                      data-placement="top" title="" data-original-title="Daniel Canales">
+                    <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
+                      data-original-title="Daniel Canales">
                       <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-xs m-1" alt="">
                     </a>
 
