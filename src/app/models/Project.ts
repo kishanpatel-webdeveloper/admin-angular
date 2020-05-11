@@ -49,6 +49,14 @@ export class Project {
   @deserializeAs('estimation_time')
   private _estimation_time: string;
 
+  @serializeAs('currency')
+  @deserializeAs('currency')
+  private _currency: string;
+
+  @serializeAs('external_project_or_not')
+  @deserializeAs('external_project_or_not')
+  private _external_project_or_not: string;
+
   @serializeAs('tags')
   @deserializeAs('tags')
   private _setOfTags: any;
@@ -280,6 +288,38 @@ export class Project {
    */
   public set projectImgUrl(value: string) {
     this._projectImgUrl = value;
+  }
+
+  /**
+   * Getter external_project_or_not
+   * @return {string}
+   */
+  public get external_project_or_not(): string {
+    return this._external_project_or_not;
+  }
+
+  /**
+   * Setter external_project_or_not
+   * @param {string} value
+   */
+  public set external_project_or_not(value: string) {
+    this._external_project_or_not = value;
+  }
+
+  /**
+   * Getter currency
+   * @return {string}
+   */
+  public get currency(): string {
+    return this._currency;
+  }
+
+  /**
+   * Setter currency
+   * @param {string} value
+   */
+  public set currency(value: string) {
+    this._currency = value;
   }
 
 }
