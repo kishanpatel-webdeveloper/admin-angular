@@ -158,6 +158,8 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 .mat-form-field .mat-form-field-appearance-outline .mat-form-field-prefix,
 .mat-form-field .mat-form-field-appearance-outline .mat-form-field-suffix { top: 1px; } */
 
+/* MOdal SVG Color  */
+/* #212529 */
 
 /* Scrumbboard CSS */
 .createtaskmodal .mat-select .mat-select-arrow-wrapper{ display: none;  }
