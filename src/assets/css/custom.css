@@ -140,6 +140,10 @@ body .theme-ngselect .ng-select .ng-select-container .ng-value-container{ paddin
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{ top: 3px; bottom: 0; }
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper{ bottom: 3px; }
 body .theme-datetimepicker input[type="text"] { width: 100%; border: 0; background-color: transparent; outline: 0; }
+body .mat-accent .mat-pseudo-checkbox-checked, 
+body .mat-accent .mat-pseudo-checkbox-indeterminate, 
+body .mat-pseudo-checkbox-checked, 
+body .mat-pseudo-checkbox-indeterminate { background: #556ee6; }
 /* .mat-form-field{ font-family: inherit !important; }
 .mat-form-field-wrapper { padding-bottom: 15px; }
 .mat-form-field-appearance-outline .mat-form-field-infix { padding: 9px 0px !important; }
@@ -157,6 +161,8 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 
 /* Scrumbboard CSS */
 .createtaskmodal .mat-select .mat-select-arrow-wrapper{ display: none;  }
+.hide-datepicker .mat-form-field-wrapper{ padding-bottom: 0px !important; }
+.hide-datepicker .mat-form-field-infix{ padding: 0 !important; border-top: 0 !important; }
 
 
 /* User Profile CSS */

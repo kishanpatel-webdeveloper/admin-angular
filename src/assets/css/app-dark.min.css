@@ -68,6 +68,7 @@ body[data-theme="dark"] .notification-item .media:hover {
     background-color: #32394e;
 }
 body[data-theme="dark"] .noti-icon i{ color: #a6b0cf; }
+body[data-theme="dark"] .border-top{ border-top: 1px solid #32394e !important; }
 
 /* Text Color CSS */
 body[data-theme="dark"] .text-muted {
