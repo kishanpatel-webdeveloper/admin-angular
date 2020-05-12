@@ -1,4 +1,4 @@
-import { Injectable, Inject, Renderer2 } from '@angular/core';
+import { Injectable, Inject, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Project } from '../../models/Project';
 import { User } from '../../models/user';
@@ -12,10 +12,20 @@ export class DashboardService {
   // color: ThemePalette = 'accent';
   // checked = false;
   // disabled = false;
+
+  @ViewChild('projectProfilePicDoc')
+  projectProfilePicDoc: ElementRef;
+  maxSize: number = 1024 * 5;
+  url: string;
+  filenameForuserProfile: string;
+  flagForInvalidImageSize: boolean = false;
+  flagForInvalidExtension: boolean = false;
+
   createProjectForm: FormGroup;
   flagForHideShowGridView: boolean;
   arrayOfProjects: Array<Project> = new Array<Project>();
   projectObj = new Project();
+  todayDate = new Date();
   arrayOfUsers: Array<User> = new Array<User>();
   arrayOfPriority = [
     { id: 1, name: 'Low' },
@@ -30,10 +40,10 @@ export class DashboardService {
     { id: 1, name: 'Yes, this project involves other company' },
     { id: 2, name: 'No , this project is for our company.' },
   ];
-
+  selectedIndex = 0;
   constructor(@Inject(DOCUMENT) document, r: Renderer2, public utilsService: UtilsService, public formBuilder: FormBuilder) {
     this.flagForHideShowGridView = false;
-
+    this.url = 'assets/images/companies/img-1.png';
     const userObj1 = new User();
     userObj1.id = '1';
     userObj1.name = 'Dhrumin';
@@ -100,10 +110,66 @@ export class DashboardService {
     }
   }
 
-  createProject() {
-    this.utilsService.hideModal('createProjectModal');
-    this.arrayOfProjects.push(this.projectObj);
-    this.projectObj = new Project();
+
+  onSelectFile(event): void {
+    if (event.target.files && event.target.files[0]) {
+      this.flagForInvalidExtension = false;
+      this.flagForInvalidImageSize = false;
+      const reader = new FileReader();
+      const max_file_size = 256000;
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      const selectedFile = event.target.files[0];
+      if (selectedFile) {
+        const ext = selectedFile.name.split('.').pop();
+        const ext1 = (ext).toLowerCase();
+        // this.extensionForAttachment = ext1;
+
+        if (ext1 === 'jpeg' || ext1 === 'png' || ext1 === 'jpg') {
+          if (max_file_size < selectedFile.size) {
+            this.flagForInvalidImageSize = true;
+            this.filenameForuserProfile = '';
+            // this.url = this.utilsService.urlForPhoto + this.photoName;
+          } else {
+            this.filenameForuserProfile = event.target.files[0].name;
+            // this.formDataForSaveAndUpdate.set('document', event.target.files[0]);
+            this.utilsService.readUrl(event, response => {
+              this.url = response;
+              const blob = this.utilsService.convertBase64ToBlob(response);
+              // const fileURL = URL.createObjectURL(blob);
+              // this.url = fileURL;
+              const imageBASE64 = this.url.split(',')[1];
+            });
+          }
+        } else {
+          this.flagForInvalidExtension = true;
+          this.filenameForuserProfile = '';
+          // this.url = this.utilsService.urlForPhoto + this.photoName;
+        }
+      }
+    }
   }
 
+  createProject() {
+    this.utilsService.hideModal('createProjectModal');
+    if (!this.utilsService.isNullUndefinedOrBlank(this.url)) {
+      this.projectObj.projectImgUrl = this.url;
+    }
+    this.arrayOfProjects.push(this.projectObj);
+    this.projectObj = new Project();
+    this.url = 'assets/images/companies/img-1.png';
+
+  }
+
+  cancel() {
+    this.utilsService.hideModal('createProjectModal');
+    this.projectObj = new Project();
+    this.url = 'assets/images/companies/img-1.png';
+
+  }
+
+  openCreateProjectModal() {
+    this.utilsService.openModal('createProjectModal');
+    this.applyCreateProjectValidation();
+
+  }
 }
