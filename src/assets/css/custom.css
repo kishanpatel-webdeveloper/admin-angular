@@ -69,7 +69,8 @@ body .mat-form-field,
 body .mat-tab-group,
 body .mat-tab-label, 
 body .mat-tab-link,
-body .mat-select{
+body .mat-select,
+body .mat-select-panel .mat-option{
     font-family: 'Nunito', sans-serif;
 }
 body .mat-button, body .mat-raised-button{ font-size: 16px; }
