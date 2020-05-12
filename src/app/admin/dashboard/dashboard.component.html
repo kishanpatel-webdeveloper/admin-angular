@@ -46,8 +46,8 @@
               <h5 class="text-truncate">{{item.title}}</h5>
               <p class="text-muted mb-4">{{item.description}}</p>
               <div class="team">
-                <a href="#" *ngFor="let item1 of item.users"  class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
-                  data-original-title="Daniel Canales">
+                <a href="#" *ngFor="let item1 of item.users" class="team-member d-inline-block" data-toggle="tooltip"
+                  data-placement="top" title="" data-original-title="Daniel Canales">
                   <img [src]="item1.profileImg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
 
@@ -735,7 +735,7 @@
           <img src="assets/images/modal-close.svg">
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" [formGroup]="createProjectForm">
         <div class="row">
           <div class="col-md-4 col-sm-12">
 
@@ -743,7 +743,12 @@
           <div class="col-md-8 col-sm-12">
             <mat-form-field appearance="outline">
               <mat-label>Project Name</mat-label>
-              <input matInput [(ngModel)]="projectObj.title">
+              <input matInput [(ngModel)]="projectObj.title" formControlName="projectName" required>
+              <mat-error *ngIf="hasErrorCreateProjectInfo('projectName', 'required')">
+                {{utilsService.validationService.PROJECT_NAME_REQUIRED}}</mat-error>
+              <mat-error *ngIf="hasErrorCreateProjectInfo('projectName', 'pattern')">
+                {{utilsService.validationService.PROJECT_NAME_INVALID}}
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="col-md-12 col-sm-12">
@@ -753,7 +758,7 @@
                   <div class="col-md-12">
                     <mat-form-field appearance="outline">
                       <mat-label>Description</mat-label>
-                      <textarea matInput [(ngModel)]="projectObj.description"></textarea>
+                      <textarea matInput [(ngModel)]="projectObj.description" formControlName="description"></textarea>
                     </mat-form-field>
                   </div>
                 </div>
@@ -763,7 +768,7 @@
                   <div class="col-md-12">
                     <mat-form-field appearance="outline">
                       <mat-label>Team Members</mat-label>
-                      <mat-select [(ngModel)]="projectObj.users" appendTo="body" multiple>
+                      <mat-select [(ngModel)]="projectObj.users" appendTo="body" formControlName="members" multiple>
                         <mat-option *ngFor="let usr of arrayOfUsers" [value]="usr"><img class="memberimg"
                             [src]="usr.profileImg">{{usr.name}}</mat-option>
                       </mat-select>
@@ -777,7 +782,8 @@
                   <div class="col-md-12">
                     <mat-form-field appearance="outline">
                       <mat-label></mat-label>
-                      <mat-select [(ngModel)]="projectObj.external_project_or_not" appendTo="body">
+                      <mat-select [(ngModel)]="projectObj.external_project_or_not" formControlName="externalCompany"
+                        appendTo="body">
                         <mat-option *ngFor="let item of arrayOfCompanyConfirmation" [value]="item.id">{{item.name}}
                         </mat-option>
                       </mat-select>
@@ -790,34 +796,48 @@
                   <div class="col-md-6 col-sm-12">
                     <mat-form-field appearance="outline">
                       <mat-label>Start Date</mat-label>
-                      <input matInput placeholder="Choose a Start date" [matDatepicker]="picker"
-                        [(ngModel)]="projectObj.startDate">
+                      <input matInput placeholder="Choose a Start date" formControlName="startDate"
+                        [matDatepicker]="picker" [(ngModel)]="projectObj.startDate">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
+                      <mat-error *ngIf="hasErrorCreateProjectInfo('startDate','notValid')">
+                      </mat-error>
+                      <mat-error *ngIf="hasErrorCreateProjectInfo('startDate','required')">
+                        {{utilsService.validationService.START_DATE_REQUIRED}}
+                      </mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 col-sm-12">
                     <mat-form-field appearance="outline">
                       <mat-label>Due Date</mat-label>
-                      <input matInput [matDatepicker]="picker1" [(ngModel)]="projectObj.dueDate"
-                        placeholder="Choose a Due date">
+                      <input matInput [matDatepicker]="picker1" formControlName="dueDate"
+                        [(ngModel)]="projectObj.dueDate" placeholder="Choose a Due date">
                       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                       <mat-datepicker #picker1></mat-datepicker>
+                      <mat-error *ngIf="hasErrorCreateProjectInfo('dueDate','notValid')">
+                        Start Date and Due Date Invalid.
+                      </mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 col-sm-12">
                     <mat-form-field appearance="outline" class="theme-ngselect">
                       <mat-label>Project Priority</mat-label>
-                      <ng-select ngSelectMat [items]="arrayOfPriority" [dropdownPosition]="'bottom'"
-                        notFoundText="Project Priority not found." [clearable]="true" [(ngModel)]="projectObj.priority"
-                        appendTo="body" bindLabel="name" bindValue="id" required>
+                      <ng-select ngSelectMat [items]="arrayOfPriority" formControlName="priority"
+                        [dropdownPosition]="'bottom'" notFoundText="Project Priority not found." [clearable]="true"
+                        [(ngModel)]="projectObj.priority" appendTo="body" bindLabel="name" bindValue="id" required>
                       </ng-select>
+                      <mat-error *ngIf="hasErrorCreateProjectInfo('priority', 'required')">
+                        {{utilsService.validationService.PROJECT_PRIORITY_REQUIRED}}</mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 col-sm-12">
                     <mat-form-field appearance="outline">
                       <mat-label>Estimated Time</mat-label>
-                      <input matInput [(ngModel)]="projectObj.estimation_time" placeholder="0:00">
+                      <input matInput [(ngModel)]="projectObj.estimation_time" formControlName="estimationTime"
+                        placeholder="0">
+                      <mat-error *ngIf="hasErrorCreateProjectInfo('estimationTime', 'pattern')">
+                        {{utilsService.validationService.ESTIMATION_TIME_INVALID}}
+                      </mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 col-sm-12">
@@ -825,15 +845,18 @@
                       <div class="col-md-6 col-sm-12">
                         <mat-form-field appearance="outline">
                           <mat-label>Estimated Cost</mat-label>
-                          <input matInput [(ngModel)]="projectObj.estimation_cost">
+                          <input matInput [(ngModel)]="projectObj.estimation_cost" formControlName="estimationCost">
+                          <mat-error *ngIf="hasErrorCreateProjectInfo('estimationCost', 'pattern')">
+                            {{utilsService.validationService.ESTIMATION_COST_INVALID}}
+                          </mat-error>
                         </mat-form-field>
                       </div>
                       <div class="col-md-6 col-sm-12">
                         <mat-form-field appearance="outline" class="theme-ngselect">
                           <mat-label>Currency</mat-label>
-                          <ng-select ngSelectMat [items]="arrayForCurrency" [dropdownPosition]="'bottom'"
-                            notFoundText="Currency not found." [clearable]="true" [(ngModel)]="projectObj.currency"
-                            appendTo="body" bindLabel="name" bindValue="id" required>
+                          <ng-select ngSelectMat [items]="arrayForCurrency" formControlName="currency"
+                            [dropdownPosition]="'bottom'" notFoundText="Currency not found." [clearable]="true"
+                            [(ngModel)]="projectObj.currency" appendTo="body" bindLabel="name" bindValue="id" required>
                           </ng-select>
                         </mat-form-field>
                       </div>
@@ -852,11 +875,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button mat-raised-button class="mr-2" color="primary" (click)="createProject()"
-        >
-        Create
-      </button>
-      <!-- [disabled]="createProjectForm.invalid" -->
+        <button mat-raised-button class="mr-2" color="primary" (click)="createProject()">
+          Create
+        </button>
+        <!-- [disabled]="createProjectForm.invalid" -->
         <button mat-raised-button color="light" data-dismiss="modal">
           Cancel
         </button>

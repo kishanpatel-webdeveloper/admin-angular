@@ -67,20 +67,37 @@ export class DashboardService {
 
     // }
   }
+
+  public hasErrorCreateProjectInfo = (controlName: string, errorName: string) => {
+    return this.createProjectForm.controls[controlName].hasError(errorName);
+  }
   applyCreateProjectValidation() {
     this.createProjectForm = this.formBuilder.group({
       projectName: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_ALPHABATES_AND_SPACE)])],
-      description: ['', Validators.compose([Validators.required, Validators.pattern(this.utilsService.validationService.PATTERN_FOR_ALPHABATES_AND_SPACE)])],
+      description: [''],
       externalCompany: [''],
       members: [''],
       startDate: [''],
       dueDate: [''],
       priority: ['', Validators.compose([Validators.required])],
-      estimationTime: [''],
-      estimationCost: [''],
+      estimationTime: ['', Validators.pattern(this.utilsService.validationService.ONLY_NUMBERS)],
+      estimationCost: ['', Validators.pattern(this.utilsService.validationService.ONLY_NUMBERS)],
       currency: ['', Validators.compose([Validators.required])],
+    }, { validator: this.checkDates });
+  }
 
-    });
+  checkDates(group: FormGroup) {
+    if (group.controls.dueDate.value && group.controls.startDate.value) {
+
+      if (group.controls.dueDate.value < group.controls.startDate.value) {
+        group.controls['dueDate'].setErrors({ notValid: true });
+        group.controls['startDate'].setErrors({ notValid: true });
+        return;
+      }
+      group.controls['dueDate'].setErrors(null);
+      group.controls['startDate'].setErrors(null);
+      return;
+    }
   }
 
   createProject() {

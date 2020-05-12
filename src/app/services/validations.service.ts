@@ -136,13 +136,22 @@ export class ValidationsService {
   NEW_PASSWORD_REQUIRED = 'New Password is required!';
   CONFIRM_NEW_PASSWORD_REQUIRED = 'Confirm New Password is required!';
 
-   // document upload validation messages
-   DOCUMENT_REQUIRED = 'Document is required!';
-   DOCUMENT_MAX_FILE_SIZE = 'The Document size must be less than';
-   ATTACHMENT_MAX_FILE_SIZE = 'The Attachment size must be less than';
-   DOCUMENT_INVALID_EXTENSION = 'Please select valid Document.';
-   IMAGE_MAX_FILE_SIZE = 'The Image size must be less than';
-   IMAGE_INVALID_EXTENSION = 'Please select valid Image.';
+  // document upload validation messages
+  DOCUMENT_REQUIRED = 'Document is required!';
+  DOCUMENT_MAX_FILE_SIZE = 'The Document size must be less than';
+  ATTACHMENT_MAX_FILE_SIZE = 'The Attachment size must be less than';
+  DOCUMENT_INVALID_EXTENSION = 'Please select valid Document.';
+  IMAGE_MAX_FILE_SIZE = 'The Image size must be less than';
+  IMAGE_INVALID_EXTENSION = 'Please select valid Image.';
+
+
+  // Create Project Validation msgs
+  PROJECT_NAME_REQUIRED = 'Project Name is required!';
+  PROJECT_NAME_INVALID = 'Please enter a valid Project Name.';
+  START_DATE_REQUIRED = 'Start Date is required!';
+  PROJECT_PRIORITY_REQUIRED = 'Project Priority is required!';
+  ESTIMATION_TIME_INVALID = 'Please enter a valid Estimation Time.';
+  ESTIMATION_COST_INVALID = 'Please enter a valid Estimation Cost.';
 
 
 

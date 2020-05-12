@@ -10,6 +10,7 @@ export class DashboardComponent extends DashboardService implements OnInit {
 
 
   ngOnInit() {
+    this.applyCreateProjectValidation();
   }
 
   // changeTheme() {
