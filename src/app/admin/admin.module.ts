@@ -11,6 +11,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FullCalendarComponent } from './full-calendar/full-calendar.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import { TaskTimlineComponent } from './task-timline/task-timline.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'work_area', pathMatch: 'full ' },
@@ -22,11 +23,12 @@ const routes: Routes = [
       { path: 'demo-drag-drop', component: DemoDragDropComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'calender', component: FullCalendarComponent },
+      { path: 'task-timeline', component: TaskTimlineComponent },
     ]
   }];
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent, ProfileComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
+  declarations: [DashboardComponent, AdminComponent, ProfileComponent, TaskTimlineComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
   imports: [
     SharedModule,
     CommonModule,
