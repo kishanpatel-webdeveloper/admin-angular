@@ -4,6 +4,7 @@ import { Project } from '../../models/Project';
 import { User } from '../../models/user';
 import { UtilsService } from '../../services/utils.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Deserialize } from 'cerialize';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,7 @@ export class DashboardService {
   projectObj = new Project();
   todayDate = new Date();
   arrayOfUsers: Array<User> = new Array<User>();
+  status: string;
   arrayOfPriority = [
     { id: 1, name: 'Low' },
     { id: 2, name: 'Medium' },
@@ -107,6 +109,10 @@ export class DashboardService {
       group.controls['dueDate'].setErrors(null);
       group.controls['startDate'].setErrors(null);
       return;
+    } else if (group.controls.dueDate.value && !group.controls.startDate.value) {
+      group.controls['startDate'].setErrors({ required: true });
+      group.controls['startDate'].markAsTouched();
+      return;
     }
   }
 
@@ -128,12 +134,17 @@ export class DashboardService {
           if (max_file_size < selectedFile.size) {
             this.flagForInvalidImageSize = true;
             this.filenameForuserProfile = '';
+            this.projectObj.fileName = '';
+            this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
+
             // this.url = this.utilsService.urlForPhoto + this.photoName;
           } else {
             this.filenameForuserProfile = event.target.files[0].name;
+            this.projectObj.fileName = event.target.files[0].name;
             // this.formDataForSaveAndUpdate.set('document', event.target.files[0]);
             this.utilsService.readUrl(event, response => {
-              this.url = response;
+              // this.url = response;
+              this.projectObj.projectImgUrl = response;
               const blob = this.utilsService.convertBase64ToBlob(response);
               // const fileURL = URL.createObjectURL(blob);
               // this.url = fileURL;
@@ -143,33 +154,70 @@ export class DashboardService {
         } else {
           this.flagForInvalidExtension = true;
           this.filenameForuserProfile = '';
+          this.projectObj.fileName = '';
           // this.url = this.utilsService.urlForPhoto + this.photoName;
+          this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
         }
       }
     }
   }
 
-  createProject() {
+  createProject(status) {
     this.utilsService.hideModal('createProjectModal');
-    if (!this.utilsService.isNullUndefinedOrBlank(this.url)) {
-      this.projectObj.projectImgUrl = this.url;
+    if (status === 'Add') {
+      this.arrayOfProjects.push(this.projectObj);
+      this.projectObj = new Project();
+      // this.url = 'assets/images/companies/img-1.png';
+      // this.utilsService.hideModal('createProjectModal');
+    } else {
+      const index = this.arrayOfProjects.findIndex(val => val.title === this.projectObj.title);
+      // this.projectObj.projectImgUrl = this.url;
+      this.arrayOfProjects[index] = this.projectObj;
+      this.projectObj = new Project();
+
+      // this.utilsService.hideModal('createProjectModal');
+      // this.url = 'assets/images/companies/img-1.png';
+      // this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
+
     }
-    this.arrayOfProjects.push(this.projectObj);
-    this.projectObj = new Project();
-    this.url = 'assets/images/companies/img-1.png';
+    this.projectProfilePicDoc.nativeElement.value = '';
+    this.filenameForuserProfile = '';
 
   }
 
   cancel() {
     this.utilsService.hideModal('createProjectModal');
     this.projectObj = new Project();
-    this.url = 'assets/images/companies/img-1.png';
+    this.projectProfilePicDoc.nativeElement.value = '';
+    this.filenameForuserProfile = '';
+
+    // this.url = 'assets/images/companies/img-1.png';
+    // this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
 
   }
 
   openCreateProjectModal() {
+    this.selectedIndex = 0;
+    this.status = 'Add';
+    this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
     this.utilsService.openModal('createProjectModal');
     this.applyCreateProjectValidation();
+  }
 
+  editProject(projectObj) {
+    this.selectedIndex = 0;
+    this.status = 'Edit';
+    this.applyCreateProjectValidation();
+    this.projectObj = Deserialize(projectObj, Project);
+    if (this.utilsService.isNullUndefinedOrBlank(this.projectObj.projectImgUrl)) {
+      this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
+    }
+    this.projectObj.users = projectObj.users;
+    console.log(projectObj.users);
+    console.log(this.projectObj.projectImgUrl);
+    this.utilsService.openModal('createProjectModal');
+  }
+  deleteProject(index) {
+    this.arrayOfProjects.splice(index, 1);
   }
 }

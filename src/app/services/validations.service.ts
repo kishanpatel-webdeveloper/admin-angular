@@ -150,6 +150,7 @@ export class ValidationsService {
   PROJECT_NAME_INVALID = 'Please enter a valid Project Name.';
   START_DATE_REQUIRED = 'Start Date is required!';
   PROJECT_PRIORITY_REQUIRED = 'Project Priority is required!';
+  CURRENCY_REQUIRED = 'Currency is required!';
   ESTIMATION_TIME_INVALID = 'Please enter a valid Estimation Time.';
   ESTIMATION_COST_INVALID = 'Please enter a valid Estimation Cost.';
 

@@ -29,6 +29,10 @@ export class Project {
   @deserializeAs('projectImgUrl')
   private _projectImgUrl: string;
 
+  @serializeAs('fileName')
+  @deserializeAs('fileName')
+  private _fileName: string;
+
   @serializeAs('dueDate')
   @deserializeAs('dueDate')
   private _dueDate: string;
@@ -321,6 +325,24 @@ export class Project {
   public set currency(value: string) {
     this._currency = value;
   }
+
+
+  /**
+   * Getter fileName
+   * @return {string}
+   */
+  public get fileName(): string {
+    return this._fileName;
+  }
+
+  /**
+   * Setter fileName
+   * @param {string} value
+   */
+  public set fileName(value: string) {
+    this._fileName = value;
+  }
+
 
 }
 
