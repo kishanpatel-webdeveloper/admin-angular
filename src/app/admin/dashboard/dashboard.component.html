@@ -871,7 +871,7 @@
                           <mat-label>Currency</mat-label>
                           <ng-select ngSelectMat [items]="arrayForCurrency" formControlName="currency"
                             [dropdownPosition]="'bottom'" notFoundText="Currency not found."
-                            [(ngModel)]="projectObj.currency" appendTo="body" bindLabel="name" bindValue="id" required>
+                            [(ngModel)]="projectObj.currency" appendTo="body" clearable="true" bindLabel="name" bindValue="id" required>
                           </ng-select>
                           <mat-error *ngIf="hasErrorCreateProjectInfo('currency', 'required')">
                             {{utilsService.validationService.CURRENCY_REQUIRED}}</mat-error>
