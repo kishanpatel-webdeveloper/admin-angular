@@ -232,13 +232,7 @@
   top: 3px;
 }
 
-.memberimg {
-  height: 38px;
-  width: 37px;
-  border-radius: 50%;
-  margin-right: 9px;
-  margin-left: 9px;
-}
+
 .no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
 .no-hover-effect.mat-button.mat-accent .mat-button-focus-overlay,
 .no-hover-effect.mat-button.mat-warn .mat-button-focus-overlay,

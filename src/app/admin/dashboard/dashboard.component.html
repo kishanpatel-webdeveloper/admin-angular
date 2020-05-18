@@ -784,7 +784,7 @@
                     <mat-form-field appearance="outline">
                       <mat-label>Team Members</mat-label>
                       <mat-select [(ngModel)]="projectObj.users" appendTo="body" formControlName="members" multiple>
-                        <mat-option *ngFor="let usr of arrayOfUsers" [value]="usr"><img class="memberimg"
+                        <mat-option *ngFor="let usr of arrayOfUsers" [value]="usr"><img class="member-img"
                             [src]="usr.profileImg">{{usr.name}}</mat-option>
                       </mat-select>
                     </mat-form-field>

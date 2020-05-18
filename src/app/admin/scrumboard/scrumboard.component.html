@@ -310,13 +310,13 @@
               <!-- <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
               <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
               <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li> -->
-              <li class="addmember">
+              <li class="addmember ">
                 <button mat-icon-button matTooltip="Users" class="btn-round-member" (click)=select.open()>
                   <mat-icon>add</mat-icon>
                 </button>
                 <mat-select #select [(ngModel)]="cardObj.members" class="langSelect" appendTo="body" multiple>
                   <mat-option *ngFor="let usr of userList" [value]="usr">
-                    <img class="memberimg"
+                    <img class="member-img"
                       [src]="usr.profileImg">{{usr.name}}</mat-option>
                 </mat-select>
               </li>
