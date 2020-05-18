@@ -284,7 +284,7 @@
 </div><!-- /.modal -->
 <div class="modal fade createtaskmodal" id="createCardModal" tabindex="-1" role="dialog"
   aria-labelledby="createCardModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-body">
         <button type="button" class="close absolute-close" data-dismiss="modal" aria-label="Close">
@@ -310,12 +310,13 @@
               <!-- <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
               <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
               <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li> -->
-              <li class="addmember">
+              <li class="addmember ">
                 <button mat-icon-button matTooltip="Users" class="btn-round-member" (click)=select.open()>
                   <mat-icon>add</mat-icon>
                 </button>
                 <mat-select #select [(ngModel)]="cardObj.members" class="langSelect" appendTo="body" multiple>
-                  <mat-option *ngFor="let usr of userList" [value]="usr"><img class="memberimg"
+                  <mat-option *ngFor="let usr of userList" [value]="usr">
+                    <img class="member-img"
                       [src]="usr.profileImg">{{usr.name}}</mat-option>
                 </mat-select>
               </li>
@@ -386,17 +387,17 @@
           <div class="col-md-12 col-sm-12">
             <hr>
           </div>
-          <div class="col-md-12 col-sm-12 mb-4">
+          <div class="col-md-12 col-sm-12 task-comment">
             <h5 class="sub-title d-flex">
               <mat-icon>comment</mat-icon>Comments
             </h5>
           </div>
-          <div class="col-md-12 col-sm-12 ml-4">
-            <img class="commentusr" src="assets/images/users/avatar-3.jpg" alt="Team Member">
+          <div class="col-md-12 col-sm-12 task-comment">
+            <img class="comment-user" src="assets/images/users/avatar-3.jpg" alt="Comment Member">
 
-            <mat-form-field appearance="outline" class="mr-4" fxFlex="100">
+            <mat-form-field appearance="outline" class="position-relative">
               <input matInput autocomplete="off" placeholder="Write a comment..." [(ngModel)]="cardObj.comment">
-              <button class="commentbtn no-hover-effect" mat-button color="primary">SEND</button>
+              <button class="btn-comments" mat-button color="primary">SEND</button>
 
             </mat-form-field>
 

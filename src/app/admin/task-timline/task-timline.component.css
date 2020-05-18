@@ -1,0 +1,77 @@
+.progress-timeline .pt-header{ margin-bottom: 50px; }
+.progress-timeline .pt-header img{ height: 70px; width: 70px; margin-bottom: 10px; }
+.progress-timeline .pt-body .timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: inline-block;
+}
+.progress-timeline .pt-body .timeline:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    margin-left: -1.5px;
+    background-color: #f2f4f8;
+}
+.progress-timeline .timeline > li{
+        position: relative;
+        padding: 50px 0 0;
+        /* margin-bottom: 50px; */
+        width: 100%;
+        display: inline-block;
+}
+.progress-timeline .timeline > li > .timeline-badge {
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    overflow: hidden;
+    background-color: #3f51b5;
+    padding: 5px 15px;
+    margin: 0 auto;
+    width: fit-content;
+}
+.progress-timeline .timeline > li > .timeline-panel { position: relative; width: 50%; }
+.progress-timeline .timeline > li.tl-left > .timeline-panel{
+    float: left;
+}
+.progress-timeline .timeline > li.tl-right > .timeline-panel{
+    float: right;
+}
+.timeline-panel .tp-header{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.progress-timeline .timeline > li.tl-left .timeline-panel .tp-header{ padding-right: 15px; padding-left: 15px; }
+.progress-timeline .timeline > li.tl-right .timeline-panel .tp-header{ padding-left: 15px; padding-right: 15px; }
+/* .progress-timeline .timeline > li.tl-left .timeline-panel .tp-body{ padding-right: 15px; padding-top: 15px; } */
+/* .progress-timeline .timeline > li.tl-right .timeline-panel .tp-body{ padding-left: 15px; } */
+.progress-timeline li .tp-list{     padding: 0;
+    list-style-type: none; }
+.progress-timeline li .tp-list li{ display: flex;     flex-direction: row;
+    align-items: flex-start; padding: 15px; }
+.progress-timeline li .tp-list .tp-time{     flex: 0 0 15%;
+    max-width: 15%;
+    color: #74788d;
+    font-size: 13px; }
+.progress-timeline li .tp-list .tp-img{ flex: 0 0 13%;
+    max-width: 13%; }
+    .progress-timeline li .tp-list .tp-img img{     height: 50px; }
+.progress-timeline li .tp-list .tp-task{         flex: 0 0 72%;
+    max-width: 72%;
+    font-size: 15px;
+    font-weight: 600; }
