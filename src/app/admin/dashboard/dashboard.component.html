@@ -46,7 +46,7 @@
               <h5 class="text-truncate">{{item.title}}</h5>
               <p class="text-muted mb-4">{{item.description}}</p>
               <div class="team">
-                <a href="#" *ngFor="let item1 of item.users" class="team-member d-inline-block" data-toggle="tooltip"
+                <a *ngFor="let item1 of item.users" class="team-member d-inline-block" data-toggle="tooltip"
                   data-placement="top" title="" data-original-title="Daniel Canales">
                   <img [src]="item1.profileImg" class="rounded-circle avatar-xs m-1" alt="">
                 </a>
@@ -67,7 +67,7 @@
             </li>
             <li class="list-inline-item mr-3" data-toggle="tooltip" data-placement="top" title=""
               data-original-title="Due Date">
-              <i class="bx bx-calendar mr-1"></i> {{item.endDate}}
+              <i class="bx bx-calendar mr-1"></i> {{item.dueDate |date : 'dd/MM/yyyy'}}
             </li>
             <li class="list-inline-item mr-3" data-toggle="tooltip" data-placement="top" title=""
               data-original-title="Comments">
@@ -483,7 +483,7 @@
                   <div class="team">
                     <a *ngFor="let item1 of item.users" class="team-member d-inline-block" data-toggle="tooltip"
                       data-placement="top" title="" data-original-title="Daniel Canales">
-                      <img [src]="item1.profileImg" class="rounded-circle avatar-xs m-1" alt="">
+                      <img [src]="item1.profileImg" class="rounded-circle avatar-xs m-1">
                     </a>
                     <!--
                     <a href="#" class="team-member d-inline-block" data-toggle="tooltip" data-placement="top" title=""
@@ -799,7 +799,7 @@
                       <mat-label>Is This A Project For An External Company?</mat-label>
                       <mat-select [(ngModel)]="projectObj.external_project_or_not" formControlName="externalCompany"
                         appendTo="body">
-                        <mat-option *ngFor="let item of arrayOfCompanyConfirmation" [value]="item.id">{{item.name}}
+                        <mat-option *ngFor="let item of arrayOfCompanyConfirmation" [value]="item.name">{{item.name}}
                         </mat-option>
                       </mat-select>
                     </mat-form-field>
@@ -835,12 +835,15 @@
                     </mat-form-field>
                   </div>
                   <div class="col-md-6 col-sm-12">
-                    <mat-form-field appearance="outline" class="theme-ngselect">
+                    <mat-form-field appearance="outline">
                       <mat-label>Project Priority</mat-label>
-                      <ng-select ngSelectMat [items]="arrayOfPriority" formControlName="priority"
+                      <!-- <ng-select ngSelectMat [items]="arrayOfPriority" formControlName="priority"
                         [dropdownPosition]="'bottom'" appendTo="body" notFoundText="Project Priority not found."
                         [(ngModel)]="projectObj.priority" bindLabel="name" bindValue="id" required>
-                      </ng-select>
+                      </ng-select> -->
+                      <mat-select [(ngModel)]="projectObj.priority" appendTo="body" formControlName="priority" required>
+                        <mat-option *ngFor="let item of arrayOfPriority" [value]="item.name">{{item.name}}</mat-option>
+                      </mat-select>
                       <mat-error *ngIf="hasErrorCreateProjectInfo('priority', 'required')">
                         {{utilsService.validationService.PROJECT_PRIORITY_REQUIRED}}</mat-error>
                     </mat-form-field>
@@ -869,10 +872,15 @@
                       <div class="col-md-6 col-sm-12">
                         <mat-form-field appearance="outline" class="theme-ngselect">
                           <mat-label>Currency</mat-label>
-                          <ng-select ngSelectMat [items]="arrayForCurrency" formControlName="currency"
+                          <!-- <ng-select ngSelectMat [items]="arrayForCurrency" formControlName="currency"
                             [dropdownPosition]="'bottom'" notFoundText="Currency not found."
                             [(ngModel)]="projectObj.currency" appendTo="body" bindLabel="name" bindValue="id" required>
-                          </ng-select>
+                          </ng-select> -->
+                          <mat-select [(ngModel)]="projectObj.currency" appendTo="body" formControlName="currency"
+                            required>
+                            <mat-option *ngFor="let item of arrayForCurrency" [value]="item.name">{{item.name}}
+                            </mat-option>
+                          </mat-select>
                           <mat-error *ngIf="hasErrorCreateProjectInfo('currency', 'required')">
                             {{utilsService.validationService.CURRENCY_REQUIRED}}</mat-error>
                         </mat-form-field>

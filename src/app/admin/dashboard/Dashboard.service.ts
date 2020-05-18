@@ -78,7 +78,25 @@ export class DashboardService {
     //   // document.body.setAttribute('data-theme', 'dark');
 
     // }
+
+    const project = new Project();
+    project.title = 'Admin Angular';
+    project.description = 'Task Management Project';
+    project.external_project_or_not = 'Yes, this project involves other company';
+    project.priority = 'Medium';
+    project.currency = 'INR';
+    project.projectImgUrl = 'assets/images/companies/img-1.png';
+    project.estimation_time = '22';
+    project.estimation_cost = '1,50,000';
+    project.startDate = new Date().toString();
+    project.dueDate = new Date().toString();
+    project.users = new Array<User>();
+    project.users.push(userObj1);
+    project.users.push(userObj2);
+    project.users.push(userObj3);
+    this.arrayOfProjects.push(project);
   }
+
 
   public hasErrorCreateProjectInfo = (controlName: string, errorName: string) => {
     return this.createProjectForm.controls[controlName].hasError(errorName);
