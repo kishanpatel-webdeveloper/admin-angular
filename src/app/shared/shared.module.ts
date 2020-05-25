@@ -16,7 +16,9 @@ import {
   MatTooltipModule,
   MatExpansionModule,
   MatRadioModule,
-  MatTabsModule
+  MatTabsModule,
+  MatDialog,
+  MatDialogModule
 } from '@angular/material';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -53,7 +55,7 @@ import { addProjectModal } from '../admin/dashboard/dashboard.component';
     MatExpansionModule,
     MatRadioModule,
     FlexLayoutModule,
-
+    MatDialogModule,
     NgSelectModule
   ],
   exports: [CommonModule,
@@ -74,6 +76,7 @@ import { addProjectModal } from '../admin/dashboard/dashboard.component';
     FormsModule,
     FlexLayoutModule,
     NgSelectModule,
+    MatDialogModule,
     DragDropModule,
     ColorPickerModule,
     FooterComponent, NavbarComponent, ToolbarComponent, NgSelectFormFieldControlDirective,
