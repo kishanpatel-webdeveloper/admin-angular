@@ -5,6 +5,8 @@ import { User } from '../../models/user';
 import { UtilsService } from '../../services/utils.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Deserialize } from 'cerialize';
+import { MatDialog } from '@angular/material';
+import { addProjectModal } from './dashboard.component';
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +45,7 @@ export class DashboardService {
     { id: 2, name: 'No , this project is for our company.' },
   ];
   selectedIndex = 0;
-  constructor(@Inject(DOCUMENT) document, r: Renderer2, public utilsService: UtilsService, public formBuilder: FormBuilder) {
+  constructor(@Inject(DOCUMENT) document, r: Renderer2, public dialog: MatDialog, public utilsService: UtilsService, public formBuilder: FormBuilder) {
     this.flagForHideShowGridView = false;
     this.url = 'assets/images/companies/img-1.png';
     const userObj1 = new User();
@@ -237,5 +239,14 @@ export class DashboardService {
   }
   deleteProject(index) {
     this.arrayOfProjects.splice(index, 1);
+  }
+
+  openaddProjectDialog(id): void {
+    const dialogRef = this.dialog.open(addProjectModal, { disableClose: true, data: '123' });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('closed');
+
+    });
   }
 }

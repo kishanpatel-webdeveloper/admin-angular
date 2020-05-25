@@ -29,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgSelectFormFieldControlDirective } from './directives/ng-select.directive';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { addProjectModal } from '../admin/dashboard/dashboard.component';
 
 
 @NgModule({

@@ -9,7 +9,7 @@ body{ font-family: 'Nunito', sans-serif; }
 
 /* Header CSS */
 .noti-icon .badge{ right: 6px; }
-.dropdown-profile .dropdown-menu{ min-width: 230px; 
+.dropdown-profile .dropdown-menu{ min-width: 230px;
     /* transform: translate3d(0px, 0px, 0px) !important;  */
 }
 .dropdown-profile .dropdown-header{ padding: 15px; border-bottom: 1px solid #f2f4f9; }
@@ -37,7 +37,7 @@ body{ font-family: 'Nunito', sans-serif; }
     100% {
     transform: translateY(0px);
    }
-   
+
    }
    .bg-rotaion { backface-visibility: hidden; animation: rotation 30s ease-in-out 2s infinite alternate; animation-delay: 1s; transition: all .9s ease 5s; user-select: none; }
    @keyframes rotation {  0% {
@@ -63,11 +63,11 @@ body{ font-family: 'Nunito', sans-serif; }
 .card .card-footer{ background-color: #fff; border-top: 1px solid #f2f4f9; }
 
 /* Material Control CSS */
-body .mat-button, 
+body .mat-button,
 body .mat-raised-button,
 body .mat-form-field,
 body .mat-tab-group,
-body .mat-tab-label, 
+body .mat-tab-label,
 body .mat-tab-link,
 body .mat-select,
 body .mat-select-panel .mat-option{
@@ -117,7 +117,7 @@ body .cdk-overlay-container{ z-index: 9999; }
 .mat-form-field.mat-form-field-appearance-outline .mat-form-field-label {
     top: 29px;
     margin-bottom: 0;}
-.mat-form-field.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, 
+.mat-form-field.mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label,
 .mat-form-field.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{
         transform: translateY(-19px) scale(.75);
     }
@@ -128,7 +128,7 @@ body .cdk-overlay-container{ z-index: 9999; }
         color: #556ee6;
     }
 .mat-form-field .mat-form-field-subscript-wrapper {     margin-top: -8px; }
-.mat-form-field.mat-form-field-appearance-outline .mat-form-field-prefix, 
+.mat-form-field.mat-form-field-appearance-outline .mat-form-field-prefix,
 .mat-form-field.mat-form-field-appearance-outline .mat-form-field-suffix {
     top: 6px;
 }
@@ -142,9 +142,9 @@ body .theme-ngselect .ng-select .ng-select-container .ng-value-container{ paddin
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input{ top: 3px; bottom: 0; }
 body .theme-ngselect .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper{ bottom: 3px; }
 body .theme-datetimepicker input[type="text"] { width: 100%; border: 0; background-color: transparent; outline: 0; }
-body .mat-accent .mat-pseudo-checkbox-checked, 
-body .mat-accent .mat-pseudo-checkbox-indeterminate, 
-body .mat-pseudo-checkbox-checked, 
+body .mat-accent .mat-pseudo-checkbox-checked,
+body .mat-accent .mat-pseudo-checkbox-indeterminate,
+body .mat-pseudo-checkbox-checked,
 body .mat-pseudo-checkbox-indeterminate { background: #556ee6; }
 body .mat-tab-group .mat-tab-label{
     font-size: 16px; font-weight: 600; color: #333 !important; opacity: 1 !important; }
@@ -194,7 +194,7 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
     left: 0;
     opacity: 0;
 }
-.userprofile-tab .user-img .profile-edit button{ 
+.userprofile-tab .user-img .profile-edit button{
     background-color: #50a5f1;
     border: 1px solid #50a5f1;
     color: #fff;
@@ -214,3 +214,4 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 /* Calender CSS */
 .full-calender .cal-month-view .cal-day-cell{ outline: 0px; }
 .full-calender .cal-month-view .cal-open-day-events{ background-color: #222736; box-shadow:none }
+body .ng-dropdown-panel{ z-index: 9999; }

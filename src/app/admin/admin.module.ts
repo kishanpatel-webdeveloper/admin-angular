@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent, addProjectModal } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { SharedModule } from '../shared/shared.module';
@@ -28,7 +28,8 @@ const routes: Routes = [
   }];
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent, ProfileComponent, TaskTimlineComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
+  declarations: [DashboardComponent, addProjectModal, AdminComponent, ProfileComponent, TaskTimlineComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
+  entryComponents: [addProjectModal, DashboardComponent],
   imports: [
     SharedModule,
     CommonModule,
