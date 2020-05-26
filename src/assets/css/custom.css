@@ -236,6 +236,150 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 .hide-datepicker .mat-form-field-wrapper{ padding-bottom: 0px !important; }
 .hide-datepicker .mat-form-field-infix{ padding: 0 !important; border-top: 0 !important; }
 
+.createtaskmodal .mat-icon {
+    color: #868686;
+    font-size: 20px;
+  }
+  .createtaskmodal .board-status {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-left: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .createtaskmodal .board-status li {
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 20px;
+    position: relative;
+  }
+  .createtaskmodal .board-status li::after {
+    content: "\ec16";
+    font-family: boxicons !important;
+    position: absolute;
+    right: -14px;
+    font-size: 7px;
+    top: 5px;
+  }
+  .createtaskmodal .board-status li:nth-last-child(1) {
+    margin-right: 0px;
+  }
+  .createtaskmodal .board-status li:nth-last-child(1)::after {
+    display: none;
+  }
+  .createtaskmodal .members {
+    padding-left: 40px;
+  }
+  .createtaskmodal .task-name {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+  }
+  .createtaskmodal .sub-title {
+    color: #868686;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .createtaskmodal .memberlist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  
+  .createtaskmodal .memberlist li img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: -10px;
+    border: 2px solid #fff;
+  }
+  .createtaskmodal .memberlist li:nth-child(1) img {
+    margin-left: 0px;
+  }
+  .createtaskmodal .memberlist li.addmember {
+    margin-left: -10px;
+  }
+  .createtaskmodal .memberlist li.addmember .btn-round-member {
+    background-color: #ebebee;
+    border: 2px solid #fff;
+    height: 35px;
+    width: 35px;
+  }
+  .createtaskmodal .memberlist li.addmember .btn-round-member .mat-icon {
+    margin-top: -11px;
+  }
+  .createtaskmodal .labellist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+  .createtaskmodal .labellist li {
+    padding: 6px 6px;
+    border-radius: 2px;
+    margin-right: 4px;
+    font-size: 14px;
+    color: #fff;
+  }
+  .createtaskmodal .labellist li.addlabel {
+    padding: 0px;
+    background-color: #ebebee;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+  }
+  .createtaskmodal .labellist li.addlabel .btn-square-member .mat-icon {
+    margin-top: -7px;
+    margin-left: -5px;
+  }
+  .createtaskmodal .labellist li:nth-last-child(1) {
+    margin-right: 0px;
+  }
+  .createtaskmodal .labellist li.label-high-priority {
+    background-color: #f6c344;
+  }
+  .createtaskmodal .labellist li.label-blocked {
+    background-color: #e15241;
+  }
+  .createtaskmodal .labellist li.label-approved {
+    background-color: #67ac5c;
+  }
+  .createtaskmodal .labellist li.label-ready {
+    background-color: #55bad1;
+  }
+  .createtaskmodal .labellist li.label-deployed {
+    background-color: #9035aa;
+  }
+
+  .createtaskmodal .task-comment{ display: flex; flex-direction: row; }
+  .createtaskmodal .task-comment .comment-user {
+  margin-right: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+
+.createtaskmodal .task-comment .btn-comments {
+  position: absolute;
+  background: transparent;
+  color: #556ee6;
+  box-shadow: none;
+  right: 0;
+  top: 3px;
+}
 
 /* User Profile CSS */
 .userprofile-tab .mat-tab-label{ font-size: 16px; font-weight: 600; color: #333 !important; opacity: 1 !important;}

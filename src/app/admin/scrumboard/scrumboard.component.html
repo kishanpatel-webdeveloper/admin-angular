@@ -88,98 +88,6 @@
               </div>
             </div>
 
-            <!-- <div class="card task-box ">
-              <div class="card-body">
-                <ul class="status-label-list">
-                  <li class="status-label sl-high-priority"></li>
-                  <li class="status-label sl-blocked"></li>
-                  <li class="status-label sl-approved"></li>
-                  <li class="status-label sl-ready"></li>
-                  <li class="status-label sl-deployed"></li>
-                </ul>
-                <h5 class="task-title">Create Login Screen</h5>
-              </div>
-            </div>
-            <div class="card task-box">
-              <div class="card-body">
-                <ul class="status-label-list">
-                  <li class="status-label sl-high-priority"></li>
-                  <li class="status-label sl-blocked"></li>
-                  <li class="status-label sl-approved"></li>
-                  <li class="status-label sl-ready"></li>
-                  <li class="status-label sl-deployed"></li>
-                </ul>
-                <h5 class="task-title">Create Login Screen</h5>
-              </div>
-              <div class="card-footer">
-                <div class="task-action">
-                  <button type="button" class="btn btn-success btn-sm waves-effect waves-light mr-1">
-                    <i class="bx bxs-bell
-                        font-size-16 align-middle mr-1"></i> Apr, 8
-                  </button>
-                  <button type="button" class="btn btn-light btn-sm waves-effect waves-light mr-1">
-                    <i class="bx bxs-comment-detail
-                       font-size-16 align-middle mr-1"></i> 8
-                  </button>
-                  <button type="button" class="btn btn-light btn-sm waves-effect waves-light">
-                    <i class="bx bx-paperclip
-                     font-size-16 align-middle mr-1"></i> 15
-                  </button>
-
-                </div>
-                <div class="task-team">
-                  <ul class="team-list">
-                    <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
-                    <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
-                    <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li>
-                  </ul>
-                </div>
-
-
-              </div>
-            </div>
-            <div class="card task-box">
-              <div class="card-img" style="background-image: url('assets/images/scrumboard.jpg');">
-
-              </div>
-              <div class="card-body">
-                <ul class="status-label-list">
-                  <li class="status-label sl-high-priority"></li>
-                  <li class="status-label sl-blocked"></li>
-                  <li class="status-label sl-approved"></li>
-                  <li class="status-label sl-ready"></li>
-                  <li class="status-label sl-deployed"></li>
-                </ul>
-                <h5 class="task-title">Create Login Screen</h5>
-              </div>
-              <div class="card-footer">
-                <div class="task-action">
-                  <button type="button" class="btn btn-success btn-sm waves-effect waves-light mr-1">
-                    <i class="bx bxs-bell
-                        font-size-16 align-middle mr-1"></i> Apr, 8
-                  </button>
-                  <button type="button" class="btn btn-light btn-sm waves-effect waves-light mr-1">
-                    <i class="bx bxs-comment-detail
-                       font-size-16 align-middle mr-1"></i> 8
-                  </button>
-                  <button type="button" class="btn btn-light btn-sm waves-effect waves-light">
-                    <i class="bx bx-paperclip
-                     font-size-16 align-middle mr-1"></i> 15
-                  </button>
-
-                </div>
-                <div class="task-team">
-                  <ul class="team-list">
-                    <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
-                    <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
-                    <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li>
-                  </ul>
-                </div>
-
-
-              </div>
-            </div> -->
-
           </div>
 
           <button mat-raised-button color="primary" class="btn-block" (click)="openCreateCardDialog(i)">
@@ -213,39 +121,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="root">
-
-    <div class="board">
-
-      <div class="board-bar">
-        <p class="board-name">{{ board.name }}</p>
-      </div>
-
-      <div class="board-wrapper">
-
-        <div class="board-columns" cdkDropListGroup>
-          <div class="board-column" *ngFor="let column of board.columns">
-
-            <div class="column-title">
-              {{ column.name }}
-            </div>
-
-            <div class="tasks-container" cdkDropList [cdkDropListData]="column.tasks"
-              (cdkDropListDropped)="drop($event)">
-              <div class="task" *ngFor="let item of column.tasks" cdkDrag>
-                {{ item }}
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div> -->
 
 </div>
 
