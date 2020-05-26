@@ -40,7 +40,7 @@
                 [ngStyle]="{'background-image': 'url('+ item.coverImageUrl + ')'}">
 
               </div>
-              <div class="card-body" (click)="openCardModal(item, j,i)">
+              <div class="card-body" (click)="openAddCardDetailsDialog(item, j,i)">
                 <ul class="status-label-list" *ngIf="item.labels">
                   <li *ngFor="let item1 of item.labels" class="status-label" [ngClass]="{'sl-high-priority': item1.name === 'High Priority',
                   'sl-blocked':item1.name === 'Blocked',
@@ -182,7 +182,7 @@
 
           </div>
 
-          <button mat-raised-button color="primary" class="btn-block" (click)="openCreateModal(i,'createListModal')">
+          <button mat-raised-button color="primary" class="btn-block" (click)="openCreateCardDialog(i)">
             <mat-icon>add</mat-icon>Add a card
           </button>
         </div>
@@ -290,7 +290,7 @@
         <button type="button" class="close absolute-close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <div class="row">
+        <!-- <div class="row">
 
           <div class="col-md-12 col-sm-12">
             <h4 class="task-name d-flex">
@@ -307,9 +307,6 @@
             <ul class="memberlist">
               <li *ngFor="let item of cardObj.members"><img [src]="item.profileImg">
               </li>
-              <!-- <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
-              <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
-              <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li> -->
               <li class="addmember ">
                 <button mat-icon-button matTooltip="Users" class="btn-round-member" (click)=select.open()>
                   <mat-icon>add</mat-icon>
@@ -330,8 +327,6 @@
               'label-approved':item.name === 'Approved',
               'label-ready':item.name === 'Ready',
               'label-deployed':item.name === 'Deployed'}">{{item.name}}</li>
-              <!-- <li class="label-blocked">Block</li>
-              <li class="label-approved">Approve</li> -->
               <li class="addlabel"> <button mat-icon-button matTooltip="Users" class="btn-square-member"
                   (click)=select1.open()>
                   <mat-icon>add</mat-icon>
@@ -402,7 +397,7 @@
             </mat-form-field>
 
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="modal-footer">
         <button mat-raised-button color="primary" class="mr-2" (click)="saveCard()">

@@ -104,7 +104,7 @@
                   <mat-label>Project Priority</mat-label>
                   <ng-select ngSelectMat [items]="arrayOfPriority" formControlName="priority"
                     [dropdownPosition]="'bottom'" appendTo="body" notFoundText="Project Priority not found."
-                    [(ngModel)]="projectObj.priority" bindLabel="name" bindValue="id" required>
+                    [(ngModel)]="projectObj.priority" bindLabel="name" bindValue="name" required>
                   </ng-select>
                   <!-- <mat-select [(ngModel)]="projectObj.priority" appendTo="body" formControlName="priority" required>
                     <mat-option *ngFor="let item of arrayOfPriority" [value]="item.name">{{item.name}}</mat-option>
@@ -139,7 +139,7 @@
                       <mat-label>Currency</mat-label>
                       <ng-select ngSelectMat [items]="arrayForCurrency" formControlName="currency"
                         [dropdownPosition]="'bottom'" notFoundText="Currency not found."
-                        [(ngModel)]="projectObj.currency" appendTo="body" bindLabel="name" bindValue="id" required>
+                        [(ngModel)]="projectObj.currency" appendTo="body" bindLabel="name" bindValue="name" required>
                       </ng-select>
                       <!-- <mat-select [(ngModel)]="projectObj.currency" appendTo="body" formControlName="currency" required>
                         <mat-option *ngFor="let item of arrayForCurrency" [value]="item.name">{{item.name}}
@@ -164,6 +164,8 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions class="justify-content-end">
-    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button class="mr-2" color="primary" (click)="save()"
+    [disabled]="createProjectForm.invalid">Save</button>
+  <button mat-raised-button color="light" (click)="cancel()">Cancel</button>
   </mat-dialog-actions>
 </div>

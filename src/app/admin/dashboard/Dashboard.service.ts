@@ -89,7 +89,7 @@ export class DashboardService {
     project.currency = 'INR';
     project.projectImgUrl = 'assets/images/companies/img-1.png';
     project.estimation_time = '22';
-    project.estimation_cost = '1,50,000';
+    project.estimation_cost = '150000';
     project.startDate = new Date().toString();
     project.dueDate = new Date().toString();
     project.users = new Array<User>();
@@ -200,8 +200,7 @@ export class DashboardService {
       // this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
 
     }
-    this.projectProfilePicDoc.nativeElement.value = '';
-    this.filenameForuserProfile = '';
+
 
   }
 
@@ -241,12 +240,14 @@ export class DashboardService {
     this.arrayOfProjects.splice(index, 1);
   }
 
-  openaddProjectDialog(id): void {
-    const dialogRef = this.dialog.open(addProjectModal, { disableClose: true, data: '123' });
+  openaddProjectDialog(status, projectObj): void {
+    const dialogRef = this.dialog.open(addProjectModal, { disableClose: true, data: [status, projectObj] });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('closed');
-
+      if (!this.utilsService.isNullUndefinedOrBlank(result)) {
+        this.projectObj = result;
+        this.createProject(status);
+      }
     });
   }
 }

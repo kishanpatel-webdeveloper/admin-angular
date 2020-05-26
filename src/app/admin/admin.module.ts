@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent, addProjectModal } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin.component';
-import { ScrumboardComponent } from './scrumboard/scrumboard.component';
+import { ScrumboardComponent, createCardModal, addCradDetailsModal } from './scrumboard/scrumboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { DemoDragDropComponent } from './demo-drag-drop/demo-drag-drop.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -28,8 +28,8 @@ const routes: Routes = [
   }];
 
 @NgModule({
-  declarations: [DashboardComponent, addProjectModal, AdminComponent, ProfileComponent, TaskTimlineComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
-  entryComponents: [addProjectModal, DashboardComponent],
+  declarations: [DashboardComponent, addProjectModal, createCardModal, addCradDetailsModal, AdminComponent, ProfileComponent, TaskTimlineComponent, ScrumboardComponent, FullCalendarComponent, DemoDragDropComponent],
+  entryComponents: [addProjectModal, DashboardComponent, createCardModal, addCradDetailsModal, ScrumboardComponent],
   imports: [
     SharedModule,
     CommonModule,
