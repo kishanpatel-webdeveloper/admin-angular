@@ -6,6 +6,7 @@ body{ font-family: 'Nunito', sans-serif; }
 .note-msg { font-size: 14px; }
 .note-msg span{     font-weight: 600;
     font-size: 15px;}
+.error-msg{ color: #f46a6a; font-size: 13px; }
 
 /* Header CSS */
 .noti-icon .badge{ right: 6px; }
@@ -70,7 +71,8 @@ body .mat-tab-group,
 body .mat-tab-label,
 body .mat-tab-link,
 body .mat-select,
-body .mat-select-panel .mat-option{
+body .mat-select-panel .mat-option,
+body .mat-dialog-title{
     font-family: 'Nunito', sans-serif;
 }
 body .mat-button, body .mat-raised-button{ font-size: 16px; }
@@ -155,6 +157,23 @@ body .member-img {
     border-radius: 50%;
     margin: 0px 7px;
   }
+  .mat-modal .w-500{ width: 500px; }
+  .mat-modal .w-600{ width: 600px; }
+  .mat-modal .w-700{ width: 700px; }
+  .mat-modal .w-800{ width: 800px; }
+  .mat-modal .w-900{ width: 900px; }
+  .mat-modal .w-1000{ width: 1000px; }
+  .mat-delete-modal .delete-content{ padding: 30px; }
+  .mat-delete-modal .delete-content .mat-icon{
+    font-size: 90px;
+      color: #ff9800;
+      display: inline;
+  }
+  body .mat-dialog-container .mat-dialog-title{ margin: 0 0 10px; }
+  body .mat-dialog-container { padding: 15px; }
+  body .mat-dialog-container .mat-dialog-content{ margin: 0 -15px; padding: 0 15px; }
+  body .mat-dialog-container .mat-dialog-actions{ padding: 0; margin-bottom: 0; margin-top: 15px; min-height: auto; }
+  
 /* .mat-form-field{ font-family: inherit !important; }
 .mat-form-field-wrapper { padding-bottom: 15px; }
 .mat-form-field-appearance-outline .mat-form-field-infix { padding: 9px 0px !important; }
@@ -171,6 +190,46 @@ mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline-thick {
 
 /* MOdal SVG Color  */
 /* #212529 */
+
+/* Dashboard CSS */
+.createproj-modal .proj-img {
+    text-align: center;
+      height: 100px;
+      width: 100px;
+      margin: 0 auto 20px;
+      position: relative;
+      background-color: rgba(0,0,0,0.1);
+      border-radius: 50%;
+  }
+  .createproj-modal .proj-img img {
+    height: 100px;
+      width: 100px;
+  }
+  .createproj-modal .proj-img .proj-edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .createproj-modal .proj-img .proj-edit button {
+    background-color: #50a5f1;
+    border: 1px solid #50a5f1;
+    color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+  }
+  .createproj-modal .proj-img .proj-edit .mat-icon {
+    font-size: 16px;
+    margin-left: -2px;
+    margin-top: 5px;
+  }
+  .createproj-modal .proj-img .proj-edit input[type="file"] {
+    position: absolute;
+    right: 0;
+    left: 0;
+    opacity: 0;
+  }
 
 /* Scrumbboard CSS */
 .createtaskmodal .mat-select .mat-select-arrow-wrapper{ display: none;  }

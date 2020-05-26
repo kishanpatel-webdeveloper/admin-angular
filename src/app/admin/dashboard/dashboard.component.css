@@ -19,43 +19,6 @@
   margin-right: 9px;
   margin-left: 9px;
 }
-.createproj-modal .proj-img {
-  text-align: center;
-    height: 100px;
-    width: 100px;
-    margin: 0 auto 20px;
-    position: relative;
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 50%;
-}
-.createproj-modal .proj-img img {
-  height: 100px;
-    width: 100px;
-}
-.createproj-modal .proj-img .proj-edit {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.createproj-modal .proj-img .proj-edit button {
-  background-color: #50a5f1;
-  border: 1px solid #50a5f1;
-  color: #fff;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  text-align: center;
-}
-.createproj-modal .proj-img .proj-edit .mat-icon {
-  font-size: 16px;
-  margin-left: -2px;
-  margin-top: 5px;
-}
-.createproj-modal .proj-img .proj-edit input[type="file"] {
-  position: absolute;
-  right: 0;
-  left: 0;
-  opacity: 0;
-}
+
 
 
