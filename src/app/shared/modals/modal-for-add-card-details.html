@@ -1,0 +1,122 @@
+<div class="addCradDetails-modal">
+  <h1 mat-dialog-title>Create Card</h1>
+  <div mat-dialog-content class="w-600">
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12">
+        <h4 class="task-name d-flex">
+          <mat-icon>assignment</mat-icon>{{cardObj.name}}
+        </h4>
+        <ul class="board-status">
+          <li>Tech Startup Board</li>
+          <li>{{cardObj.status}}</li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12 members">
+        <h5 class="d-flex sub-title"> Member
+        </h5>
+        <ul class="memberlist">
+          <li *ngFor="let item of cardObj.members"><img [src]="item.profileImg">
+          </li>
+          <!-- <li><img src="assets/images/users/avatar-1.jpg" alt="Team Member"></li>
+          <li><img src="assets/images/users/avatar-2.jpg" alt="Team Member"></li>
+          <li><img src="assets/images/users/avatar-3.jpg" alt="Team Member"></li> -->
+          <li class="addmember ">
+            <button mat-icon-button matTooltip="Users" class="btn-round-member" (click)=select.open()>
+              <mat-icon>add</mat-icon>
+            </button>
+            <mat-select #select [(ngModel)]="cardObj.members" class="langSelect" appendTo="body" multiple>
+              <mat-option *ngFor="let usr of userList" [value]="usr">
+                <img class="member-img"
+                  [src]="usr.profileImg">{{usr.name}}</mat-option>
+            </mat-select>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h5 class="sub-title text-right"> Labels </h5>
+        <ul class="labellist">
+          <li *ngFor="let item of cardObj.labels" class="label-high-priority" [ngClass]="{'label-high-priority': item.name === 'High Priority',
+          'label-blocked':item.name === 'Blocked',
+          'label-approved':item.name === 'Approved',
+          'label-ready':item.name === 'Ready',
+          'label-deployed':item.name === 'Deployed'}">{{item.name}}</li>
+          <!-- <li class="label-blocked">Block</li>
+          <li class="label-approved">Approve</li> -->
+          <li class="addlabel"> <button mat-icon-button matTooltip="Users" class="btn-square-member"
+              (click)=select1.open()>
+              <mat-icon>add</mat-icon>
+            </button>
+            <mat-select #select1 [(ngModel)]="cardObj.labels" class="langSelect" appendTo="body" multiple>
+              <mat-option *ngFor="let sts of statusList" [value]="sts">{{sts.name}}</mat-option>
+            </mat-select>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-12 col-sm-12 mb-2">
+        <hr>
+      </div>
+      <div class="col-md-6 col-sm-12 mb-2">
+        <h5 class="sub-title d-flex">
+          <mat-icon>image</mat-icon>Cover Image
+        </h5>
+      </div>
+      <div class="col-md-6 col-sm-12 mb-2 text-right">
+        <div class="btn-file">
+          <button mat-raised-button matTooltip="Users" color="transparent">
+            <mat-icon>add</mat-icon> Add Cover Image
+          </button>
+          <input type="file" accept="image/*" (change)="onCoverImageSelect($event)">
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12">
+        <h5 class="sub-title d-flex">
+          <mat-icon>description</mat-icon>Description
+        </h5>
+      </div>
+      <div class="col-md-12 col-sm-12">
+        <mat-form-field appearance="outline" fxFlex="100">
+          <mat-label>Description</mat-label>
+          <textarea matInput autocomplete="off" [(ngModel)]="cardObj.description"></textarea>
+        </mat-form-field>
+
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <h5 class="sub-title d-flex">
+          <mat-icon>attach_file</mat-icon>Attachments
+        </h5>
+      </div>
+      <div class="col-md-6 col-sm-12 text-right">
+        <div class="btn-file">
+          <button mat-raised-button matTooltip="Users" color="transparent">
+            <mat-icon>add</mat-icon> ADD AN ATTACHMENTS
+          </button>
+          <input type="file">
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <hr>
+      </div>
+      <div class="col-md-12 col-sm-12 task-comment">
+        <h5 class="sub-title d-flex">
+          <mat-icon>comment</mat-icon>Comments
+        </h5>
+      </div>
+      <div class="col-md-12 col-sm-12 task-comment">
+        <img class="comment-user" src="assets/images/users/avatar-3.jpg" alt="Comment Member">
+
+        <mat-form-field appearance="outline" class="position-relative">
+          <input matInput autocomplete="off" placeholder="Write a comment..." [(ngModel)]="cardObj.comment">
+          <button class="btn-comments" mat-button color="primary">SEND</button>
+
+        </mat-form-field>
+
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="mt-3 justify-content-end">
+    <button mat-raised-button class="mr-2" color="primary" (click)="save()">Save</button>
+    <button mat-raised-button color="light" (click)="cancel()">Cancel</button>
+  </div>
+</div>

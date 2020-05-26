@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef, ViewChild } from '@angular/core';
 
 import { DashboardService } from './Dashboard.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
@@ -6,6 +6,7 @@ import { UtilsService } from '../../services/utils.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Project } from '../../models/Project';
 import { User } from '../../models/user';
+import { Deserialize, Serialize } from 'cerialize';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -68,7 +69,7 @@ export class addProjectModal {
   ];
   arrayForCurrency = [
     { id: 1, name: 'INR' },
-    { id: 1, name: 'USD' }
+    { id: 2, name: 'USD' }
   ];
   arrayOfCompanyConfirmation = [
     { id: 1, name: 'Yes, this project involves other company' },
@@ -76,7 +77,41 @@ export class addProjectModal {
   ];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public utilsService: UtilsService, public formBuilder: FormBuilder, public dialogRef: MatDialogRef<addProjectModal>) {
     this.applyCreateProjectValidation();
-    this.data1 = this.data;
+    this.status = this.data[0];
+    if (this.status === 'Edit') {
+      this.projectObj = data[1];
+      console.log(data[1]);
+      console.log(this.projectObj.users);
+
+    }
+    if (this.utilsService.isNullUndefinedOrBlank(this.projectObj.projectImgUrl)) {
+
+      this.projectObj.projectImgUrl = 'assets/images/companies/img-1.png';
+    }
+    // this.url = 'assets/images/companies/img-1.png';
+    const userObj1 = new User();
+    userObj1.id = '1';
+    userObj1.name = 'Dhrumin';
+    userObj1.profileImg = 'assets/images/users/avatar-6.jpg';
+
+    const userObj2 = new User();
+    userObj2.id = '2';
+    userObj2.name = 'Kishan';
+    userObj2.profileImg = 'assets/images/users/avatar-2.jpg';
+
+    const userObj3 = new User();
+    userObj3.id = '3';
+    userObj3.name = 'Brijesh';
+    userObj3.profileImg = 'assets/images/users/avatar-3.jpg';
+
+    const userObj4 = new User();
+    userObj4.id = '4';
+    userObj4.name = 'Preyash';
+    userObj4.profileImg = 'assets/images/users/avatar-7.jpg';
+    this.arrayOfUsers.push(userObj1);
+    this.arrayOfUsers.push(userObj2);
+    this.arrayOfUsers.push(userObj3);
+    this.arrayOfUsers.push(userObj4);
   }
 
   public hasErrorCreateProjectInfo = (controlName: string, errorName: string) => {
@@ -146,7 +181,6 @@ export class addProjectModal {
               const blob = this.utilsService.convertBase64ToBlob(response);
               // const fileURL = URL.createObjectURL(blob);
               // this.url = fileURL;
-              const imageBASE64 = this.url.split(',')[1];
             });
           }
         } else {
@@ -158,5 +192,15 @@ export class addProjectModal {
         }
       }
     }
+  }
+
+  save() {
+    this.dialogRef.close(this.projectObj);
+  }
+  cancel() {
+    this.projectObj = new Project();
+    this.projectProfilePicDoc.nativeElement.value = '';
+    this.filenameForuserProfile = '';
+    this.dialogRef.close(null);
   }
 }
