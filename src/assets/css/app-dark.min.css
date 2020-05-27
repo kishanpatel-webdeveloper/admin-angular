@@ -9,6 +9,11 @@ body[data-theme="dark"] .footer{
     background-color: #262b3c;
 }
 
+/* Common CSS */
+body[data-theme="dark"] .card-drop {
+    color: #a6b0cf;
+}
+
 /* H1 to H6 CSS */
 body[data-theme="dark"] .h1, 
 body[data-theme="dark"] .h2, 
@@ -79,15 +84,15 @@ body[data-theme="dark"] .text-muted {
 body[data-theme="dark"] .card{ background-color: #2a3042; }
 body[data-theme="dark"] .card-header {
     background-color: #32394e;
-    border-bottom: 0 solid #32394e;
+    border-bottom: 0px solid #32394e;
 }
 body[data-theme="dark"] .card-footer {
     background-color: #32394e;
-    border-top: 0 solid #32394e;
+    border-top: 0px solid #32394e;
 }
 
 /* Material Control CSS */
-body[data-theme="dark"] .userprofile-tab .mat-tab-label{ color: #a6b0cf !important; }
+body[data-theme="dark"] .mat-tab-group .mat-tab-label{ color: #a6b0cf !important; }
 body[data-theme="dark"] .mat-form-field.mat-form-field-appearance-outline .mat-form-field-outline {
     color: rgba(255,255,255,.12); }
 body[data-theme="dark"] .mat-form-field .mat-form-field-label,
@@ -103,6 +108,7 @@ body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .
 body[data-theme="dark"] .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-datepicker-toggle-default-icon{ color: #a6b0cf; }
 body[data-theme="dark"] mat-label{ color: rgba(255,255,255,.6); }
 body[data-theme="dark"] .theme-datetimepicker input[type="text"]{ color:#a6b0cf; }
+body[data-theme="dark"] .mat-dialog-container { background-color: #2a3042; color: #a6b0cf; }
 
 /* Form Control CSS */
 body[data-theme="dark"] .form-group .control-label{ color: #fff; }
@@ -133,5 +139,17 @@ body[data-theme="dark"] .full-calender .cal-month-view .cal-day-cell.cal-out-mon
 /* Sidebar CSS */
 body[data-theme="dark"] .right-bar{ background-color: #2a3042; }
 body[data-theme="dark"] .rightbar-overlay{ background-color: rgba(239, 242, 247, 0.55); }
+
+/* Scrumboard CSS */
+body[data-theme="dark"] .status-card .task-box .card-footer{ background-color: transparent; }
+body[data-theme="dark"] .status-card .task-box { border: 1px solid #32394e !important; background-color: #32394e; }
+
+/* Table CSS */
+body[data-theme="dark"] .table { color: #a6b0cf; }
+/* Project List CSS */
+body[data-theme="dark"] .project-list-table tr { background-color: #2a3042; }
+
+/* User Profile CSS */
+body[data-theme="dark"] .userprofile-tab .mat-tab-body .card .card-footer{ background-color: transparent; }
 
 

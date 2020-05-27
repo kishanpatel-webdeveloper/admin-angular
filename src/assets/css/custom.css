@@ -150,7 +150,7 @@ body .mat-pseudo-checkbox-checked,
 body .mat-pseudo-checkbox-indeterminate { background: #556ee6; }
 body .mat-tab-group .mat-tab-label{
     font-size: 16px; font-weight: 600; color: #333 !important; opacity: 1 !important; }
-.mat-tab-group .mat-tab-body .mat-tab-body-content{ overflow: hidden; padding: 30px 20px 20px; }
+body .mat-tab-group .mat-tab-body .mat-tab-body-content{ overflow: hidden; padding: 20px 20px 20px; }
 body .member-img {
     height: 35px;
     width: 35px;

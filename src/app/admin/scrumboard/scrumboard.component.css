@@ -1,6 +1,7 @@
 .scrumboard {
   flex-wrap: nowrap;
   overflow-x: auto;
+  min-height: 73vh;
 }
 .status-card {
   background-color: #ebebee;
@@ -88,7 +89,10 @@
   margin-left: 0px;
 }
 
-
+.task-list .task-box:hover {
+  box-shadow: 1px 2px 12px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
 
 
 .no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
